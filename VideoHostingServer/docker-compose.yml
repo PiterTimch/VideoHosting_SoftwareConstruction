@@ -1,0 +1,55 @@
+services:
+  db:
+    image: postgres:18
+    container_name: videohosting-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: videohosting
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - /data/videohosting/postgres:/var/lib/postgresql/data
+    networks:
+      - videohosting_net
+
+  db-backup:
+    image: prodrigestivill/postgres-backup-local:18
+    container_name: videohosting-db-backup
+    restart: unless-stopped
+    volumes:
+      - /data/videohosting/backups:/backups
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_DB=videohosting
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - SCHEDULE=0 */6 * * *
+      - BACKUP_KEEP_DAYS=7
+      - BACKUP_KEEP_WEEKS=4
+      - BACKUP_KEEP_MONTHS=6
+    networks:
+      - videohosting_net
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: videohosting-api
+    restart: unless-stopped
+    volumes:
+      - /data/videohosting/media:/app/media
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__DefaultConnection: Host=db;Database=videohosting;Username=postgres;Password=postgres
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      - db
+    networks:
+      - videohosting_net
+
+networks:
+  videohosting_net:
+    driver: bridge
