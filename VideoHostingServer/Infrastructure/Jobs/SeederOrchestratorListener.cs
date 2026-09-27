@@ -11,6 +11,9 @@ public class SeederOrchestratorListener : JobListenerSupport
 
     public override async Task JobWasExecuted(IJobExecutionContext context, JobExecutionException? jobException, CancellationToken cancellationToken = default)
     {
+        if (jobException != null)
+            return;
+
         var jobKey = context.JobDetail.Key.Name;
 
         if (jobKey == nameof(DbMigrationJob))

@@ -10,3 +10,17 @@ obj/
 legacyproj/
 *.user
 *.suo
+
+# Media files & static assets
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.webm
+*.webp
+VideoHostingServer/VideoHostingServer/videos/
+VideoHostingServer/VideoHostingServer/images/
+
+# Executables & large binaries
+*.exe
+FFmpeg/

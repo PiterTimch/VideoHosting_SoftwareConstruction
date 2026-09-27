@@ -2,11 +2,11 @@
   "profiles": {
     "VideoHostingServer": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:55587;http://localhost:55588"
+      "applicationUrl": "http://localhost:8080"
     }
   }
-}
+}
