@@ -26,6 +26,7 @@ try
     );
 
     builder.Services.AddInfrastructureServices(builder.Configuration);
+    builder.Services.AddIdentityConfiguration(builder.Configuration);
     builder.Services.AddSwaggerDocumentation();
 
     var app = builder.Build();
@@ -40,6 +41,9 @@ try
     app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
     app.UseCors("AllowAll");         
+
+    app.UseAuthentication();         
+    app.UseAuthorization();         
     
     app.UseHangfireDashboard();      
 
