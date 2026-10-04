@@ -1,3 +1,5 @@
+using Application.Models.Channel;
+
 namespace Application.Models.Video;
 
 public class VideoItemModel
@@ -12,5 +14,19 @@ public class VideoItemModel
     public string? Image { get; set; }
     public string? Video { get; set; }
 
+    public ChannelItemModel? Channel { get; set; }
     public VideoPrivacyItemModel? Privacy { get; set; }
+
+    public int LikesCount { get; set; }
+    public int DislikesCount { get; set; }
+
+    public bool? IsLiked { get; set; }
+
+    public int UserRatingPercent =>
+        LikesCount + DislikesCount == 0
+            ? 0
+            : (int)Math.Round(
+                (double)LikesCount /
+                (LikesCount + DislikesCount) * 100
+            );
 }

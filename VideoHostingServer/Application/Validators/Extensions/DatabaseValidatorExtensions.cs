@@ -70,4 +70,41 @@ public static class DatabaseValidatorExtensions
         })
         .WithMessage(errorMessage);
     }
+
+    public static IRuleBuilderOptions<T, string> UniquePropertyAsync<T, TEntity, TKey>(
+        this IRuleBuilder<T, string> ruleBuilder,
+        AppDbContext db,
+        string propertyName,
+        string errorMessage)
+        where TEntity : class, IEntity<TKey>
+    {
+        return ruleBuilder.MustAsync(async (value, cancellation) =>
+        {
+            if (string.IsNullOrWhiteSpace(value)) return true;
+            return !await db.Set<TEntity>().AnyAsync(e => 
+                EF.Property<string>(e, propertyName) == value && !e.IsDeleted, cancellation);
+        })
+        .WithMessage(errorMessage);
+    }
+
+    public static IRuleBuilderOptions<T, string> UniquePropertyUpdateAsync<T, TEntity, TKey>(
+        this IRuleBuilder<T, string> ruleBuilder,
+        AppDbContext db,
+        string propertyName,
+        Func<T, TKey> idSelector,
+        string errorMessage)
+        where TEntity : class, IEntity<TKey>
+        where TKey : IEquatable<TKey>
+    {
+        return ruleBuilder.MustAsync(async (model, value, cancellation) =>
+        {
+            if (string.IsNullOrWhiteSpace(value)) return true;
+            var id = idSelector(model);
+            return !await db.Set<TEntity>().AnyAsync(e => 
+                EF.Property<string>(e, propertyName) == value && 
+                !e.Id.Equals(id) && 
+                !e.IsDeleted, cancellation);
+        })
+        .WithMessage(errorMessage);
+    }
 }
