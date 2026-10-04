@@ -42,6 +42,11 @@ public static class DependencyInjection
             });
         });
 
+        services.AddScoped<IJwtTokenService, JwtTokenService>();
+        services.AddScoped<ICookieAuthService, CookieAuthService>();
+        services.AddScoped<ISmtpService, SmtpService>();
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<ICurrentUserService, CurrentUserService>();
         services.AddScoped<ISeederService, SeederService>();
         services.AddScoped<IImageService, ImageService>();
         services.AddScoped<IVideoFileService, VideoFileService>();
@@ -61,6 +66,9 @@ public static class DependencyInjection
             cfg.RegisterServicesFromAssembly(typeof(GetVideosQuery).Assembly);
         });
 
+        services.AddSingleton<Application.Mappings.ChannelMappingProfile>();
+        services.AddSingleton<Application.Mappings.CommentMappingProfile>();
+        services.AddSingleton<Application.Mappings.UserMapping>();
         services.AddSingleton<Application.Mappings.VideoMappingProfile>();
 
         services.AddQuartz(q =>
@@ -73,6 +81,12 @@ public static class DependencyInjection
                 .ForJob(migrationJobKey)
                 .WithIdentity("DbMigrationJob-trigger")
                 .StartNow());
+
+            var roleJobKey = new JobKey(nameof(RoleSeederJob));
+            q.AddJob<RoleSeederJob>(opts => opts.WithIdentity(roleJobKey).StoreDurably());
+
+            var userJobKey = new JobKey(nameof(UserSeederJob));
+            q.AddJob<UserSeederJob>(opts => opts.WithIdentity(userJobKey).StoreDurably());
 
             var privacyJobKey = new JobKey(nameof(VideoPrivacySeederJob));
             q.AddJob<VideoPrivacySeederJob>(opts => opts.WithIdentity(privacyJobKey).StoreDurably());
