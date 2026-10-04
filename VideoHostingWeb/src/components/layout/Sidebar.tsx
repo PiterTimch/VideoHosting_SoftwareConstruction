@@ -1,5 +1,6 @@
-import { Home, Plus } from 'lucide-react';
+import { Home, Plus, User as UserIcon } from 'lucide-react';
 import BaseSidebar, { type SidebarSection } from './BaseSidebar';
+import { useAppSelector } from '../../store';
 
 interface SidebarProps {
     isOpen: boolean;
@@ -7,11 +8,14 @@ interface SidebarProps {
 }
 
 function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
+    const { user } = useAppSelector(state => state.auth);
+
     const sections: SidebarSection[] = [
         {
             items: [
                 { name: 'Головна', path: '/', end: true, icon: <Home size={18} /> },
                 { name: 'Додати відео', path: '/video/add', icon: <Plus size={18} /> },
+                ...(user ? [{ name: 'Мій профіль / Портфоліо', path: '/account', icon: <UserIcon size={18} /> }] : []),
             ]
         },
     ];

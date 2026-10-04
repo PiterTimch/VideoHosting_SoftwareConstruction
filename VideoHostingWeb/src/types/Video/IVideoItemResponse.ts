@@ -10,4 +10,7 @@ export interface IVideoItemResponse {
     image?: string;
     video?: string;
     privacy?: IVideoPrivacyItemResponse;
+    likesCount?: number;
+    dislikesCount?: number;
+    isLiked?: boolean | null;
 }

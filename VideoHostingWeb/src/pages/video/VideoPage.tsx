@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import {
     Calendar,
+    ThumbsUp,
+    ThumbsDown,
     Shield,
     Eye,
     VideoOff,
@@ -13,14 +15,19 @@ import LoadingOverlay from "../../components/ui/loading/LoadingOverlay";
 import {
     useGetByQuery,
     useGetRecommendationsQuery,
-    useIncrementViewMutation
+    useIncrementViewMutation,
+    useReactVideoMutation
 } from "../../services/api/apiVideos";
+import { useAppSelector } from '../../store/index';
 import { Button } from "../../components/form/Button";
+import { CommentsSection } from "../../components/video/CommentsSection";
 
 function VideoPage() {
     const navigate = useNavigate();
     const { slug } = useParams<{ slug: string }>();
     const [isDescExpanded, setIsDescExpanded] = useState(false);
+
+    const { user } = useAppSelector((state) => state.auth);
 
     const { data: video, isLoading: isVideoLoading, isError } = useGetByQuery(
         { slug: slug! },
@@ -32,6 +39,7 @@ function VideoPage() {
         { skip: !video?.id }
     );
 
+    const [reactVideo, { isLoading: isReacting }] = useReactVideoMutation();
     const [incrementView] = useIncrementViewMutation();
 
     useEffect(() => {
@@ -39,6 +47,18 @@ function VideoPage() {
             incrementView(video.id);
         }
     }, [video?.id, incrementView]);
+
+    const handleReaction = async (isLike: boolean) => {
+        if (!user) {
+            navigate('/login');
+            return;
+        }
+        try {
+            await reactVideo({ videoId: video!.id, isLike }).unwrap();
+        } catch (error) {
+            console.error('Помилка при відправці реакції', error);
+        }
+    };
 
     if (isVideoLoading) return <LoadingOverlay />;
 
@@ -98,6 +118,34 @@ function VideoPage() {
                                             <span>{video.dateCreated}</span>
                                         </div>
                                     </div>
+                                    <div className="flex items-center bg-zinc-800 rounded-full overflow-hidden shrink-0">
+                                        <Button
+                                            variant="reaction"
+                                            onClick={() => handleReaction(true)}
+                                            disabled={isReacting}
+                                            className={`border-r border-zinc-700 transition-colors ${
+                                                video.isLiked === true
+                                                    ? 'text-[#FF2D7A] bg-zinc-700/30'
+                                                    : 'text-zinc-300 hover:text-zinc-50'
+                                            }`}
+                                            icon={<ThumbsUp size={18} fill={video.isLiked === true ? "currentColor" : "none"} />}
+                                        >
+                                            <span>{video.likesCount}</span>
+                                        </Button>
+                                        <Button
+                                            variant="reaction"
+                                            onClick={() => handleReaction(false)}
+                                            disabled={isReacting}
+                                            className={`transition-colors ${
+                                                video.isLiked === false
+                                                    ? 'text-[#FF2D7A] bg-zinc-700/30'
+                                                    : 'text-zinc-300 hover:text-zinc-50'
+                                            }`}
+                                            icon={<ThumbsDown size={18} fill={video.isLiked === false ? "currentColor" : "none"} />}
+                                        >
+                                            <span>{video.dislikesCount}</span>
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -106,7 +154,9 @@ function VideoPage() {
                                     <div className="flex flex-wrap gap-4 text-sm font-bold mb-3">
                                         <div className="flex items-center gap-1 text-zinc-300 font-medium">
                                             <Shield size={14} />
-                                            {video.privacy.name}
+                                            <span className="px-2.5 py-0.5 rounded-full bg-zinc-700/50 text-xs text-zinc-200">
+                                                {video.privacy.name}
+                                            </span>
                                         </div>
                                     </div>
                                 )}
@@ -132,6 +182,10 @@ function VideoPage() {
                                         </Button>
                                     )}
                                 </div>
+                            </div>
+
+                            <div id="comments-section">
+                                <CommentsSection videoId={video.id} currentUser={user} />
                             </div>
                         </div>
                     </div>

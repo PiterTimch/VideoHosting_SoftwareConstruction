@@ -12,6 +12,7 @@ import type { IGetByRequest } from "../../types/Additional/IGetByRequest";
 import type { IPagedResult } from "../../types/Additional/IPagedResult";
 import type { IVideoRecommendationRequest } from "../../types/Video/IVideoRecommendationRequest";
 import type { IVideoAutocompleteResponse } from "../../types/Video/IVideoAutocompleteResponse";
+import type { IVideoReactionRequest } from "../../types/Video/IVideoReactionRequest";
 
 export const apiVideos = createApi({
     reducerPath: "api/videos",
@@ -80,6 +81,15 @@ export const apiVideos = createApi({
             }),
         }),
 
+        reactVideo: builder.mutation<void, IVideoReactionRequest>({
+            query: (body) => ({
+                url: "react",
+                method: "POST",
+                body,
+            }),
+            invalidatesTags: (_result, _error, { videoId }) => [{ type: "Video", id: videoId }, "Videos"],
+        }),
+
         incrementView: builder.mutation<void, number>({
             query: (id) => ({
                 url: `${id}/view`,
@@ -104,6 +114,7 @@ export const {
     useEditVideoMutation,
     useDeleteVideoMutation,
     useGetPrivaciesQuery,
+    useReactVideoMutation,
     useIncrementViewMutation,
     useGetRecommendationsQuery,
     useAutocompleteVideosQuery,
