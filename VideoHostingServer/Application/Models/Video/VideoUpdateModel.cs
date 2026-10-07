@@ -11,5 +11,5 @@ public class VideoUpdateModel
     public IFormFile? Image { get; set; }
     public IFormFile? Video { get; set; }
     public long PrivacyId { get; set; }
-    public long ChannelId { get; set; }
+    public long PortfolioId { get; set; }
 }

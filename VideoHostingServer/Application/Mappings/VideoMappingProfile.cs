@@ -5,10 +5,10 @@ using Riok.Mapperly.Abstractions;
 namespace Application.Mappings;
 
 [Mapper]
-[UseStaticMapper(typeof(ChannelMappingProfile))]
+[UseStaticMapper(typeof(PortfolioMappingProfile))]
 public partial class VideoMappingProfile
 {
-    [MapProperty(nameof(VideoEntity.Channel), nameof(VideoItemModel.Channel))]
+    [MapProperty(nameof(VideoEntity.Portfolio), nameof(VideoItemModel.Portfolio))]
     public partial VideoItemModel MapToItemModel(VideoEntity entity);
 
     [MapPropertyFromSource(nameof(VideoItemModel.LikesCount), Use = nameof(MapLikesCountQuery))]
@@ -40,7 +40,7 @@ public partial class VideoMappingProfile
 
     [MapperIgnoreTarget(nameof(VideoEntity.Image))]
     [MapperIgnoreTarget(nameof(VideoEntity.Video))]
-    [MapperIgnoreTarget(nameof(VideoEntity.ChannelId))]
+    [MapperIgnoreTarget(nameof(VideoEntity.PortfolioId))]
     public partial void MapToEntity(VideoUpdateModel model, VideoEntity entity);
 
     public partial VideoReactionEntity MapToEntity(VideoReactionModel model);

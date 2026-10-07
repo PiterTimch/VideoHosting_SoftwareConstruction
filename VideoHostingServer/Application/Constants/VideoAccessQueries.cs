@@ -15,7 +15,7 @@ public static class VideoAccessQueries
         if (currentUser.TryGetCurrentUserId() is long userId)
         {
             return query.Where(v =>
-                v.ChannelId == userId ||
+                v.PortfolioId == userId ||
                 v.Privacy!.SystemCode == VideoPrivacyConstants.Public);
         }
 
@@ -32,7 +32,7 @@ public static class VideoAccessQueries
         if (currentUser.TryGetCurrentUserId() is long userId)
         {
             return query.Where(v =>
-                v.ChannelId == userId ||
+                v.PortfolioId == userId ||
                 v.Privacy!.SystemCode == VideoPrivacyConstants.Public ||
                 v.Privacy!.SystemCode == VideoPrivacyConstants.UrlOnly);
         }

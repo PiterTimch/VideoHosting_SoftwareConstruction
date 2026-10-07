@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Identity;
-using Domain.Entities.Channel;
+using Domain.Entities.Portfolio;
 
 namespace Domain.Entities.Identity;
 
@@ -13,8 +13,8 @@ public class UserEntity : IdentityUser<long>
     public virtual ICollection<UserRoleEntity>? UserRoles { get; set; }
     public virtual ICollection<UserLoginEntity>? UserLogins { get; set; }
 
-    public virtual ChannelEntity? Channel { get; set; }
-    public virtual ICollection<ChannelSubscriberEntity>? SubscribedChannels { get; set; } = new List<ChannelSubscriberEntity>();
+    public virtual PortfolioEntity? Portfolio { get; set; }
+    public virtual ICollection<PortfolioSubscriberEntity>? SubscribedPortfolios { get; set; } = new List<PortfolioSubscriberEntity>();
 
     public bool IsDeleted { get; set; }
 }

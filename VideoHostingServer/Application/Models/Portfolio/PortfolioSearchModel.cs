@@ -1,8 +1,8 @@
 using Application.Models.Search;
 
-namespace Application.Models.Channel;
+namespace Application.Models.Portfolio;
 
-public class ChannelSearchModel : BaseSearchParamsModel
+public class PortfolioSearchModel : BaseSearchParamsModel
 {
     public string? Q { get; set; }
     public bool? IsSubscribed { get; set; }

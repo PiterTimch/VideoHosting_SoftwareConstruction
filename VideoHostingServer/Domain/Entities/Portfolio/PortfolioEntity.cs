@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Entities.Identity;
 
-namespace Domain.Entities.Channel;
+namespace Domain.Entities.Portfolio;
 
-[Table("tbl_channels")]
+[Table("tbl_portfolios")]
 [Index(nameof(NickName), IsUnique = true)]
-public class ChannelEntity : BaseEntity<long>
+public class PortfolioEntity : BaseEntity<long>
 {
     [StringLength(100)]
     public string Name { get; set; } = string.Empty;
@@ -38,5 +38,5 @@ public class ChannelEntity : BaseEntity<long>
 
     public virtual ICollection<VideoEntity>? Videos { get; set; } = new List<VideoEntity>();
 
-    public virtual ICollection<ChannelSubscriberEntity>? Subscribers { get; set; } = new List<ChannelSubscriberEntity>();
+    public virtual ICollection<PortfolioSubscriberEntity>? Subscribers { get; set; } = new List<PortfolioSubscriberEntity>();
 }

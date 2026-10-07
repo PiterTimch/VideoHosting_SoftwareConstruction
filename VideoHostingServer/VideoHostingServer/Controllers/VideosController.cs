@@ -116,6 +116,16 @@ public class VideosController(
         return Ok();
     }
 
+    [HttpPost("react")]
+    [Authorize]
+    public async Task<ActionResult> React([FromBody] Application.Models.Video.VideoReactionModel model)
+    {
+        // TODO: Implement react logic when handler is available
+        // var command = new ReactVideoCommand(model);
+        // await mediator.Send(command);
+        return Ok();
+    }
+
     [HttpGet("recommendations")]
     [AllowAnonymous]
     public async Task<ActionResult<IEnumerable<VideoItemModel>>> GetRecommendations([FromQuery] VideoRecommendationRequest model)

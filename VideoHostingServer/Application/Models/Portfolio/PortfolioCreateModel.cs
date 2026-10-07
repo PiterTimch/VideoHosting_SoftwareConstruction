@@ -1,12 +1,11 @@
 using Microsoft.AspNetCore.Http;
 
-namespace Application.Models.Channel;
+namespace Application.Models.Portfolio;
 
-public class ChannelUpdateModel
+public class PortfolioCreateModel
 {
-    public long Id { get; set; }
-    public string? Name { get; set; } = string.Empty;
-    public string? NickName { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
+    public string NickName { get; set; } = string.Empty;
     public string? Description { get; set; } = string.Empty;
     public string? Specialization { get; set; }
     public string? Contacts { get; set; }

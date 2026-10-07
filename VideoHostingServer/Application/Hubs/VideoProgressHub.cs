@@ -5,20 +5,20 @@ namespace Application.Hubs;
 
 public class VideoProgressHub(ILogger<VideoProgressHub> logger) : Hub
 {
-    public async Task JoinChannel(string trackingId)
+    public async Task JoinPortfolio(string trackingId)
     {
         logger.LogInformation(
-            "[VideoProgress] Hub JoinChannel connectionId={ConnectionId} trackingId={TrackingId}",
+            "[VideoProgress] Hub JoinPortfolio connectionId={ConnectionId} trackingId={TrackingId}",
             Context.ConnectionId,
             trackingId);
 
         await Groups.AddToGroupAsync(Context.ConnectionId, trackingId);
     }
 
-    public async Task LeaveChannel(string trackingId)
+    public async Task LeavePortfolio(string trackingId)
     {
         logger.LogInformation(
-            "[VideoProgress] Hub LeaveChannel connectionId={ConnectionId} trackingId={TrackingId}",
+            "[VideoProgress] Hub LeavePortfolio connectionId={ConnectionId} trackingId={TrackingId}",
             Context.ConnectionId,
             trackingId);
         await Groups.RemoveFromGroupAsync(Context.ConnectionId, trackingId);

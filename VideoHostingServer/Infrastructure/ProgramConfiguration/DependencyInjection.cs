@@ -66,7 +66,7 @@ public static class DependencyInjection
             cfg.RegisterServicesFromAssembly(typeof(GetVideosQuery).Assembly);
         });
 
-        services.AddSingleton<Application.Mappings.ChannelMappingProfile>();
+        services.AddSingleton<Application.Mappings.PortfolioMappingProfile>();
         services.AddSingleton<Application.Mappings.CommentMappingProfile>();
         services.AddSingleton<Application.Mappings.UserMapping>();
         services.AddSingleton<Application.Mappings.VideoMappingProfile>();

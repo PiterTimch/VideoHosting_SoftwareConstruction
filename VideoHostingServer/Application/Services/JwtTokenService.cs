@@ -1,7 +1,7 @@
 using Application.Constants;
 using Application.Interfaces;
 using Domain.Entities.Identity;
-using Domain.Entities.Channel;
+using Domain.Entities.Portfolio;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -15,7 +15,7 @@ namespace Application.Services;
 public class JwtTokenService(
     IConfiguration configuration,
     UserManager<UserEntity> userManager,
-    IGenericRepository<ChannelEntity, long> channelRepo) : IJwtTokenService
+    IGenericRepository<PortfolioEntity, long> portfolioRepo) : IJwtTokenService
 {
     public async Task<string> CreateTokenAsync(UserEntity user)
     {
@@ -29,13 +29,13 @@ public class JwtTokenService(
             new Claim("image", $"{user.Image}")
         };
 
-        var channel = await channelRepo.AsQurable()
+        var portfolio = await portfolioRepo.AsQurable()
             .AsNoTracking()
             .FirstOrDefaultAsync(c => c.Freelancer != null && c.Freelancer.Id == user.Id);
 
-        if (channel != null)
+        if (portfolio != null)
         {
-            claims.Add(new Claim("channelId", channel.Id.ToString()));
+            claims.Add(new Claim("portfolioId", portfolio.Id.ToString()));
         }
 
         var roles = await userManager.GetRolesAsync(user);

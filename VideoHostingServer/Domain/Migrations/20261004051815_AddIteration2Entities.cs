@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -13,7 +13,7 @@ namespace Domain.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<long>(
-                name: "ChannelId",
+                name: "PortfolioId",
                 table: "tbl_videos",
                 type: "bigint",
                 nullable: true);
@@ -171,7 +171,7 @@ namespace Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "tbl_channels",
+                name: "tbl_portfolios",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false),
@@ -188,9 +188,9 @@ namespace Domain.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tbl_channels", x => x.Id);
+                    table.PrimaryKey("PK_tbl_portfolios", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_tbl_channels_AspNetUsers_Id",
+                        name: "FK_tbl_portfolios_AspNetUsers_Id",
                         column: x => x.Id,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -267,33 +267,33 @@ namespace Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ChannelSubscribers",
+                name: "PortfolioSubscribers",
                 columns: table => new
                 {
-                    ChannelId = table.Column<long>(type: "bigint", nullable: false),
+                    PortfolioId = table.Column<long>(type: "bigint", nullable: false),
                     UserId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChannelSubscribers", x => new { x.ChannelId, x.UserId });
+                    table.PrimaryKey("PK_PortfolioSubscribers", x => new { x.PortfolioId, x.UserId });
                     table.ForeignKey(
-                        name: "FK_ChannelSubscribers_AspNetUsers_UserId",
+                        name: "FK_PortfolioSubscribers_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ChannelSubscribers_tbl_channels_ChannelId",
-                        column: x => x.ChannelId,
-                        principalTable: "tbl_channels",
+                        name: "FK_PortfolioSubscribers_tbl_portfolios_PortfolioId",
+                        column: x => x.PortfolioId,
+                        principalTable: "tbl_portfolios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_tbl_videos_ChannelId",
+                name: "IX_tbl_videos_PortfolioId",
                 table: "tbl_videos",
-                column: "ChannelId");
+                column: "PortfolioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -333,13 +333,13 @@ namespace Domain.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChannelSubscribers_UserId",
-                table: "ChannelSubscribers",
+                name: "IX_PortfolioSubscribers_UserId",
+                table: "PortfolioSubscribers",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_tbl_channels_NickName",
-                table: "tbl_channels",
+                name: "IX_tbl_portfolios_NickName",
+                table: "tbl_portfolios",
                 column: "NickName",
                 unique: true);
 
@@ -369,10 +369,10 @@ namespace Domain.Migrations
                 column: "VideoId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_tbl_videos_tbl_channels_ChannelId",
+                name: "FK_tbl_videos_tbl_portfolios_PortfolioId",
                 table: "tbl_videos",
-                column: "ChannelId",
-                principalTable: "tbl_channels",
+                column: "PortfolioId",
+                principalTable: "tbl_portfolios",
                 principalColumn: "Id");
         }
 
@@ -380,7 +380,7 @@ namespace Domain.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_tbl_videos_tbl_channels_ChannelId",
+                name: "FK_tbl_videos_tbl_portfolios_PortfolioId",
                 table: "tbl_videos");
 
             migrationBuilder.DropTable(
@@ -399,7 +399,7 @@ namespace Domain.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "ChannelSubscribers");
+                name: "PortfolioSubscribers");
 
             migrationBuilder.DropTable(
                 name: "tbl_comments");
@@ -411,17 +411,17 @@ namespace Domain.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "tbl_channels");
+                name: "tbl_portfolios");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropIndex(
-                name: "IX_tbl_videos_ChannelId",
+                name: "IX_tbl_videos_PortfolioId",
                 table: "tbl_videos");
 
             migrationBuilder.DropColumn(
-                name: "ChannelId",
+                name: "PortfolioId",
                 table: "tbl_videos");
         }
     }

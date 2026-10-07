@@ -5,7 +5,7 @@ using Application.Mappings;
 using Application.Models.User;
 using Application.Models.Video;
 using Domain;
-using Domain.Entities.Channel;
+using Domain.Entities.Portfolio;
 using Domain.Entities.Identity;
 using Domain.Entities.Video;
 using Microsoft.AspNetCore.Identity;
@@ -63,7 +63,14 @@ public class SeederService(
                 var entity = userMapper.MapToEntity(user);
                 if (!string.IsNullOrEmpty(user.ImagePath))
                 {
-                    entity.Image = await imageService.SaveImageFromUrlAsync(user.ImagePath);
+                    try
+                    {
+                        entity.Image = await imageService.SaveImageFromUrlAsync(user.ImagePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error loading user image from URL {user.ImagePath}: {ex.Message}");
+                    }
                 }
 
                 var result = await userManager.CreateAsync(entity, user.Password);
@@ -73,14 +80,14 @@ public class SeederService(
                     continue;
                 }
 
-                var channel = new ChannelEntity
+                var portfolio = new PortfolioEntity
                 {
                     Id = entity.Id,
                     Name = $"{entity.FirstName} {entity.LastName}".Trim(),
                     NickName = entity.UserName ?? entity.Email?.Split('@')[0] ?? $"user_{entity.Id}",
                     Freelancer = entity,
                 };
-                await appDbContext.Channels.AddAsync(channel);
+                await appDbContext.Portfolios.AddAsync(portfolio);
                 await appDbContext.SaveChangesAsync();
 
                 foreach (var role in user.Roles)
@@ -132,7 +139,7 @@ public class SeederService(
                 p.SystemCode == VideoPrivacyConstants.Public
             );
 
-            var channel = await appDbContext.Channels.FirstOrDefaultAsync();
+            var portfolio = await appDbContext.Portfolios.FirstOrDefaultAsync();
 
             foreach (var v in videosData)
             {
@@ -141,9 +148,9 @@ public class SeederService(
 
                 var entity = videoMapper.MapToEntity(v);
 
-                if (channel != null)
+                if (portfolio != null)
                 {
-                    entity.ChannelId = channel.Id;
+                    entity.PortfolioId = portfolio.Id;
                 }
 
                 var privacy =
@@ -155,7 +162,16 @@ public class SeederService(
                 }
 
                 if (!string.IsNullOrEmpty(v.ImagePath))
-                    entity.Image = await imageService.SaveImageFromUrlAsync(v.ImagePath);
+                {
+                    try
+                    {
+                        entity.Image = await imageService.SaveImageFromUrlAsync(v.ImagePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error loading video image from URL {v.ImagePath}: {ex.Message}");
+                    }
+                }
 
                 if (!string.IsNullOrEmpty(v.VideoFile))
                 {

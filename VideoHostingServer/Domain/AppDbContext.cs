@@ -1,4 +1,4 @@
-using Domain.Entities.Channel;
+using Domain.Entities.Portfolio;
 using Domain.Entities.Comments;
 using Domain.Entities.Identity;
 using Domain.Entities.Video;
@@ -26,8 +26,8 @@ public class AppDbContext
     public DbSet<CommentsEntity> Comments { get; set; }
     public DbSet<VideoEntity> Videos { get; set; }
     public DbSet<VideoPrivacyEntity> VideoPrivacies { get; set; }
-    public DbSet<ChannelEntity> Channels { get; set; }
-    public DbSet<ChannelSubscriberEntity> ChannelSubscribers { get; set; }
+    public DbSet<PortfolioEntity> Portfolios { get; set; }
+    public DbSet<PortfolioSubscriberEntity> PortfolioSubscribers { get; set; }
     public DbSet<VideoReactionEntity> VideoReactions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -55,27 +55,27 @@ public class AppDbContext
                 .IsRequired();
         });
 
-        modelBuilder.Entity<ChannelEntity>().Property(c => c.Id).ValueGeneratedNever();
+        modelBuilder.Entity<PortfolioEntity>().Property(c => c.Id).ValueGeneratedNever();
 
-        modelBuilder.Entity<ChannelEntity>(c =>
+        modelBuilder.Entity<PortfolioEntity>(c =>
         {
             c.HasOne(c => c.Freelancer)
-                .WithOne(u => u.Channel)
-                .HasForeignKey<ChannelEntity>(c => c.Id)
+                .WithOne(u => u.Portfolio)
+                .HasForeignKey<PortfolioEntity>(c => c.Id)
                 .IsRequired();
         });
 
-        modelBuilder.Entity<ChannelSubscriberEntity>(cs =>
+        modelBuilder.Entity<PortfolioSubscriberEntity>(cs =>
         {
-            cs.HasKey(x => new { x.ChannelId, x.UserId });
+            cs.HasKey(x => new { x.PortfolioId, x.UserId });
 
-            cs.HasOne(x => x.Channel)
+            cs.HasOne(x => x.Portfolio)
                 .WithMany(c => c.Subscribers)
-                .HasForeignKey(x => x.ChannelId)
+                .HasForeignKey(x => x.PortfolioId)
                 .IsRequired();
 
             cs.HasOne(x => x.User)
-                .WithMany(u => u.SubscribedChannels)
+                .WithMany(u => u.SubscribedPortfolios)
                 .HasForeignKey(x => x.UserId)
                 .IsRequired();
         });

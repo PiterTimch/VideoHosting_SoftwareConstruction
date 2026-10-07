@@ -1,4 +1,4 @@
-using Application.Models.Channel;
+using Application.Models.Portfolio;
 
 namespace Application.Models.Video;
 
@@ -14,7 +14,7 @@ public class VideoItemModel
     public string? Image { get; set; }
     public string? Video { get; set; }
 
-    public ChannelItemModel? Channel { get; set; }
+    public PortfolioItemModel? Portfolio { get; set; }
     public VideoPrivacyItemModel? Privacy { get; set; }
 
     public int LikesCount { get; set; }

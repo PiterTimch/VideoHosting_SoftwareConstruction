@@ -1,17 +1,17 @@
-using Application.Models.Channel;
+using Application.Models.Portfolio;
 using Application.Validators.Extensions;
 using Domain;
-using Domain.Entities.Channel;
+using Domain.Entities.Portfolio;
 using FluentValidation;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Validators.Channel;
+namespace Application.Validators.Portfolio;
 
-public class ChannelCreateModelValidator : AbstractValidator<ChannelCreateModel>
+public class PortfolioCreateModelValidator : AbstractValidator<PortfolioCreateModel>
 {
-    public ChannelCreateModelValidator(AppDbContext db, IHttpContextAccessor httpContextAccessor)
+    public PortfolioCreateModelValidator(AppDbContext db, IHttpContextAccessor httpContextAccessor)
     {
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("Назва є обов'язковою")
@@ -22,7 +22,7 @@ public class ChannelCreateModelValidator : AbstractValidator<ChannelCreateModel>
             .NotEmpty().WithMessage("Нікнейм є обов'язковим")
             .MaximumLength(100).WithMessage("Нікнейм повинен містити не більше 100 символів")
             .IsSlug()
-            .UniquePropertyAsync<ChannelCreateModel, ChannelEntity, long>(db, nameof(ChannelEntity.NickName), "Цей нікнейм вже зайнятий");
+            .UniquePropertyAsync<PortfolioCreateModel, PortfolioEntity, long>(db, nameof(PortfolioEntity.NickName), "Цей нікнейм вже зайнятий");
 
         RuleFor(x => x)
             .MustAsync(async (model, cancellation) =>
@@ -31,7 +31,7 @@ public class ChannelCreateModelValidator : AbstractValidator<ChannelCreateModel>
                 if (string.IsNullOrEmpty(userIdClaim) || !long.TryParse(userIdClaim, out var userId))
                     return true;
 
-                return !await db.Channels.AnyAsync(x => x.Id == userId && !x.IsDeleted, cancellation);
+                return !await db.Portfolios.AnyAsync(x => x.Id == userId && !x.IsDeleted, cancellation);
             })
             .WithMessage("У користувача вже є канал");
 

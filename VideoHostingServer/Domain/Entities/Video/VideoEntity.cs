@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Entities.Comments;
-using Domain.Entities.Channel;
+using Domain.Entities.Portfolio;
 using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Entities.Video;
@@ -36,10 +36,10 @@ public class VideoEntity : BaseEntity<long>
     [ForeignKey(nameof(PrivacyId))]
     public virtual VideoPrivacyEntity? Privacy { get; set; }
 
-    public long? ChannelId { get; set; }
+    public long? PortfolioId { get; set; }
 
-    [ForeignKey(nameof(ChannelId))]
-    public virtual ChannelEntity? Channel { get; set; }
+    [ForeignKey(nameof(PortfolioId))]
+    public virtual PortfolioEntity? Portfolio { get; set; }
 
     public virtual ICollection<CommentsEntity> Comments { get; set; } = new List<CommentsEntity>();
     public virtual ICollection<VideoReactionEntity> VideoReactions { get; set; } = new List<VideoReactionEntity>();

@@ -1,6 +1,6 @@
-namespace Application.Models.Channel;
+namespace Application.Models.Portfolio;
 
-public class ChannelItemModel
+public class PortfolioItemModel
 {
     public long Id { get; set; }
     public string Name { get; set; } = string.Empty;
