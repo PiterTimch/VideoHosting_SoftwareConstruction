@@ -1,0 +1,10 @@
+Report: Unit Tests 
+Date: 08.10.2026  8:55:22,98 
+---------------------------------------- 
+Total: 3 
+Passed:  
+Failed:  
+---------------------------------------- 
+Details: 
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Suites 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+[31m[1mError[22m: Failed to resolve import "@playwright/test" from "tests/e2e/auth.spec.ts". Does the file exist?[39m
