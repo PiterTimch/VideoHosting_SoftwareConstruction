@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test:unit": "vitest run",
-    "test:ui": "echo UI tests executed",
+    "test:ui": "test-storybook",
     "test:e2e": "playwright test"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.64.0",
     "@storybook/react-vite": "^10.6.1",
     "@storybook/test-runner": "^0.26.0",
     "@testing-library/jest-dom": "^7.0.1",
