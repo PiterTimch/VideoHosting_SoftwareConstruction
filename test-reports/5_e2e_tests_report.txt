@@ -1,8 +1,28 @@
 Report: E2E Tests 
-Date: 08.10.2026  8:55:22,98 
+Date: 09.10.2026  7:40:45,59 
 ---------------------------------------- 
-Total: 0 
-Passed: 0 
-Failed: 0 
+Result: PASSED 
+(JavaScript runner output. See raw logs for detailed checks.) 
 ---------------------------------------- 
 Details: 
+
+Running 12 tests using 6 workers
+
+[1/12] [firefox] › tests\e2e\auth.spec.ts:3:1 › Full scenario: Registration, Login, Upload Video, Setup Private URL, View, Reaction
+[2/12] [firefox] › tests\e2e\full-scenario.spec.ts:4:3 › Full Video Hosting Scenario › Register, Upload, Setup Private URL, Watch, React
+[3/12] [webkit] › tests\e2e\auth.spec.ts:3:1 › Full scenario: Registration, Login, Upload Video, Setup Private URL, View, Reaction
+[4/12] [webkit] › tests\e2e\full-scenario.spec.ts:4:3 › Full Video Hosting Scenario › Register, Upload, Setup Private URL, Watch, React
+[5/12] [chromium] › tests\e2e\full-scenario.spec.ts:4:3 › Full Video Hosting Scenario › Register, Upload, Setup Private URL, Watch, React
+[6/12] [chromium] › tests\e2e\auth.spec.ts:3:1 › Full scenario: Registration, Login, Upload Video, Setup Private URL, View, Reaction
+[7/12] [Mobile Chrome] › tests\e2e\auth.spec.ts:3:1 › Full scenario: Registration, Login, Upload Video, Setup Private URL, View, Reaction
+[8/12] [Mobile Chrome] › tests\e2e\full-scenario.spec.ts:4:3 › Full Video Hosting Scenario › Register, Upload, Setup Private URL, Watch, React
+[9/12] [Mobile Safari] › tests\e2e\auth.spec.ts:3:1 › Full scenario: Registration, Login, Upload Video, Setup Private URL, View, Reaction
+[10/12] [Mobile Safari] › tests\e2e\full-scenario.spec.ts:4:3 › Full Video Hosting Scenario › Register, Upload, Setup Private URL, Watch, React
+[11/12] [Microsoft Edge] › tests\e2e\auth.spec.ts:3:1 › Full scenario: Registration, Login, Upload Video, Setup Private URL, View, Reaction
+[12/12] [Microsoft Edge] › tests\e2e\full-scenario.spec.ts:4:3 › Full Video Hosting Scenario › Register, Upload, Setup Private URL, Watch, React
+  12 passed (16.2s)
+
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m

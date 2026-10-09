@@ -21,6 +21,10 @@ cd "%~dp0"
 call :FormatReport "1_unit_tests_report.txt" "%REPORTS_DIR%\1_unit_tests_report_tmp.txt" "Unit Tests"
 del "%REPORTS_DIR%\1_unit_tests_report_tmp.txt"
 
+echo Starting Backend Server in background...
+start "BackendAPI" /MIN cmd /c "cd %~dp0VideoHostingServer\VideoHostingServer && dotnet run"
+timeout /t 5 /nobreak >nul
+
 echo [2/6] Running Integration Tests...
 dotnet test "%~dp0VideoHostingServer\tests\IntegrationTests\IntegrationTests.csproj" --logger "console;verbosity=detailed" > "%REPORTS_DIR%\2_integration_tests_report_tmp.txt" 2>&1
 call :FormatReport "2_integration_tests_report.txt" "%REPORTS_DIR%\2_integration_tests_report_tmp.txt" "Integration Tests"
@@ -47,16 +51,24 @@ del "%REPORTS_DIR%\5_e2e_tests_report_tmp.txt"
 
 echo [6/6] Running Performance Tests...
 echo Loading k6...
-if exist "k6" (
+where k6 >nul 2>nul
+if %ERRORLEVEL% EQU 0 (
     k6 run "%~dp0VideoHostingWeb\tests\load-test.js" > "%REPORTS_DIR%\6_performance_tests_report_tmp.txt" 2>&1
 ) else (
     echo k6 is not installed or not in PATH. Please install k6. > "%REPORTS_DIR%\6_performance_tests_report_tmp.txt"
+    echo FAILED (k6 missing) >> "%REPORTS_DIR%\6_performance_tests_report_tmp.txt"
 )
 call :FormatReport "6_performance_tests_report.txt" "%REPORTS_DIR%\6_performance_tests_report_tmp.txt" "Performance Tests"
 del "%REPORTS_DIR%\6_performance_tests_report_tmp.txt"
 
 echo.
+echo Stopping Backend Server...
+taskkill /FI "WINDOWTITLE eq BackendAPI" /T /F >nul 2>&1
+
 echo All tests completed. Reports are saved in %REPORTS_DIR%
+
+echo Opening E2E Test Report in browser...
+start cmd /c "cd %~dp0VideoHostingWeb && npx.cmd playwright show-report"
 goto :EOF
 
 :FormatReport
@@ -67,9 +79,8 @@ set TEST_TYPE=%~3
 set TOTAL=0
 set PASSED=0
 set FAILED=0
-set ERRORS=
 
-REM Extract stats from dotnet test output
+REM Extract stats from dotnet test output and k6
 for /f "tokens=*" %%a in ('findstr /C:"Total tests:" "%TEMP_FILE%" 2^>nul') do (
     for /f "tokens=3,5,7 delims=: " %%b in ("%%a") do (
         set TOTAL=%%b
@@ -81,10 +92,26 @@ for /f "tokens=*" %%a in ('findstr /C:"Total tests:" "%TEMP_FILE%" 2^>nul') do (
 echo Report: %TEST_TYPE% > "%REPORTS_DIR%\%REPORT_NAME%"
 echo Date: %TIMESTAMP% >> "%REPORTS_DIR%\%REPORT_NAME%"
 echo ---------------------------------------- >> "%REPORTS_DIR%\%REPORT_NAME%"
-echo Total: !TOTAL! >> "%REPORTS_DIR%\%REPORT_NAME%"
-echo Passed: !PASSED! >> "%REPORTS_DIR%\%REPORT_NAME%"
-echo Failed: !FAILED! >> "%REPORTS_DIR%\%REPORT_NAME%"
+
+if "!TOTAL!"=="0" (
+    findstr /I /C:"failed" /C:"failing" /C:"error" "%TEMP_FILE%" >nul
+    if !ERRORLEVEL! EQU 0 (
+        echo Result: FAILED >> "%REPORTS_DIR%\%REPORT_NAME%"
+    ) else (
+        echo Result: PASSED >> "%REPORTS_DIR%\%REPORT_NAME%"
+    )
+    echo (JavaScript runner output. See raw logs for detailed checks.^) >> "%REPORTS_DIR%\%REPORT_NAME%"
+) else (
+    echo Total: !TOTAL! >> "%REPORTS_DIR%\%REPORT_NAME%"
+    echo Passed: !PASSED! >> "%REPORTS_DIR%\%REPORT_NAME%"
+    echo Failed: !FAILED! >> "%REPORTS_DIR%\%REPORT_NAME%"
+)
+
 echo ---------------------------------------- >> "%REPORTS_DIR%\%REPORT_NAME%"
 echo Details: >> "%REPORTS_DIR%\%REPORT_NAME%"
-findstr /C:"Failed " "%TEMP_FILE%" >> "%REPORTS_DIR%\%REPORT_NAME%" 2>nul
+if "!TOTAL!"=="0" (
+    type "%TEMP_FILE%" >> "%REPORTS_DIR%\%REPORT_NAME%" 2>nul
+) else (
+    findstr /I /C:"failed " /C:"fail" "%TEMP_FILE%" >> "%REPORTS_DIR%\%REPORT_NAME%" 2>nul
+)
 goto :EOF

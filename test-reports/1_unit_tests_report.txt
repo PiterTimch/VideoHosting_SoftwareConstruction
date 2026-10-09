@@ -1,10 +1,22 @@
 Report: Unit Tests 
-Date: 08.10.2026  8:55:22,98 
+Date: 09.10.2026  7:40:45,59 
 ---------------------------------------- 
-Total: 3 
+Total: 10 
 Passed:  
 Failed:  
 ---------------------------------------- 
 Details: 
-[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Suites 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
-[31m[1mError[22m: Failed to resolve import "@playwright/test" from "tests/e2e/auth.spec.ts". Does the file exist?[39m
+[xUnit.net 00:00:00.30]     UnitTests.ServiceTests.CookieAuthService_SetAuthCookie_DoesNotThrow [FAIL]
+[xUnit.net 00:00:00.31]     UnitTests.AuthHandlerTests.Handle_ValidCredentials_ReturnsToken [FAIL]
+[xUnit.net 00:00:00.31]     UnitTests.ServiceTests.CookieAuthService_ClearAuthCookie_RemovesCookie [FAIL]
+  Failed UnitTests.ServiceTests.CookieAuthService_SetAuthCookie_DoesNotThrow [135 ms]
+  Failed UnitTests.AuthHandlerTests.Handle_ValidCredentials_ReturnsToken [142 ms]
+  Failed UnitTests.ServiceTests.CookieAuthService_ClearAuthCookie_RemovesCookie [3 ms]
+[xUnit.net 00:00:00.33]     UnitTests.AuthHandlerTests.Handle_InvalidCredentials_ThrowsException [FAIL]
+  Failed UnitTests.AuthHandlerTests.Handle_InvalidCredentials_ThrowsException [17 ms]
+Test Run Failed.
+     Failed: 4
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Suites 2 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+[41m[1m FAIL [22m[49m tests/e2e/auth.spec.ts[2m [ tests/e2e/auth.spec.ts ][22m
+[41m[1m FAIL [22m[49m tests/e2e/full-scenario.spec.ts[2m [ tests/e2e/full-scenario.spec.ts ][22m
+[2m Test Files [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m1 passed[39m[22m[90m (3)[39m
