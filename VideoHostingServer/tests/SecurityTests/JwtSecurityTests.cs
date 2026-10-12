@@ -41,7 +41,6 @@ namespace SecurityTests
         public async Task AccessProtectedEndpoint_WithExpiredBearerToken_ReturnsUnauthorized()
         {
             var client = _factory.CreateClient();
-            // A structurally valid JWT but expired (header.payload.signature)
             string expiredJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE1MTYyMzkwMjJ9.g7Kk8T5wD3mX6k9q0lV6rFmX4lD5c1lQ6G5P_2j_3q0";
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", expiredJwt);
             

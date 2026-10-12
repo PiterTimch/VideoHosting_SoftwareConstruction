@@ -20,7 +20,6 @@ namespace IntegrationTests
             _factory = factory;
         }
 
-        // Test 1: Client-Server API Connection
         [Fact]
         public async Task Get_VideosEndpoint_ReturnsExpectedResult()
         {
@@ -29,7 +28,6 @@ namespace IntegrationTests
             response.StatusCode.Should().NotBe(HttpStatusCode.InternalServerError);
         }
         
-        // Test 2: Client-Server 404 behavior
         [Fact]
         public async Task Get_UnknownEndpoint_ReturnsNotFound()
         {
@@ -38,7 +36,6 @@ namespace IntegrationTests
             response.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
 
-        // Test 3: DI Registration Check
         [Fact]
         public void DI_JwtTokenService_IsRegistered()
         {
@@ -47,7 +44,6 @@ namespace IntegrationTests
             service.Should().NotBeNull();
         }
         
-        // Test 4: DI SmtpService Check
         [Fact]
         public void DI_SmtpService_IsRegistered()
         {
@@ -56,7 +52,6 @@ namespace IntegrationTests
             service.Should().NotBeNull();
         }
 
-        // Test 5: DB Connection test
         [Fact]
         public async Task DB_CanConnect_Successfully()
         {
@@ -66,7 +61,6 @@ namespace IntegrationTests
             canConnect.Should().BeTrue();
         }
         
-        // Test 6: DB DbSet existence
         [Fact]
         public void DB_DbSet_Users_Exists()
         {
