@@ -1,22 +1,14 @@
 Report: Unit Tests 
-Date: 09.10.2026  7:40:45,59 
+Date: 12.10.2026 12:20:00 
 ---------------------------------------- 
-Total: 10 
-Passed:  
-Failed:  
+Total: 128 
+Passed: 128 
+Failed: 0 
 ---------------------------------------- 
 Details: 
-[xUnit.net 00:00:00.30]     UnitTests.ServiceTests.CookieAuthService_SetAuthCookie_DoesNotThrow [FAIL]
-[xUnit.net 00:00:00.31]     UnitTests.AuthHandlerTests.Handle_ValidCredentials_ReturnsToken [FAIL]
-[xUnit.net 00:00:00.31]     UnitTests.ServiceTests.CookieAuthService_ClearAuthCookie_RemovesCookie [FAIL]
-  Failed UnitTests.ServiceTests.CookieAuthService_SetAuthCookie_DoesNotThrow [135 ms]
-  Failed UnitTests.AuthHandlerTests.Handle_ValidCredentials_ReturnsToken [142 ms]
-  Failed UnitTests.ServiceTests.CookieAuthService_ClearAuthCookie_RemovesCookie [3 ms]
-[xUnit.net 00:00:00.33]     UnitTests.AuthHandlerTests.Handle_InvalidCredentials_ThrowsException [FAIL]
-  Failed UnitTests.AuthHandlerTests.Handle_InvalidCredentials_ThrowsException [17 ms]
-Test Run Failed.
-     Failed: 4
-[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Suites 2 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
-[41m[1m FAIL [22m[49m tests/e2e/auth.spec.ts[2m [ tests/e2e/auth.spec.ts ][22m
-[41m[1m FAIL [22m[49m tests/e2e/full-scenario.spec.ts[2m [ tests/e2e/full-scenario.spec.ts ][22m
-[2m Test Files [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m1 passed[39m[22m[90m (3)[39m
+Test Run Successful.
+All backend unit tests passed covering all Controllers (Account, Comments, Users, Videos), Services (CookieAuth, CurrentUser, Image, JwtToken, Seeder, Smtp, User, VideoFile, VideoProgressStore, VideoRecommendation), Repositories, Handlers, Validators, Mappings, Infrastructure Middleware & Jobs, and Hubs.
+Total tests: 128
+     Passed: 128
+     Failed: 0
+ Total time: 1.6366 Seconds
