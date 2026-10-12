@@ -47,7 +47,19 @@ public class DomainAndModelsTests
 
         new PortfolioDeleteModel { Id = 8 }.Id.Should().Be(8);
         new PortfolioSubscriptionModel { PortfolioId = 8 }.PortfolioId.Should().Be(8);
-        new PortfolioSearchModel { Page = 2 }.Page.Should().Be(2);
+        var pSearch = new PortfolioSearchModel { Page = 2, Q = "dev", IsSubscribed = true };
+        pSearch.Q.Should().Be("dev");
+        pSearch.IsSubscribed.Should().BeTrue();
+
+        var avatarMock = new Moq.Mock<Microsoft.AspNetCore.Http.IFormFile>();
+        var bannerMock = new Moq.Mock<Microsoft.AspNetCore.Http.IFormFile>();
+        pCreate.AvatarImage = avatarMock.Object;
+        pCreate.BannerImage = bannerMock.Object;
+        pCreate.AvatarImage.Should().Be(avatarMock.Object);
+        pCreate.BannerImage.Should().Be(bannerMock.Object);
+
+        new PortfolioDeleteModel { Id = 8 }.Id.Should().Be(8);
+        new PortfolioSubscriptionModel { PortfolioId = 8 }.PortfolioId.Should().Be(8);
         new PortfolioItemModel { IsSubscribed = true, SubscriberCount = 4 }.SubscriberCount.Should().Be(4);
 
         new AccountResetPasswordModel { Email = "e", Token = "t", NewPassword = "n" }.Token.Should().Be("t");
@@ -69,20 +81,37 @@ public class DomainAndModelsTests
     [Fact]
     public void DomainEntities_CanBeAssigned()
     {
-        var reaction = new VideoReactionEntity { VideoId = 1, UserId = 2, IsLike = true, Video = new VideoEntity(), User = new UserEntity() };
+        var portfolio = new PortfolioEntity { Id = 1, Name = "P" };
+        var subscriber = new PortfolioSubscriberEntity { PortfolioId = 1, UserId = 2 };
+        var user = new UserEntity
+        {
+            Id = 5,
+            FirstName = "A",
+            LastName = "B",
+            Image = "img.png",
+            IsDeleted = true,
+            DateCreated = DateTime.UtcNow,
+            Portfolio = portfolio,
+            SubscribedPortfolios = new List<PortfolioSubscriberEntity> { subscriber }
+        };
+        user.Portfolio.Should().Be(portfolio);
+        user.SubscribedPortfolios.Should().Contain(subscriber);
+        user.IsDeleted.Should().BeTrue();
+
+        var reaction = new VideoReactionEntity { VideoId = 1, UserId = 2, IsLike = true, Video = new VideoEntity(), User = user };
         reaction.IsLike.Should().BeTrue();
 
-        var sub = new PortfolioSubscriberEntity { PortfolioId = 1, UserId = 2, Portfolio = new PortfolioEntity(), User = new UserEntity() };
+        var sub = new PortfolioSubscriberEntity { PortfolioId = 1, UserId = 2, Portfolio = portfolio, User = user };
         sub.UserId.Should().Be(2);
 
         var role = new RoleEntity("Admin");
         role.Name.Should().Be("Admin");
         new RoleEntity();
 
-        var userRole = new UserRoleEntity { User = new UserEntity(), Role = role };
+        var userRole = new UserRoleEntity { User = user, Role = role };
         userRole.Role.Should().Be(role);
 
-        var login = new UserLoginEntity { User = new UserEntity() };
+        var login = new UserLoginEntity { User = user };
         login.User.Should().NotBeNull();
 
         var comment = new CommentsEntity { Content = "c", LikesCount = 1, DislikeCount = 2, RepliesCount = 3, IsEdited = true };

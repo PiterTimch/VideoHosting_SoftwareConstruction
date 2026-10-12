@@ -290,4 +290,82 @@ public class VideoHandlersTests
         var resDate = await handler.Handle(new SearchVideosQuery(new VideoSearchModel { SortBy = "date" }), default);
         resDate.Items.First().Id.Should().Be(2);
     }
+
+    [Fact]
+    public async Task IncrementViewCommandHandler_IncrementsViewCount_OrThrowsWhenNotFound()
+    {
+        using var context = TestDbContextHelper.CreateSqliteContext();
+        context.VideoPrivacies.Add(new VideoPrivacyEntity { Id = 1, Name = "Public", SystemCode = "public" });
+        context.Videos.Add(new VideoEntity { Id = 1, Title = "Viewed", Slug = "viewed", PrivacyId = 1, ViewCount = 5, IsDeleted = false });
+        context.Videos.Add(new VideoEntity { Id = 2, Title = "Deleted", Slug = "deleted", PrivacyId = 1, ViewCount = 0, IsDeleted = true });
+        await context.SaveChangesAsync();
+
+        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var handler = new IncrementViewCommandHandler(repo);
+
+        await handler.Handle(new IncrementViewCommand(1), default);
+        context.ChangeTracker.Clear();
+        var updated = await context.Videos.FindAsync(1L);
+        updated!.ViewCount.Should().Be(6);
+
+        await FluentActions.Invoking(() => handler.Handle(new IncrementViewCommand(2), default))
+            .Should().ThrowAsync<Exception>().WithMessage("Відео не знайдено");
+
+        await FluentActions.Invoking(() => handler.Handle(new IncrementViewCommand(999), default))
+            .Should().ThrowAsync<Exception>().WithMessage("Відео не знайдено");
+    }
+
+    [Fact]
+    public async Task UpdateVideoHandler_ReplacesVideoFile_DeletesOldAndQueuesJob()
+    {
+        var context = TestDbContextHelper.CreateContext();
+        context.Videos.Add(new VideoEntity { Id = 1, Title = "Old Title", Video = "old_vid.mp4", IsDeleted = false });
+        await context.SaveChangesAsync();
+
+        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var handler = new UpdateVideoHandler(
+            repo, _videoMapper, _imageServiceMock.Object, _videoFileServiceMock.Object,
+            _backgroundJobClientMock.Object, _progressStoreMock.Object, _updateLoggerMock.Object);
+
+        var fileMock = new Mock<IFormFile>();
+        fileMock.Setup(f => f.FileName).Returns("new_clip.mp4");
+        fileMock.Setup(f => f.CopyToAsync(It.IsAny<Stream>(), It.IsAny<CancellationToken>()))
+            .Returns(Task.CompletedTask);
+
+        var result = await handler.Handle(new UpdateVideoCommand(new VideoUpdateModel
+        {
+            Id = 1,
+            Title = "Updated Title",
+            Video = fileMock.Object
+        }), default);
+
+        result.TrackingId.Should().NotBeNullOrWhiteSpace();
+        _videoFileServiceMock.Verify(v => v.DeleteVideoAsync("old_vid.mp4"), Times.Once);
+        _progressStoreMock.Verify(p => p.Set(result.TrackingId, It.Is<VideoProgressUpdate>(u => u.Status == "В черзі")), Times.Once);
+        _backgroundJobClientMock.Verify(b => b.Create(
+            It.IsAny<Hangfire.Common.Job>(),
+            It.IsAny<Hangfire.States.IState>()), Times.Once);
+
+        var videoInDb = await context.Videos.FindAsync(1L);
+        videoInDb!.Video.Should().Be("processing...");
+    }
+
+    [Fact]
+    public async Task UpdateVideoHandler_WhenUkrainianProcessingStatus_ThrowsInvalidOperationException()
+    {
+        var context = TestDbContextHelper.CreateContext();
+        context.Videos.Add(new VideoEntity { Id = 1, Title = "Processing", Video = "обробляється...", IsDeleted = false });
+        await context.SaveChangesAsync();
+
+        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var handler = new UpdateVideoHandler(
+            repo, _videoMapper, _imageServiceMock.Object, _videoFileServiceMock.Object,
+            _backgroundJobClientMock.Object, _progressStoreMock.Object, _updateLoggerMock.Object);
+
+        var fileMock = new Mock<IFormFile>();
+        fileMock.Setup(f => f.FileName).Returns("clip.mp4");
+
+        await FluentActions.Invoking(() => handler.Handle(new UpdateVideoCommand(new VideoUpdateModel { Id = 1, Video = fileMock.Object }), default))
+            .Should().ThrowAsync<InvalidOperationException>().WithMessage("Відео вже обробляється. Зачекайте завершення попереднього завантаження.");
+    }
 }

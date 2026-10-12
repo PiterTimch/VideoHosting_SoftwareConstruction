@@ -119,6 +119,47 @@ public class CommentHandlersTests
     }
 
     [Fact]
+    public async Task DeleteComment_RootAndChildComments_DeletesSuccessfully()
+    {
+        using var context = TestDbContextHelper.CreateSqliteContext();
+        _currentUserMock.Setup(c => c.GetCurrentUserId()).Returns(1);
+
+        context.Users.Add(new UserEntity { Id = 1, UserName = "User1" });
+        context.Users.Add(new UserEntity { Id = 2, UserName = "User2" });
+        context.VideoPrivacies.Add(new VideoPrivacyEntity { Id = 1, Name = "Public", SystemCode = "public" });
+        context.Videos.Add(new VideoEntity { Id = 1, Title = "V1", Slug = "v1", PrivacyId = 1, IsDeleted = false });
+        await context.SaveChangesAsync();
+
+        var root = new CommentsEntity { Id = 100, VideoId = 1, UserId = 1, Content = "Root comment", RepliesCount = 1 };
+        var child = new CommentsEntity { Id = 101, VideoId = 1, UserId = 1, Content = "Child comment", ParentId = 100 };
+        context.Comments.AddRange(root, child);
+        await context.SaveChangesAsync();
+
+        var handler = new DeleteCommentCommandHandler(context, _currentUserMock.Object);
+
+        // Delete child: should decrement parent's RepliesCount
+        await handler.Handle(new DeleteCommentCommand(101), default);
+        context.ChangeTracker.Clear();
+        var updatedRoot = await context.Comments.FindAsync(100L);
+        updatedRoot!.RepliesCount.Should().Be(0);
+        var deletedChild = await context.Comments.FindAsync(101L);
+        deletedChild.Should().BeNull();
+
+        // Re-add child for testing root deletion cascades
+        var child2 = new CommentsEntity { Id = 102, VideoId = 1, UserId = 2, Content = "Child 2", ParentId = 100 };
+        context.Comments.Add(child2);
+        await context.SaveChangesAsync();
+
+        // Delete root: should execute delete on children and remove root
+        await handler.Handle(new DeleteCommentCommand(100), default);
+        context.ChangeTracker.Clear();
+        var deletedRoot = await context.Comments.FindAsync(100L);
+        deletedRoot.Should().BeNull();
+        var deletedChild2 = await context.Comments.FindAsync(102L);
+        deletedChild2.Should().BeNull();
+    }
+
+    [Fact]
     public async Task UpdateComment_ValidComment_UpdatesSuccessfully()
     {
         var context = TestDbContextHelper.CreateContext();

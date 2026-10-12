@@ -31,6 +31,8 @@ public class ConfiguratorsTests
         var provider = services.BuildServiceProvider();
 
         provider.GetService<Microsoft.AspNetCore.Identity.UserManager<UserEntity>>().Should().NotBeNull();
+        var authOptions = provider.GetRequiredService<Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Authentication.AuthenticationOptions>>().Value;
+        authOptions.DefaultAuthenticateScheme.Should().Be(Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme);
     }
 
     [Fact]
@@ -112,12 +114,95 @@ public class ConfiguratorsTests
     }
 
     [Fact]
-    public void SwaggerConfigurator_RegistersAndAppliesPipeline()
+    public async Task SwaggerConfigurator_DocumentAndOperationTransformers_ExecuteAllBranches()
     {
+        var configWithUrl = new ConfigurationBuilder()
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                ["ApiServerUrl"] = "https://api.example.com"
+            })
+            .Build();
+
         var builder = WebApplication.CreateBuilder();
+        builder.Services.AddSingleton<IConfiguration>(configWithUrl);
         builder.Services.AddSwaggerDocumentation();
-        var app = builder.Build();
-        app.UseSwaggerDocumentation();
-        app.Should().NotBeNull();
+        var appWithUrl = builder.Build();
+
+        // 1. Document transformer with ApiServerUrl
+        var doc = new Microsoft.OpenApi.OpenApiDocument();
+        var docContextWithUrl = new Microsoft.AspNetCore.OpenApi.OpenApiDocumentTransformerContext
+        {
+            DocumentName = "v1",
+            ApplicationServices = appWithUrl.Services,
+            DescriptionGroups = new List<Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionGroup>()
+        };
+        await SwaggerConfigurator.TransformDocumentAsync(doc, docContextWithUrl, default);
+        doc.Servers.Should().NotBeNullOrEmpty();
+        doc.Servers![0].Url.Should().Be("https://api.example.com");
+
+        // 2. Document transformer without ApiServerUrl
+        var builderNoUrl = WebApplication.CreateBuilder();
+        builderNoUrl.Services.AddSwaggerDocumentation();
+        var appNoUrl = builderNoUrl.Build();
+        var docNoUrl = new Microsoft.OpenApi.OpenApiDocument();
+        var docContextNoUrl = new Microsoft.AspNetCore.OpenApi.OpenApiDocumentTransformerContext
+        {
+            DocumentName = "v1",
+            ApplicationServices = appNoUrl.Services,
+            DescriptionGroups = new List<Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionGroup>()
+        };
+        await SwaggerConfigurator.TransformDocumentAsync(docNoUrl, docContextNoUrl, default);
+
+        // 3. Operation transformer with Authorize
+        var authOp = new Microsoft.OpenApi.OpenApiOperation();
+        var authDescriptor = new Microsoft.AspNetCore.Mvc.Abstractions.ActionDescriptor
+        {
+            EndpointMetadata = new List<object> { new Microsoft.AspNetCore.Authorization.AuthorizeAttribute() }
+        };
+        var authContext = new Microsoft.AspNetCore.OpenApi.OpenApiOperationTransformerContext
+        {
+            Description = new Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescription { ActionDescriptor = authDescriptor },
+            DocumentName = "v1",
+            ApplicationServices = appWithUrl.Services
+        };
+        await SwaggerConfigurator.TransformOperationAsync(authOp, authContext, default);
+        authOp.Responses.Should().ContainKey("401");
+        authOp.Responses.Should().ContainKey("403");
+
+        // 4. Operation transformer with AllowAnonymous
+        var anonOp = new Microsoft.OpenApi.OpenApiOperation();
+        var anonDescriptor = new Microsoft.AspNetCore.Mvc.Abstractions.ActionDescriptor
+        {
+            EndpointMetadata = new List<object>
+            {
+                new Microsoft.AspNetCore.Authorization.AuthorizeAttribute(),
+                new Microsoft.AspNetCore.Authorization.AllowAnonymousAttribute()
+            }
+        };
+        var anonContext = new Microsoft.AspNetCore.OpenApi.OpenApiOperationTransformerContext
+        {
+            Description = new Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescription { ActionDescriptor = anonDescriptor },
+            DocumentName = "v1",
+            ApplicationServices = appWithUrl.Services
+        };
+        await SwaggerConfigurator.TransformOperationAsync(anonOp, anonContext, default);
+        anonOp.Responses.Should().NotContainKey("401");
+
+        // 5. Pipeline in Development and Production
+        var prevEnv = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+        try
+        {
+            Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development");
+            var devApp = WebApplication.CreateBuilder().Build();
+            devApp.UseSwaggerDocumentation();
+
+            Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Production");
+            var prodApp = WebApplication.CreateBuilder().Build();
+            prodApp.UseSwaggerDocumentation();
+        }
+        finally
+        {
+            Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", prevEnv);
+        }
     }
 }

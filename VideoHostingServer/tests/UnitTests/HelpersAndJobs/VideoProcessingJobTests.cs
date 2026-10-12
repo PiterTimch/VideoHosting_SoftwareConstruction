@@ -70,6 +70,10 @@ public class VideoProcessingJobTests
             await File.WriteAllTextAsync(tempFile, "dummy video data");
 
             _videoFileServiceMock.Setup(v => v.SaveVideoWithProgressAsync(tempFile, It.IsAny<Action<VideoProgressUpdate>>()))
+                .Callback<string, Action<VideoProgressUpdate>>((_, cb) =>
+                {
+                    cb(new VideoProgressUpdate { Percentage = 50, Status = "Halfway" });
+                })
                 .ReturnsAsync("saved_result.mp4");
 
             var job = new VideoProcessingJob(
@@ -84,7 +88,37 @@ public class VideoProcessingJobTests
             var updated = await context.Videos.FindAsync(10L);
             updated!.Video.Should().Be("saved_result.mp4");
 
+            _progressStoreMock.Verify(p => p.Set("tid-success", It.Is<VideoProgressUpdate>(u => u.Percentage == 50)), Times.Once);
             _progressStoreMock.Verify(p => p.Set("tid-success", It.Is<VideoProgressUpdate>(u => u.Percentage == 100)), Times.Once);
+        }
+        finally
+        {
+            if (File.Exists(tempFile)) File.Delete(tempFile);
+        }
+    }
+
+    [Fact]
+    public async Task ProcessVideoAsync_WhenEntityNotFoundAfterProcessing_LogsWarningAndCompletes()
+    {
+        var context = TestDbContextHelper.CreateContext();
+        var repo = new GenericRepository<VideoEntity, long>(context, null);
+
+        var tempFile = Path.GetTempFileName();
+        try
+        {
+            await File.WriteAllTextAsync(tempFile, "video");
+            _videoFileServiceMock.Setup(v => v.SaveVideoWithProgressAsync(tempFile, It.IsAny<Action<VideoProgressUpdate>>()))
+                .ReturnsAsync("result.mp4");
+
+            var job = new VideoProcessingJob(
+                _hubContextMock.Object,
+                _videoFileServiceMock.Object,
+                repo,
+                _progressStoreMock.Object,
+                _loggerMock.Object);
+
+            await job.ProcessVideoAsync(999, tempFile, "tid-not-found");
+            _progressStoreMock.Verify(p => p.Set("tid-not-found", It.Is<VideoProgressUpdate>(u => u.Percentage == 100)), Times.Once);
         }
         finally
         {

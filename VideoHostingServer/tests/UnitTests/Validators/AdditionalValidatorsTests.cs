@@ -256,13 +256,14 @@ public class AdditionalValidatorsTests
         context.Portfolios.Add(new PortfolioEntity { Id = 3, Name = "P", NickName = "nick", Freelancer = user });
         await context.SaveChangesAsync();
 
-        var validator = new ProbeValidator(context);
+        var createValidator = new ProbeCreateValidator(context);
+        var updateValidator = new ProbeUpdateValidator(context);
 
-        (await validator.ValidateAsync(new ProbeModel { Id = 1, Slug = " ", Nick = " " })).IsValid.Should().BeTrue();
-        (await validator.ValidateAsync(new ProbeModel { Id = 1, OptionalId = null, Slug = "other", Nick = "other" })).IsValid.Should().BeTrue();
-        (await validator.ValidateAsync(new ProbeModel { Id = 9, OptionalId = 9, Slug = "my-slug", Nick = "nick" })).IsValid.Should().BeFalse();
-        (await validator.ValidateAsync(new ProbeModel { Id = 1, Slug = "My Slug", Nick = "fresh" })).IsValid.Should().BeTrue();
-        (await validator.ValidateAsync(new ProbeModel { Id = 2, Slug = "my-slug", Nick = "nick" })).IsValid.Should().BeFalse();
+        (await createValidator.ValidateAsync(new ProbeModel { Id = 1, Slug = " ", Nick = " " })).IsValid.Should().BeTrue();
+        (await createValidator.ValidateAsync(new ProbeModel { Id = 1, OptionalId = null, Slug = "other", Nick = "other" })).IsValid.Should().BeTrue();
+        (await createValidator.ValidateAsync(new ProbeModel { Id = 9, OptionalId = 9, Slug = "my-slug", Nick = "nick" })).IsValid.Should().BeFalse();
+        (await updateValidator.ValidateAsync(new ProbeModel { Id = 1, Slug = "My Slug", Nick = "fresh" })).IsValid.Should().BeTrue();
+        (await updateValidator.ValidateAsync(new ProbeModel { Id = 2, Slug = "my-slug", Nick = "nick" })).IsValid.Should().BeFalse();
     }
 
     private class ProbeModel
@@ -273,15 +274,23 @@ public class AdditionalValidatorsTests
         public string Nick { get; set; } = string.Empty;
     }
 
-    private class ProbeValidator : AbstractValidator<ProbeModel>
+    private class ProbeCreateValidator : AbstractValidator<ProbeModel>
     {
-        public ProbeValidator(Domain.AppDbContext db)
+        public ProbeCreateValidator(Domain.AppDbContext db)
         {
             RuleFor(x => x.Id).MustExistAsync<ProbeModel, VideoEntity, long>(db);
             RuleFor(x => x.OptionalId).MustExistAsync<ProbeModel, VideoEntity, long>(db);
             RuleFor(x => x.Slug).UniqueSlugAsync<ProbeModel, VideoEntity, long>(db);
-            RuleFor(x => x.Slug).UniqueSlugUpdateAsync<ProbeModel, VideoEntity, long>(db, x => x.Id);
             RuleFor(x => x.Nick).UniquePropertyAsync<ProbeModel, PortfolioEntity, long>(db, nameof(PortfolioEntity.NickName), "taken");
+        }
+    }
+
+    private class ProbeUpdateValidator : AbstractValidator<ProbeModel>
+    {
+        public ProbeUpdateValidator(Domain.AppDbContext db)
+        {
+            RuleFor(x => x.Id).MustExistAsync<ProbeModel, VideoEntity, long>(db);
+            RuleFor(x => x.Slug).UniqueSlugUpdateAsync<ProbeModel, VideoEntity, long>(db, x => x.Id);
             RuleFor(x => x.Nick).UniquePropertyUpdateAsync<ProbeModel, PortfolioEntity, long>(db, nameof(PortfolioEntity.NickName), x => x.Id, "taken");
         }
     }

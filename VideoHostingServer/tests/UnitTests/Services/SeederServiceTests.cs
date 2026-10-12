@@ -172,4 +172,156 @@ public class SeederServiceTests
 
         (await context.Videos.CountAsync()).Should().Be(0);
     }
+
+    [Fact]
+    public async Task SeedVideosAsync_WithValidJson_SeedsVideosAndProcessesMedia()
+    {
+        var context = TestDbContextHelper.CreateContext();
+        var publicPrivacy = new VideoPrivacyEntity { Id = 1, Name = "Public", SystemCode = VideoPrivacyConstants.Public };
+        var privatePrivacy = new VideoPrivacyEntity { Id = 2, Name = "Private", SystemCode = VideoPrivacyConstants.Private };
+        context.VideoPrivacies.AddRange(publicPrivacy, privatePrivacy);
+
+        var portfolio = new Domain.Entities.Portfolio.PortfolioEntity { Id = 10, Name = "P10", NickName = "p10" };
+        context.Portfolios.Add(portfolio);
+
+        // Pre-existing video with slug "existing-slug" to test duplicate skip branch
+        context.Videos.Add(new VideoEntity { Id = 1, Title = "Existing", Slug = "existing-slug" });
+        await context.SaveChangesAsync();
+
+        var tempDir = Path.Combine(Path.GetTempPath(), "SeederTest_" + Guid.NewGuid().ToString("N")[..8]);
+        Directory.CreateDirectory(tempDir);
+        var jsonFile = Path.Combine(tempDir, "videos.json");
+        var videoLocalFile = Path.Combine(tempDir, "clip.mp4");
+        await File.WriteAllTextAsync(videoLocalFile, "dummy video data");
+
+        try
+        {
+            var seedVideos = new List<VideoSeedModel>
+            {
+                new()
+                {
+                    Title = "Video 1",
+                    Slug = "video-1",
+                    PrivacySystemCode = VideoPrivacyConstants.Private,
+                    ImagePath = "http://example.com/pic1.jpg",
+                    VideoFile = "clip.mp4"
+                },
+                new()
+                {
+                    Title = "Video 2 - Fallback Privacy & Throwing Image",
+                    Slug = "video-2",
+                    PrivacySystemCode = "NON_EXISTENT_CODE",
+                    ImagePath = "http://example.com/badpic.jpg",
+                    VideoFile = "missing.mp4"
+                },
+                new()
+                {
+                    Title = "Duplicate Slug Video",
+                    Slug = "existing-slug"
+                }
+            };
+            await File.WriteAllTextAsync(jsonFile, JsonSerializer.Serialize(seedVideos));
+
+            _imageServiceMock.Setup(i => i.SaveImageFromUrlAsync("http://example.com/pic1.jpg"))
+                .ReturnsAsync("pic1.webp");
+            _imageServiceMock.Setup(i => i.SaveImageFromUrlAsync("http://example.com/badpic.jpg"))
+                .ThrowsAsync(new HttpRequestException("Not found"));
+            _videoFileServiceMock.Setup(v => v.SaveVideoFromFilePathAsync(videoLocalFile))
+                .ReturnsAsync("saved_video.mp4");
+
+            var service = new SeederService(
+                context,
+                _roleManagerMock.Object,
+                _userManagerMock.Object,
+                _videoMapper,
+                _userMapper,
+                _imageServiceMock.Object,
+                _videoFileServiceMock.Object);
+
+            await service.SeedVideosAsync(jsonFile, tempDir);
+
+            var videos = await context.Videos.ToListAsync();
+            videos.Should().HaveCount(3); // 1 existing + 2 newly seeded (the duplicate was skipped)
+
+            var v1 = videos.First(v => v.Slug == "video-1");
+            v1.PrivacyId.Should().Be(2);
+            v1.PortfolioId.Should().Be(10);
+            v1.Image.Should().Be("pic1.webp");
+            v1.Video.Should().Be("saved_video.mp4");
+
+            var v2 = videos.First(v => v.Slug == "video-2");
+            v2.PrivacyId.Should().Be(1); // Fallback to public
+            v2.PortfolioId.Should().Be(10);
+        }
+        finally
+        {
+            if (Directory.Exists(tempDir)) Directory.Delete(tempDir, true);
+        }
+    }
+
+    [Fact]
+    public async Task SeedRolesAsync_WhenRoleCreationFails_HandlesErrorGracefully()
+    {
+        var context = TestDbContextHelper.CreateContext();
+        _roleManagerMock.Setup(r => r.RoleExistsAsync(It.IsAny<string>())).ReturnsAsync(false);
+        _roleManagerMock.Setup(r => r.CreateAsync(It.IsAny<RoleEntity>()))
+            .ReturnsAsync(IdentityResult.Failed(new IdentityError { Description = "Role creation failed" }));
+
+        var service = new SeederService(
+            context,
+            _roleManagerMock.Object,
+            _userManagerMock.Object,
+            _videoMapper,
+            _userMapper,
+            _imageServiceMock.Object,
+            _videoFileServiceMock.Object);
+
+        await service.SeedRolesAsync();
+        _roleManagerMock.Verify(r => r.CreateAsync(It.IsAny<RoleEntity>()), Times.AtLeastOnce);
+    }
+
+    [Fact]
+    public async Task SeedUsersAsync_EmptyJsonOrUserCreationFailsOrImageThrows_HandlesGracefully()
+    {
+        var context = TestDbContextHelper.CreateContext();
+        var tempFile = Path.GetTempFileName();
+        try
+        {
+            // Empty list
+            await File.WriteAllTextAsync(tempFile, "[]");
+            var service = new SeederService(
+                context,
+                _roleManagerMock.Object,
+                _userManagerMock.Object,
+                _videoMapper,
+                _userMapper,
+                _imageServiceMock.Object,
+                _videoFileServiceMock.Object);
+
+            await service.SeedUsersAsync(tempFile);
+
+            // User with throwing image and failing creation
+            var users = new List<UserSeedModel>
+            {
+                new()
+                {
+                    Email = "fail@test.com",
+                    Password = "Pass",
+                    ImagePath = "http://bad.url",
+                    Roles = ["Admin", "UnknownRole"]
+                }
+            };
+            await File.WriteAllTextAsync(tempFile, JsonSerializer.Serialize(users));
+            _imageServiceMock.Setup(i => i.SaveImageFromUrlAsync(It.IsAny<string>()))
+                .ThrowsAsync(new Exception("Network error"));
+            _userManagerMock.Setup(u => u.CreateAsync(It.IsAny<UserEntity>(), It.IsAny<string>()))
+                .ReturnsAsync(IdentityResult.Failed());
+
+            await service.SeedUsersAsync(tempFile);
+        }
+        finally
+        {
+            if (File.Exists(tempFile)) File.Delete(tempFile);
+        }
+    }
 }

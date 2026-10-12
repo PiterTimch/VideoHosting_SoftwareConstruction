@@ -137,4 +137,18 @@ public class CurrentUserServiceTests
 
         result.Should().BeFalse();
     }
+
+    [Fact]
+    public void IsInRole_WhenCustomRoleClaimType_MatchesViaFindAll()
+    {
+        var context = new DefaultHttpContext();
+        var identity = new ClaimsIdentity("TestAuth", ClaimTypes.Name, "CustomRoleClaimType");
+        identity.AddClaim(new Claim(ClaimTypes.Role, "admin"));
+        identity.AddClaim(new Claim(ClaimTypes.Role, "moderator"));
+        context.User = new ClaimsPrincipal(identity);
+        _contextAccessorMock.Setup(x => x.HttpContext).Returns(context);
+
+        _service.IsInRole("Admin").Should().BeTrue();
+        _service.IsInRole("SuperAdmin").Should().BeFalse();
+    }
 }

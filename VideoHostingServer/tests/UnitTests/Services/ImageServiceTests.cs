@@ -89,4 +89,70 @@ public class ImageServiceTests : IDisposable
         await service.DeleteImageAsync(fileName);
         File.Exists(Path.Combine(_testDir, $"50_{fileName}")).Should().BeFalse();
     }
+
+    [Fact]
+    public async Task ImageService_FallbackMediaRootAndEmptyFormats_WorksCorrectly()
+    {
+        var tempFolder = Path.Combine(Path.GetTempPath(), "ImgFallbacks_" + Guid.NewGuid().ToString("N")[..8]);
+        Directory.CreateDirectory(tempFolder);
+
+        try
+        {
+            var config = new ConfigurationBuilder()
+                .AddInMemoryCollection(new Dictionary<string, string?>
+                {
+                    ["MediaRoot"] = "", // Empty MediaRoot -> Directory.GetCurrentDirectory()
+                    ["ImagesDir"] = Path.GetRelativePath(Directory.GetCurrentDirectory(), tempFolder),
+                    ["ImageSizes:0"] = "32"
+                    // No ImageFormats specified -> fallback to ["webp"]
+                })
+                .Build();
+
+            var service = new ImageService(config);
+            var fileName = await service.SaveImageFromBase64Async(Base64Png);
+
+            fileName.Should().EndWith(".webp");
+            File.Exists(Path.Combine(tempFolder, $"32_{fileName}")).Should().BeTrue();
+
+            await service.DeleteImageAsync(fileName);
+            File.Exists(Path.Combine(tempFolder, $"32_{fileName}")).Should().BeFalse();
+        }
+        finally
+        {
+            if (Directory.Exists(tempFolder)) Directory.Delete(tempFolder, true);
+        }
+    }
+
+    [Fact]
+    public async Task ImageService_WithAvifFormat_EncodesAvifSuccessfully()
+    {
+        var avifDir = Path.Combine(Path.GetTempPath(), "ImgAvif_" + Guid.NewGuid().ToString("N")[..8]);
+        Directory.CreateDirectory(avifDir);
+
+        try
+        {
+            var config = new ConfigurationBuilder()
+                .AddInMemoryCollection(new Dictionary<string, string?>
+                {
+                    ["MediaRoot"] = avifDir,
+                    ["ImagesDir"] = "",
+                    ["ImageSizes:0"] = "32",
+                    ["ImageFormats:0"] = "avif"
+                })
+                .Build();
+
+            var service = new ImageService(config);
+            var fileName = await service.SaveImageFromBase64Async(Base64Png);
+
+            var baseName = Path.GetFileNameWithoutExtension(fileName);
+            File.Exists(Path.Combine(avifDir, $"32_{baseName}.avif")).Should().BeTrue();
+
+            await service.DeleteImageAsync(fileName);
+            File.Exists(Path.Combine(avifDir, $"32_{baseName}.avif")).Should().BeFalse();
+        }
+        finally
+        {
+            if (Directory.Exists(avifDir)) Directory.Delete(avifDir, true);
+        }
+    }
 }

@@ -35,4 +35,9 @@
     <ProjectReference Include="..\..\VideoHostingServer\VideoHostingServer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\..\VideoHostingServer\FFmpeg\**" Link="FFmpeg\%(RecursiveDir)%(FileName)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\..\VideoHostingWeb\tests\fixtures\sample_video.mp4" Link="sample_video.mp4" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>
