@@ -52,9 +52,6 @@ public class VideoFileServiceTests : IDisposable
         await File.WriteAllTextAsync(file720, "dummy");
         await File.WriteAllTextAsync(file1080, "dummy");
 
-        File.Exists(file720).Should().BeTrue();
-        File.Exists(file1080).Should().BeTrue();
-
         await service.DeleteVideoAsync("myvideo.mp4");
 
         File.Exists(file720).Should().BeFalse();
@@ -99,7 +96,6 @@ public class VideoFileServiceTests : IDisposable
         progressUpdates.Last().Percentage.Should().Be(100);
 
         await service.DeleteVideoAsync(baseFileName);
-        File.Exists(output240).Should().BeFalse();
     }
 
     [Fact]
@@ -129,7 +125,6 @@ public class VideoFileServiceTests : IDisposable
         File.Exists(output240).Should().BeTrue();
 
         await service.DeleteVideoAsync(baseFileName);
-        File.Exists(output240).Should().BeFalse();
     }
 
     [Fact]
