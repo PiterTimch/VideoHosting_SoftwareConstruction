@@ -23,23 +23,23 @@ public partial class UserMapping
     [MapperIgnoreTarget(nameof(UserEntity.Image))]
     public partial void MapToEntity(UserEditModel model, UserEntity entity);
 
-    [MapPropertyFromSource(nameof(UserItemModel.Roles), Use = nameof(MapRolesQuery))]
-    [MapPropertyFromSource(nameof(UserItemModel.LoginTypes), Use = nameof(MapLoginsQuery))]
-    [MapPropertyFromSource(nameof(UserItemModel.IsLoginGoogle), Use = nameof(MapIsGoogleQuery))]
-    [MapPropertyFromSource(nameof(UserItemModel.IsLoginPassword), Use = nameof(MapIsPasswordQuery))]
-    public partial IQueryable<UserItemModel> ProjectToItemModel(IQueryable<UserEntity> query);
-
-    private static readonly System.Linq.Expressions.Expression<Func<UserEntity, List<string>>> MapRolesQuery =
-        user => user.UserRoles.Select(ur => ur.Role.Name).ToList();
-
-    private static readonly System.Linq.Expressions.Expression<Func<UserEntity, List<string>>> MapLoginsQuery =
-        user => user.UserLogins.Select(l => l.LoginProvider).ToList();
-
-    private static readonly System.Linq.Expressions.Expression<Func<UserEntity, bool>> MapIsGoogleQuery =
-        user => user.UserLogins.Any(l => l.LoginProvider == "Google");
-
-    private static readonly System.Linq.Expressions.Expression<Func<UserEntity, bool>> MapIsPasswordQuery =
-        user => user.PasswordHash != null && user.PasswordHash != "";
+    public IQueryable<UserItemModel> ProjectToItemModel(IQueryable<UserEntity> query)
+        => query.Select(x => new UserItemModel
+        {
+            Id = x.Id,
+            Email = x.Email ?? string.Empty,
+            FirstName = x.FirstName ?? string.Empty,
+            LastName = x.LastName ?? string.Empty,
+            Image = x.Image ?? string.Empty,
+            Roles = x.UserRoles != null
+                ? x.UserRoles.Select(ur => ur.Role.Name).ToList()
+                : new List<string>(),
+            LoginTypes = x.UserLogins != null
+                ? x.UserLogins.Select(l => l.LoginProvider).ToList()
+                : new List<string>(),
+            IsLoginGoogle = x.UserLogins != null && x.UserLogins.Any(l => l.LoginProvider == "Google"),
+            IsLoginPassword = x.PasswordHash != null && x.PasswordHash != "",
+        });
 
     private List<string> MapRoles(ICollection<UserRoleEntity> userRoles)
     {

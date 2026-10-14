@@ -41,8 +41,9 @@ public class DeleteCommentCommandHandler(
                 );
         }
 
-        context.Comments.Remove(comment);
-        await context.SaveChangesAsync(cancellationToken);
+        await context.Comments
+            .Where(x => x.Id == comment.Id)
+            .ExecuteDeleteAsync(cancellationToken);
 
         return Unit.Value;
     }

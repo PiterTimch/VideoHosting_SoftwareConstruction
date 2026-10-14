@@ -11,15 +11,38 @@ public partial class VideoMappingProfile
     [MapProperty(nameof(VideoEntity.Portfolio), nameof(VideoItemModel.Portfolio))]
     public partial VideoItemModel MapToItemModel(VideoEntity entity);
 
-    [MapPropertyFromSource(nameof(VideoItemModel.LikesCount), Use = nameof(MapLikesCountQuery))]
-    [MapPropertyFromSource(nameof(VideoItemModel.DislikesCount), Use = nameof(MapDislikesCountQuery))]
-    public partial IQueryable<VideoItemModel> ProjectToItemModel(IQueryable<VideoEntity> query);
-
-    private static readonly System.Linq.Expressions.Expression<Func<VideoEntity, int>> MapLikesCountQuery =
-        video => video.VideoReactions.Count(r => r.IsLike);
-
-    private static readonly System.Linq.Expressions.Expression<Func<VideoEntity, int>> MapDislikesCountQuery =
-        video => video.VideoReactions.Count(r => !r.IsLike);
+    public IQueryable<VideoItemModel> ProjectToItemModel(IQueryable<VideoEntity> query)
+        => query.Select(x => new VideoItemModel
+        {
+            Id = x.Id,
+            Title = x.Title,
+            Slug = x.Slug,
+            Description = x.Description,
+            ViewCount = x.ViewCount,
+            DateCreated = x.DateCreated.ToString("dd.MM.yyyy'р.'"),
+            Image = x.Image,
+            Video = x.Video,
+            Portfolio = x.Portfolio != null ? new Application.Models.Portfolio.PortfolioItemModel
+            {
+                Id = x.Portfolio.Id,
+                Name = x.Portfolio.Name,
+                NickName = x.Portfolio.NickName,
+                Description = x.Portfolio.Description,
+                Specialization = x.Portfolio.Specialization,
+                Contacts = x.Portfolio.Contacts,
+                Settings = x.Portfolio.Settings,
+                AvatarImage = x.Portfolio.AvatarImage,
+                BannerImage = x.Portfolio.BannerImage,
+            } : null,
+            Privacy = x.Privacy != null ? new VideoPrivacyItemModel
+            {
+                Id = x.Privacy.Id,
+                Name = x.Privacy.Name,
+                SystemCode = x.Privacy.SystemCode,
+            } : null,
+            LikesCount = x.VideoReactions.Count(r => r.IsLike),
+            DislikesCount = x.VideoReactions.Count(r => !r.IsLike),
+        });
 
     private void AfterMapToItemModel(VideoEntity entity, VideoItemModel model)
     {
