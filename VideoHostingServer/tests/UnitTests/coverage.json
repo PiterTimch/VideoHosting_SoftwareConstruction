@@ -4,12 +4,12 @@
       "Infrastructure.Repositories.GenericRepository`2": {
         "System.Linq.IQueryable`1<TEntity> Infrastructure.Repositories.GenericRepository`2::AsQurable(System.Boolean)": {
           "Lines": {
-            "88": 21,
-            "89": 21,
-            "90": 21,
-            "91": 20,
-            "92": 21,
-            "93": 21
+            "88": 26,
+            "89": 26,
+            "90": 26,
+            "91": 25,
+            "92": 26,
+            "93": 26
           },
           "Branches": [
             {
@@ -18,7 +18,7 @@
               "EndOffset": 26,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 20
+              "Hits": 25
             },
             {
               "Line": 90,
@@ -32,7 +32,7 @@
         },
         "System.Void Infrastructure.Repositories.GenericRepository`2::.ctor(Domain.AppDbContext,Application.Interfaces.IImageService)": {
           "Lines": {
-            "8": 19
+            "8": 23
           },
           "Branches": []
         }
@@ -106,12 +106,12 @@
       "Infrastructure.Repositories.GenericRepository`2/<GetByIdAsync>d__2": {
         "System.Void Infrastructure.Repositories.GenericRepository`2/<GetByIdAsync>d__2::MoveNext()": {
           "Lines": {
-            "13": 8,
-            "14": 8,
-            "16": 8,
-            "17": 2,
+            "13": 9,
+            "14": 9,
+            "16": 9,
+            "17": 3,
             "19": 6,
-            "20": 8
+            "20": 9
           },
           "Branches": [
             {
@@ -120,7 +120,7 @@
               "EndOffset": 199,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 2
+              "Hits": 3
             },
             {
               "Line": 16,
@@ -276,7 +276,7 @@
       "Infrastructure.Repositories.GenericRepository`2/<SaveChangesAsync>d__8": {
         "System.Void Infrastructure.Repositories.GenericRepository`2/<SaveChangesAsync>d__8::MoveNext()": {
           "Lines": {
-            "85": 4
+            "85": 5
           },
           "Branches": []
         }
@@ -381,12 +381,12 @@
       "Application.Validators.Video.VideoSearchModelValidator": {
         "System.Boolean Application.Validators.Video.VideoSearchModelValidator::BeValidYear(System.String)": {
           "Lines": {
-            "36": 9,
-            "37": 9,
-            "38": 8,
-            "39": 8,
+            "36": 13,
+            "37": 13,
+            "38": 12,
+            "39": 12,
             "41": 1,
-            "42": 9
+            "42": 13
           },
           "Branches": [
             {
@@ -395,7 +395,7 @@
               "EndOffset": 13,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 8
+              "Hits": 12
             },
             {
               "Line": 39,
@@ -403,7 +403,7 @@
               "EndOffset": 22,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 7
+              "Hits": 11
             },
             {
               "Line": 39,
@@ -425,13 +425,13 @@
         },
         "System.Boolean Application.Validators.Video.VideoSearchModelValidator::HaveValidYearRange(Application.Models.Video.VideoSearchModel)": {
           "Lines": {
-            "45": 3,
-            "46": 3,
-            "47": 3,
-            "48": 3,
-            "49": 3,
+            "45": 5,
+            "46": 5,
+            "47": 5,
+            "48": 5,
+            "49": 5,
             "51": 0,
-            "52": 3
+            "52": 5
           },
           "Branches": [
             {
@@ -440,7 +440,7 @@
               "EndOffset": 16,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 3
+              "Hits": 5
             },
             {
               "Line": 46,
@@ -456,7 +456,7 @@
               "EndOffset": 36,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 3
+              "Hits": 5
             },
             {
               "Line": 46,
@@ -470,26 +470,26 @@
         },
         "System.Void Application.Validators.Video.VideoSearchModelValidator::.ctor()": {
           "Lines": {
-            "8": 2,
-            "9": 2,
-            "10": 2,
-            "11": 2,
-            "13": 2,
-            "14": 2,
-            "16": 2,
-            "17": 2,
-            "19": 2,
-            "20": 2,
-            "22": 2,
-            "23": 2,
-            "24": 12,
-            "26": 2,
-            "27": 2,
-            "28": 12,
-            "30": 2,
-            "31": 2,
-            "32": 12,
-            "33": 2
+            "8": 4,
+            "9": 4,
+            "10": 4,
+            "11": 4,
+            "13": 4,
+            "14": 4,
+            "16": 4,
+            "17": 4,
+            "19": 4,
+            "20": 4,
+            "22": 4,
+            "23": 4,
+            "24": 16,
+            "26": 4,
+            "27": 4,
+            "28": 16,
+            "30": 4,
+            "31": 4,
+            "32": 16,
+            "33": 4
           },
           "Branches": [
             {
@@ -498,7 +498,7 @@
               "EndOffset": 13,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 5
+              "Hits": 7
             },
             {
               "Line": 32,
@@ -1138,19 +1138,19 @@
       "Application.Services.CookieAuthService": {
         "System.Void Application.Services.CookieAuthService::SetAuthCookie(System.String)": {
           "Lines": {
-            "11": 2,
-            "12": 2,
-            "13": 3,
-            "15": 1,
-            "16": 1,
-            "17": 1,
-            "18": 1,
-            "19": 1,
-            "20": 1,
-            "21": 1,
-            "22": 1,
-            "24": 1,
-            "25": 2
+            "11": 4,
+            "12": 4,
+            "13": 6,
+            "15": 2,
+            "16": 2,
+            "17": 2,
+            "18": 2,
+            "19": 2,
+            "20": 2,
+            "21": 2,
+            "22": 2,
+            "24": 2,
+            "25": 4
           },
           "Branches": [
             {
@@ -1159,7 +1159,7 @@
               "EndOffset": 23,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 13,
@@ -1167,25 +1167,25 @@
               "EndOffset": 123,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 2
+              "Hits": 4
             }
           ]
         },
         "System.Void Application.Services.CookieAuthService::ClearAuthCookie()": {
           "Lines": {
-            "28": 2,
-            "29": 2,
-            "30": 3,
-            "32": 1,
-            "33": 1,
-            "34": 1,
-            "35": 1,
-            "36": 1,
-            "37": 1,
-            "38": 1,
-            "39": 1,
-            "41": 1,
-            "42": 2
+            "28": 4,
+            "29": 4,
+            "30": 6,
+            "32": 2,
+            "33": 2,
+            "34": 2,
+            "35": 2,
+            "36": 2,
+            "37": 2,
+            "38": 2,
+            "39": 2,
+            "41": 2,
+            "42": 4
           },
           "Branches": [
             {
@@ -1194,7 +1194,7 @@
               "EndOffset": 23,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 30,
@@ -1202,13 +1202,13 @@
               "EndOffset": 122,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 2
+              "Hits": 4
             }
           ]
         },
         "System.Void Application.Services.CookieAuthService::.ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor)": {
           "Lines": {
-            "8": 4
+            "8": 8
           },
           "Branches": []
         }
@@ -1309,26 +1309,26 @@
         },
         "System.Boolean Application.Services.CurrentUserService::IsInRole(System.String)": {
           "Lines": {
-            "36": 8,
-            "37": 8,
-            "38": 8,
+            "36": 10,
+            "37": 10,
+            "38": 10,
             "39": 1,
-            "41": 7,
+            "41": 9,
             "42": 1,
-            "44": 18,
-            "45": 0,
-            "46": 0,
-            "47": 0,
-            "48": 0,
-            "50": 6,
-            "51": 6,
-            "52": 1,
+            "44": 29,
+            "45": 3,
+            "46": 3,
+            "47": 1,
+            "48": 2,
+            "50": 7,
+            "51": 7,
+            "52": 2,
             "54": 5,
             "55": 3,
             "56": 3,
             "57": 3,
             "60": 2,
-            "61": 8
+            "61": 10
           },
           "Branches": [
             {
@@ -1345,7 +1345,7 @@
               "EndOffset": 19,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 7
+              "Hits": 9
             },
             {
               "Line": 38,
@@ -1361,7 +1361,7 @@
               "EndOffset": 40,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 7
+              "Hits": 9
             },
             {
               "Line": 41,
@@ -1377,7 +1377,7 @@
               "EndOffset": 60,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 6
+              "Hits": 8
             },
             {
               "Line": 44,
@@ -1385,7 +1385,7 @@
               "EndOffset": 81,
               "Path": 1,
               "Ordinal": 9,
-              "Hits": 0
+              "Hits": 3
             },
             {
               "Line": 46,
@@ -1393,7 +1393,7 @@
               "EndOffset": 111,
               "Path": 0,
               "Ordinal": 6,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 46,
@@ -1401,7 +1401,7 @@
               "EndOffset": 115,
               "Path": 1,
               "Ordinal": 7,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 44,
@@ -1409,7 +1409,7 @@
               "EndOffset": 125,
               "Path": 0,
               "Ordinal": 8,
-              "Hits": 6
+              "Hits": 7
             },
             {
               "Line": 51,
@@ -1417,7 +1417,7 @@
               "EndOffset": 164,
               "Path": 0,
               "Ordinal": 10,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 51,
@@ -1463,7 +1463,7 @@
         },
         "System.Void Application.Services.CurrentUserService::.ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor)": {
           "Lines": {
-            "10": 10
+            "10": 11
           },
           "Branches": []
         }
@@ -1473,13 +1473,13 @@
       "Application.Services.ImageService": {
         "System.String Application.Services.ImageService::GetImagesBasePath()": {
           "Lines": {
-            "21": 8,
-            "22": 8,
-            "23": 8,
-            "24": 8,
-            "25": 8,
-            "26": 8,
-            "27": 8
+            "21": 12,
+            "22": 12,
+            "23": 12,
+            "24": 12,
+            "25": 12,
+            "26": 12,
+            "27": 12
           },
           "Branches": [
             {
@@ -1488,7 +1488,7 @@
               "EndOffset": 26,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 8
+              "Hits": 10
             },
             {
               "Line": 23,
@@ -1496,16 +1496,16 @@
               "EndOffset": 29,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 2
             }
           ]
         },
         "System.Collections.Generic.List`1<System.String> Application.Services.ImageService::GetOutputFormats()": {
           "Lines": {
-            "30": 5,
-            "31": 5,
-            "32": 5,
-            "33": 5
+            "30": 9,
+            "31": 9,
+            "32": 9,
+            "33": 9
           },
           "Branches": [
             {
@@ -1514,7 +1514,7 @@
               "EndOffset": 26,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 5
+              "Hits": 7
             },
             {
               "Line": 32,
@@ -1522,7 +1522,7 @@
               "EndOffset": 35,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 32,
@@ -1538,13 +1538,13 @@
               "EndOffset": 74,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 5
+              "Hits": 7
             }
           ]
         },
         "System.Void Application.Services.ImageService::.ctor(Microsoft.Extensions.Configuration.IConfiguration)": {
           "Lines": {
-            "12": 2
+            "12": 4
           },
           "Branches": []
         },
@@ -1552,8 +1552,8 @@
           "Lines": {
             "14": 1,
             "15": 1,
-            "16": 6,
-            "17": 0,
+            "16": 7,
+            "17": 1,
             "18": 1
           },
           "Branches": []
@@ -1562,11 +1562,11 @@
       "Application.Services.ImageService/<>c__DisplayClass10_0": {
         "System.Void Application.Services.ImageService/<>c__DisplayClass10_0::<SaveImageAsync>b__0(SixLabors.ImageSharp.Processing.IImageProcessingContext)": {
           "Lines": {
-            "105": 12,
-            "106": 12,
-            "107": 12,
-            "108": 12,
-            "109": 12
+            "105": 16,
+            "106": 16,
+            "107": 16,
+            "108": 16,
+            "109": 16
           },
           "Branches": []
         }
@@ -1574,20 +1574,20 @@
       "Application.Services.ImageService/<>c__DisplayClass5_0": {
         "System.Collections.Generic.IEnumerable`1<System.ValueTuple`2<System.Int32,System.String>> Application.Services.ImageService/<>c__DisplayClass5_0::<DeleteImageAsync>b__0(System.Int32)": {
           "Lines": {
-            "43": 8
+            "43": 12
           },
           "Branches": []
         },
         "System.Threading.Tasks.Task Application.Services.ImageService/<>c__DisplayClass5_0::<DeleteImageAsync>b__1(System.ValueTuple`2<System.Int32,System.String>)": {
           "Lines": {
-            "45": 4,
-            "46": 4,
-            "47": 4,
-            "48": 4,
-            "49": 4,
-            "50": 4,
-            "51": 4,
-            "52": 8
+            "45": 6,
+            "46": 6,
+            "47": 6,
+            "48": 6,
+            "49": 6,
+            "50": 6,
+            "51": 6,
+            "52": 12
           },
           "Branches": [
             {
@@ -1596,7 +1596,7 @@
               "EndOffset": 127,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 4
+              "Hits": 6
             },
             {
               "Line": 48,
@@ -1612,13 +1612,13 @@
       "Application.Services.ImageService/<>c__DisplayClass9_0": {
         "System.Collections.Generic.IEnumerable`1<System.ValueTuple`2<System.Int32,System.String>> Application.Services.ImageService/<>c__DisplayClass9_0::<SaveImageAsync>b__0(System.Int32)": {
           "Lines": {
-            "91": 12
+            "91": 16
           },
           "Branches": []
         },
         "System.Threading.Tasks.Task Application.Services.ImageService/<>c__DisplayClass9_0::<SaveImageAsync>b__1(System.ValueTuple`2<System.Int32,System.String>)": {
           "Lines": {
-            "92": 6
+            "92": 8
           },
           "Branches": []
         }
@@ -1626,16 +1626,16 @@
       "Application.Services.ImageService/<DeleteImageAsync>d__5": {
         "System.Void Application.Services.ImageService/<DeleteImageAsync>d__5::MoveNext()": {
           "Lines": {
-            "36": 2,
-            "37": 2,
-            "38": 2,
-            "39": 2,
-            "40": 2,
-            "42": 2,
-            "44": 2,
-            "53": 2,
-            "55": 2,
-            "56": 2
+            "36": 4,
+            "37": 4,
+            "38": 4,
+            "39": 4,
+            "40": 4,
+            "42": 4,
+            "44": 4,
+            "53": 4,
+            "55": 4,
+            "56": 4
           },
           "Branches": []
         }
@@ -1643,12 +1643,12 @@
       "Application.Services.ImageService/<SaveImageAsync>d__10": {
         "System.Void Application.Services.ImageService/<SaveImageAsync>d__10::MoveNext()": {
           "Lines": {
-            "101": 6,
-            "102": 6,
-            "104": 6,
-            "111": 6,
-            "112": 6,
-            "113": 6
+            "101": 8,
+            "102": 8,
+            "104": 8,
+            "111": 8,
+            "112": 8,
+            "113": 8
           },
           "Branches": []
         }
@@ -1669,15 +1669,15 @@
       "Application.Services.ImageService/<SaveImageAsync>d__9": {
         "System.Void Application.Services.ImageService/<SaveImageAsync>d__9::MoveNext()": {
           "Lines": {
-            "85": 3,
-            "86": 3,
-            "87": 3,
-            "88": 3,
-            "90": 3,
-            "93": 3,
-            "95": 3,
-            "97": 3,
-            "98": 3
+            "85": 5,
+            "86": 5,
+            "87": 5,
+            "88": 5,
+            "90": 5,
+            "93": 5,
+            "95": 5,
+            "97": 5,
+            "98": 5
           },
           "Branches": []
         }
@@ -1685,13 +1685,13 @@
       "Application.Services.ImageService/<SaveImageFromBase64Async>d__8": {
         "System.Void Application.Services.ImageService/<SaveImageFromBase64Async>d__8::MoveNext()": {
           "Lines": {
-            "75": 2,
-            "76": 2,
-            "77": 2,
-            "78": 2,
-            "80": 2,
-            "81": 2,
-            "82": 2
+            "75": 4,
+            "76": 4,
+            "77": 4,
+            "78": 4,
+            "80": 4,
+            "81": 4,
+            "82": 4
           },
           "Branches": [
             {
@@ -1700,7 +1700,7 @@
               "EndOffset": 34,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 1
+              "Hits": 3
             },
             {
               "Line": 76,
@@ -1864,15 +1864,15 @@
       "Application.Services.SeederService": {
         "System.Void Application.Services.SeederService::.ctor(Domain.AppDbContext,Microsoft.AspNetCore.Identity.RoleManager`1<Domain.Entities.Identity.RoleEntity>,Microsoft.AspNetCore.Identity.UserManager`1<Domain.Entities.Identity.UserEntity>,Application.Mappings.VideoMappingProfile,Application.Mappings.UserMapping,Application.Interfaces.IImageService,Application.Interfaces.IVideoFileService)": {
           "Lines": {
-            "16": 5,
-            "17": 5,
-            "18": 5,
-            "19": 5,
-            "20": 5,
-            "21": 5,
-            "22": 5,
-            "23": 5,
-            "24": 5
+            "16": 8,
+            "17": 8,
+            "18": 8,
+            "19": 8,
+            "20": 8,
+            "21": 8,
+            "22": 8,
+            "23": 8,
+            "24": 8
           },
           "Branches": []
         }
@@ -1880,7 +1880,7 @@
       "Application.Services.SeederService/<>c": {
         "System.Boolean Application.Services.SeederService/<>c::<SeedVideosAsync>b__11_0(Domain.Entities.Video.VideoPrivacyEntity)": {
           "Lines": {
-            "139": 0
+            "139": 1
           },
           "Branches": []
         }
@@ -1888,7 +1888,7 @@
       "Application.Services.SeederService/<>c__DisplayClass11_0": {
         "System.Boolean Application.Services.SeederService/<>c__DisplayClass11_0::<SeedVideosAsync>b__1(Domain.Entities.Video.VideoPrivacyEntity)": {
           "Lines": {
-            "157": 0
+            "157": 4
           },
           "Branches": []
         }
@@ -1896,19 +1896,19 @@
       "Application.Services.SeederService/<SeedRolesAsync>d__8": {
         "System.Void Application.Services.SeederService/<SeedRolesAsync>d__8::MoveNext()": {
           "Lines": {
-            "27": 1,
-            "28": 9,
-            "29": 3,
-            "30": 3,
-            "31": 3,
-            "32": 3,
-            "33": 3,
-            "34": 0,
-            "35": 0,
-            "36": 0,
-            "37": 3,
-            "38": 3,
-            "39": 1
+            "27": 2,
+            "28": 18,
+            "29": 6,
+            "30": 6,
+            "31": 6,
+            "32": 6,
+            "33": 6,
+            "34": 3,
+            "35": 3,
+            "36": 3,
+            "37": 6,
+            "38": 6,
+            "39": 2
           },
           "Branches": [
             {
@@ -1917,7 +1917,7 @@
               "EndOffset": 50,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 3
+              "Hits": 6
             },
             {
               "Line": 30,
@@ -1925,7 +1925,7 @@
               "EndOffset": 203,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 3
+              "Hits": 6
             },
             {
               "Line": 33,
@@ -1933,7 +1933,7 @@
               "EndOffset": 375,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 3
             },
             {
               "Line": 33,
@@ -1941,7 +1941,7 @@
               "EndOffset": 399,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 3
+              "Hits": 6
             },
             {
               "Line": 30,
@@ -1949,7 +1949,7 @@
               "EndOffset": 407,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 3
+              "Hits": 6
             },
             {
               "Line": 28,
@@ -1957,7 +1957,7 @@
               "EndOffset": 448,
               "Path": 0,
               "Ordinal": 4,
-              "Hits": 1
+              "Hits": 2
             }
           ]
         }
@@ -1965,37 +1965,37 @@
       "Application.Services.SeederService/<SeedUsersAsync>d__9": {
         "System.Void Application.Services.SeederService/<SeedUsersAsync>d__9::MoveNext()": {
           "Lines": {
-            "42": 3,
-            "43": 3,
+            "42": 5,
+            "43": 5,
             "44": 1,
-            "46": 2,
+            "46": 4,
             "47": 1,
-            "50": 1,
-            "51": 1,
-            "53": 1,
-            "54": 1,
-            "55": 1,
-            "56": 1,
-            "58": 1,
-            "59": 0,
-            "61": 5,
-            "62": 1,
-            "63": 1,
-            "64": 1,
-            "65": 1,
-            "67": 1,
-            "68": 1,
+            "50": 3,
+            "51": 3,
+            "53": 3,
+            "54": 3,
+            "55": 3,
+            "56": 3,
+            "58": 3,
+            "59": 1,
+            "61": 10,
+            "62": 2,
+            "63": 2,
+            "64": 2,
+            "65": 2,
+            "67": 2,
+            "68": 2,
             "69": 1,
-            "70": 0,
-            "71": 0,
-            "72": 0,
-            "73": 0,
-            "74": 1,
-            "76": 1,
-            "77": 1,
-            "78": 0,
-            "79": 0,
-            "80": 0,
+            "70": 1,
+            "71": 1,
+            "72": 1,
+            "73": 1,
+            "74": 2,
+            "76": 2,
+            "77": 2,
+            "78": 1,
+            "79": 1,
+            "80": 1,
             "83": 1,
             "84": 1,
             "85": 1,
@@ -2013,12 +2013,12 @@
             "98": 1,
             "99": 1,
             "100": 1,
-            "101": 1,
+            "101": 2,
             "102": 0,
             "103": 0,
             "104": 0,
             "105": 0,
-            "106": 3
+            "106": 5
           },
           "Branches": [
             {
@@ -2027,7 +2027,7 @@
               "EndOffset": 27,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 3
+              "Hits": 5
             },
             {
               "Line": 43,
@@ -2043,7 +2043,7 @@
               "EndOffset": 169,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 2
+              "Hits": 4
             },
             {
               "Line": 46,
@@ -2059,7 +2059,7 @@
               "EndOffset": 194,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 2
+              "Hits": 6
             },
             {
               "Line": 46,
@@ -2067,7 +2067,7 @@
               "EndOffset": 194,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 2
+              "Hits": 6
             },
             {
               "Line": 47,
@@ -2075,7 +2075,7 @@
               "EndOffset": 216,
               "Path": 0,
               "Ordinal": 6,
-              "Hits": 1
+              "Hits": 3
             },
             {
               "Line": 58,
@@ -2083,7 +2083,7 @@
               "EndOffset": 393,
               "Path": 0,
               "Ordinal": 8,
-              "Hits": 1
+              "Hits": 3
             },
             {
               "Line": 58,
@@ -2099,7 +2099,7 @@
               "EndOffset": 416,
               "Path": 0,
               "Ordinal": 10,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 58,
@@ -2107,7 +2107,7 @@
               "EndOffset": 421,
               "Path": 1,
               "Ordinal": 11,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 47,
@@ -2115,7 +2115,7 @@
               "EndOffset": 439,
               "Path": 1,
               "Ordinal": 7,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 61,
@@ -2123,7 +2123,7 @@
               "EndOffset": 501,
               "Path": 1,
               "Ordinal": 27,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 64,
@@ -2131,7 +2131,7 @@
               "EndOffset": 575,
               "Path": 0,
               "Ordinal": 12,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 64,
@@ -2139,7 +2139,7 @@
               "EndOffset": 817,
               "Path": 1,
               "Ordinal": 13,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 77,
@@ -2147,7 +2147,7 @@
               "EndOffset": 988,
               "Path": 0,
               "Ordinal": 14,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 77,
@@ -2243,7 +2243,7 @@
               "EndOffset": 1886,
               "Path": 0,
               "Ordinal": 26,
-              "Hits": 1
+              "Hits": 2
             }
           ]
         }
@@ -2287,58 +2287,58 @@
       "Application.Services.SeederService/<SeedVideosAsync>d__11": {
         "System.Void Application.Services.SeederService/<SeedVideosAsync>d__11::MoveNext()": {
           "Lines": {
-            "125": 1,
-            "126": 1,
+            "125": 2,
+            "126": 2,
             "127": 1,
-            "129": 0,
-            "130": 0,
-            "131": 0,
-            "132": 0,
-            "133": 0,
-            "135": 0,
-            "136": 0,
-            "137": 0,
-            "138": 0,
-            "140": 0,
-            "142": 0,
-            "144": 0,
-            "145": 0,
-            "146": 0,
-            "147": 0,
-            "149": 0,
-            "151": 0,
-            "152": 0,
-            "153": 0,
-            "154": 0,
-            "156": 0,
-            "158": 0,
-            "159": 0,
-            "160": 0,
-            "161": 0,
-            "162": 0,
-            "164": 0,
-            "165": 0,
-            "167": 0,
-            "168": 0,
-            "169": 0,
-            "170": 0,
-            "171": 0,
-            "172": 0,
-            "173": 0,
-            "174": 0,
-            "176": 0,
-            "177": 0,
-            "178": 0,
-            "179": 0,
-            "180": 0,
-            "181": 0,
-            "182": 0,
-            "183": 0,
-            "185": 0,
-            "186": 0,
-            "187": 0,
-            "188": 0,
-            "189": 1
+            "129": 1,
+            "130": 1,
+            "131": 1,
+            "132": 1,
+            "133": 1,
+            "135": 1,
+            "136": 1,
+            "137": 1,
+            "138": 1,
+            "140": 1,
+            "142": 1,
+            "144": 9,
+            "145": 3,
+            "146": 3,
+            "147": 1,
+            "149": 2,
+            "151": 2,
+            "152": 2,
+            "153": 2,
+            "154": 2,
+            "156": 2,
+            "158": 2,
+            "159": 2,
+            "160": 2,
+            "161": 2,
+            "162": 2,
+            "164": 2,
+            "165": 2,
+            "167": 2,
+            "168": 2,
+            "169": 1,
+            "170": 1,
+            "171": 1,
+            "172": 1,
+            "173": 1,
+            "174": 2,
+            "176": 2,
+            "177": 2,
+            "178": 2,
+            "179": 2,
+            "180": 1,
+            "181": 1,
+            "182": 1,
+            "183": 2,
+            "185": 2,
+            "186": 2,
+            "187": 2,
+            "188": 1,
+            "189": 2
           },
           "Branches": [
             {
@@ -2355,7 +2355,7 @@
               "EndOffset": 88,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 135,
@@ -2363,7 +2363,7 @@
               "EndOffset": 271,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 144,
@@ -2371,7 +2371,7 @@
               "EndOffset": 695,
               "Path": 1,
               "Ordinal": 19,
-              "Hits": 0
+              "Hits": 3
             },
             {
               "Line": 146,
@@ -2379,7 +2379,7 @@
               "EndOffset": 996,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 151,
@@ -2387,7 +2387,7 @@
               "EndOffset": 1044,
               "Path": 0,
               "Ordinal": 6,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 151,
@@ -2395,7 +2395,7 @@
               "EndOffset": 1074,
               "Path": 1,
               "Ordinal": 7,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 156,
@@ -2403,7 +2403,7 @@
               "EndOffset": 1106,
               "Path": 0,
               "Ordinal": 8,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 156,
@@ -2411,7 +2411,7 @@
               "EndOffset": 1113,
               "Path": 1,
               "Ordinal": 9,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 159,
@@ -2419,7 +2419,7 @@
               "EndOffset": 1133,
               "Path": 0,
               "Ordinal": 10,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 159,
@@ -2427,7 +2427,7 @@
               "EndOffset": 1158,
               "Path": 1,
               "Ordinal": 11,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 164,
@@ -2435,7 +2435,7 @@
               "EndOffset": 1191,
               "Path": 0,
               "Ordinal": 12,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 164,
@@ -2443,7 +2443,7 @@
               "EndOffset": 1443,
               "Path": 1,
               "Ordinal": 13,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 176,
@@ -2451,7 +2451,7 @@
               "EndOffset": 1476,
               "Path": 0,
               "Ordinal": 14,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 179,
@@ -2459,7 +2459,7 @@
               "EndOffset": 1530,
               "Path": 0,
               "Ordinal": 16,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 179,
@@ -2467,7 +2467,7 @@
               "EndOffset": 1697,
               "Path": 1,
               "Ordinal": 17,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 176,
@@ -2475,7 +2475,7 @@
               "EndOffset": 1705,
               "Path": 1,
               "Ordinal": 15,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 146,
@@ -2483,7 +2483,7 @@
               "EndOffset": 1980,
               "Path": 0,
               "Ordinal": 4,
-              "Hits": 0
+              "Hits": 4
             },
             {
               "Line": 144,
@@ -2491,7 +2491,7 @@
               "EndOffset": 1996,
               "Path": 0,
               "Ordinal": 18,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 135,
@@ -2499,7 +2499,7 @@
               "EndOffset": 2055,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -2674,22 +2674,22 @@
       "Application.Services.VideoFileService": {
         "System.Void Application.Services.VideoFileService::.ctor(Microsoft.Extensions.Configuration.IConfiguration)": {
           "Lines": {
-            "21": 1,
-            "22": 1,
-            "23": 1,
-            "24": 1,
-            "25": 1,
-            "26": 1,
-            "27": 1,
-            "28": 1,
-            "29": 1,
-            "30": 1,
-            "31": 1,
-            "32": 1,
-            "33": 1,
-            "35": 1,
-            "37": 1,
-            "38": 1
+            "21": 4,
+            "22": 4,
+            "23": 4,
+            "24": 4,
+            "25": 4,
+            "26": 4,
+            "27": 4,
+            "28": 4,
+            "29": 4,
+            "30": 4,
+            "31": 4,
+            "32": 4,
+            "33": 4,
+            "35": 4,
+            "37": 4,
+            "38": 4
           },
           "Branches": [
             {
@@ -2698,7 +2698,7 @@
               "EndOffset": 28,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 1
+              "Hits": 3
             },
             {
               "Line": 24,
@@ -2706,7 +2706,7 @@
               "EndOffset": 31,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -2714,7 +2714,7 @@
       "Application.Services.VideoFileService/<>c": {
         "System.Void Application.Services.VideoFileService/<>c::<SaveVideoFromFilePathAsync>b__8_0(Application.Models.VideoProcessing.VideoProgressUpdate)": {
           "Lines": {
-            "61": 0
+            "61": 7
           },
           "Branches": []
         }
@@ -2722,7 +2722,7 @@
       "Application.Services.VideoFileService/<>c__DisplayClass10_0": {
         "System.Void Application.Services.VideoFileService/<>c__DisplayClass10_0::<ProcessVideoAsync>b__0(System.Object,Xabe.FFmpeg.Events.ConversionProgressEventArgs)": {
           "Lines": {
-            "151": 0
+            "151": 6
           },
           "Branches": []
         }
@@ -2730,11 +2730,11 @@
       "Application.Services.VideoFileService/<>c__DisplayClass11_0": {
         "System.Threading.Tasks.Task Application.Services.VideoFileService/<>c__DisplayClass11_0::<DeleteVideoAsync>b__0(System.Int32)": {
           "Lines": {
-            "159": 3,
-            "160": 2,
-            "161": 2,
-            "162": 4,
-            "163": 5
+            "159": 7,
+            "160": 4,
+            "161": 4,
+            "162": 8,
+            "163": 11
           },
           "Branches": [
             {
@@ -2743,7 +2743,7 @@
               "EndOffset": 95,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 2
+              "Hits": 4
             },
             {
               "Line": 162,
@@ -2759,25 +2759,25 @@
       "Application.Services.VideoFileService/<>c__DisplayClass9_1": {
         "System.Void Application.Services.VideoFileService/<>c__DisplayClass9_1::<SaveVideoWithProgressAsync>b__0(System.Double)": {
           "Lines": {
-            "90": 0,
-            "91": 0,
-            "93": 0,
-            "94": 0,
-            "95": 0,
-            "96": 0,
-            "97": 0,
-            "98": 0,
-            "100": 0,
-            "101": 0,
-            "102": 0,
-            "103": 0,
-            "105": 0,
-            "106": 0,
-            "107": 0,
-            "108": 0,
-            "109": 0,
-            "110": 0,
-            "111": 0
+            "90": 4,
+            "91": 4,
+            "93": 4,
+            "94": 4,
+            "95": 4,
+            "96": 4,
+            "97": 4,
+            "98": 4,
+            "100": 4,
+            "101": 4,
+            "102": 4,
+            "103": 4,
+            "105": 4,
+            "106": 4,
+            "107": 4,
+            "108": 4,
+            "109": 4,
+            "110": 4,
+            "111": 6
           },
           "Branches": [
             {
@@ -2786,7 +2786,7 @@
               "EndOffset": 66,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 4
             },
             {
               "Line": 100,
@@ -2794,7 +2794,7 @@
               "EndOffset": 145,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 4
             },
             {
               "Line": 100,
@@ -2818,9 +2818,9 @@
       "Application.Services.VideoFileService/<DeleteVideoAsync>d__11": {
         "System.Void Application.Services.VideoFileService/<DeleteVideoAsync>d__11::MoveNext()": {
           "Lines": {
-            "158": 1,
-            "165": 1,
-            "166": 1
+            "158": 3,
+            "165": 3,
+            "166": 3
           },
           "Branches": []
         }
@@ -2828,29 +2828,29 @@
       "Application.Services.VideoFileService/<ProcessVideoAsync>d__10": {
         "System.Void Application.Services.VideoFileService/<ProcessVideoAsync>d__10::MoveNext()": {
           "Lines": {
-            "125": 0,
-            "126": 0,
-            "127": 0,
-            "128": 0,
-            "130": 0,
-            "132": 0,
-            "133": 0,
-            "134": 0,
-            "136": 0,
-            "137": 0,
-            "138": 0,
-            "140": 0,
-            "141": 0,
-            "142": 0,
-            "144": 0,
+            "125": 2,
+            "126": 2,
+            "127": 2,
+            "128": 2,
+            "130": 2,
+            "132": 2,
+            "133": 2,
+            "134": 2,
+            "136": 2,
+            "137": 2,
+            "138": 2,
+            "140": 2,
+            "141": 2,
+            "142": 2,
+            "144": 2,
             "145": 0,
             "146": 0,
             "147": 0,
-            "149": 0,
-            "150": 0,
-            "152": 0,
-            "154": 0,
-            "155": 0
+            "149": 2,
+            "150": 2,
+            "152": 2,
+            "154": 2,
+            "155": 2
           },
           "Branches": [
             {
@@ -2867,7 +2867,7 @@
               "EndOffset": 186,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 134,
@@ -2883,7 +2883,7 @@
               "EndOffset": 271,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 144,
@@ -2899,7 +2899,7 @@
               "EndOffset": 409,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 149,
@@ -2907,7 +2907,7 @@
               "EndOffset": 429,
               "Path": 0,
               "Ordinal": 6,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 149,
@@ -2915,7 +2915,7 @@
               "EndOffset": 460,
               "Path": 1,
               "Ordinal": 7,
-              "Hits": 0
+              "Hits": 2
             }
           ]
         }
@@ -2923,18 +2923,18 @@
       "Application.Services.VideoFileService/<SaveVideoAsync>d__7": {
         "System.Void Application.Services.VideoFileService/<SaveVideoAsync>d__7::MoveNext()": {
           "Lines": {
-            "41": 0,
-            "42": 0,
-            "44": 0,
-            "45": 0,
-            "46": 0,
-            "47": 0,
-            "50": 0,
-            "51": 0,
-            "54": 0,
-            "55": 0,
-            "56": 0,
-            "57": 0
+            "41": 1,
+            "42": 1,
+            "44": 1,
+            "45": 1,
+            "46": 1,
+            "47": 1,
+            "50": 1,
+            "51": 1,
+            "54": 1,
+            "55": 2,
+            "56": 1,
+            "57": 1
           },
           "Branches": [
             {
@@ -2943,7 +2943,7 @@
               "EndOffset": 419,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 55,
@@ -2951,7 +2951,7 @@
               "EndOffset": 431,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -2959,8 +2959,8 @@
       "Application.Services.VideoFileService/<SaveVideoFromFilePathAsync>d__8": {
         "System.Void Application.Services.VideoFileService/<SaveVideoFromFilePathAsync>d__8::MoveNext()": {
           "Lines": {
-            "60": 0,
-            "62": 0
+            "60": 1,
+            "62": 1
           },
           "Branches": []
         }
@@ -2968,37 +2968,37 @@
       "Application.Services.VideoFileService/<SaveVideoWithProgressAsync>d__9": {
         "System.Void Application.Services.VideoFileService/<SaveVideoWithProgressAsync>d__9::MoveNext()": {
           "Lines": {
-            "65": 0,
-            "66": 0,
-            "67": 0,
-            "69": 0,
-            "71": 0,
+            "65": 2,
+            "66": 2,
+            "67": 2,
+            "69": 2,
+            "71": 2,
             "72": 0,
             "73": 0,
             "74": 0,
             "75": 0,
-            "77": 0,
-            "79": 0,
-            "80": 0,
-            "81": 0,
-            "82": 0,
-            "84": 0,
-            "85": 0,
-            "86": 0,
-            "87": 0,
-            "89": 0,
-            "92": 0,
-            "99": 0,
-            "104": 0,
-            "112": 0,
-            "114": 0,
-            "115": 0,
-            "116": 0,
-            "117": 0,
-            "118": 0,
-            "119": 0,
-            "121": 0,
-            "122": 0
+            "77": 2,
+            "79": 2,
+            "80": 2,
+            "81": 2,
+            "82": 2,
+            "84": 8,
+            "85": 2,
+            "86": 2,
+            "87": 2,
+            "89": 2,
+            "92": 2,
+            "99": 2,
+            "104": 2,
+            "112": 2,
+            "114": 2,
+            "115": 2,
+            "116": 2,
+            "117": 2,
+            "118": 2,
+            "119": 2,
+            "121": 2,
+            "122": 2
           },
           "Branches": [
             {
@@ -3015,7 +3015,7 @@
               "EndOffset": 74,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 71,
@@ -3031,7 +3031,7 @@
               "EndOffset": 339,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 84,
@@ -3039,7 +3039,7 @@
               "EndOffset": 600,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 84,
@@ -3047,7 +3047,7 @@
               "EndOffset": 884,
               "Path": 0,
               "Ordinal": 4,
-              "Hits": 0
+              "Hits": 2
             }
           ]
         }
@@ -3057,24 +3057,24 @@
       "Application.Services.VideoProgressStore": {
         "System.Void Application.Services.VideoProgressStore::Set(System.String,Application.Models.VideoProcessing.VideoProgressUpdate)": {
           "Lines": {
-            "15": 6,
-            "16": 6,
-            "18": 6,
-            "19": 6,
-            "20": 6,
-            "21": 6,
-            "22": 6,
-            "23": 6,
-            "25": 6,
-            "26": 5,
-            "27": 5,
-            "28": 5,
-            "29": 5,
-            "30": 5,
-            "31": 5,
-            "32": 5,
-            "33": 5,
-            "34": 6
+            "15": 10,
+            "16": 10,
+            "18": 10,
+            "19": 10,
+            "20": 10,
+            "21": 10,
+            "22": 10,
+            "23": 10,
+            "25": 10,
+            "26": 9,
+            "27": 9,
+            "28": 9,
+            "29": 9,
+            "30": 9,
+            "31": 9,
+            "32": 9,
+            "33": 9,
+            "34": 10
           },
           "Branches": [
             {
@@ -3083,7 +3083,7 @@
               "EndOffset": 37,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 4
+              "Hits": 6
             },
             {
               "Line": 19,
@@ -3091,7 +3091,7 @@
               "EndOffset": 61,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 4
+              "Hits": 6
             },
             {
               "Line": 19,
@@ -3099,7 +3099,7 @@
               "EndOffset": 90,
               "Path": 0,
               "Ordinal": 4,
-              "Hits": 2
+              "Hits": 3
             },
             {
               "Line": 19,
@@ -3115,7 +3115,7 @@
               "EndOffset": 131,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 5
+              "Hits": 9
             },
             {
               "Line": 19,
@@ -3123,7 +3123,7 @@
               "EndOffset": 131,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 5
+              "Hits": 9
             },
             {
               "Line": 19,
@@ -3131,7 +3131,7 @@
               "EndOffset": 131,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 5
+              "Hits": 9
             },
             {
               "Line": 19,
@@ -3139,7 +3139,7 @@
               "EndOffset": 131,
               "Path": 1,
               "Ordinal": 7,
-              "Hits": 5
+              "Hits": 9
             },
             {
               "Line": 25,
@@ -3147,7 +3147,7 @@
               "EndOffset": 138,
               "Path": 0,
               "Ordinal": 8,
-              "Hits": 5
+              "Hits": 9
             },
             {
               "Line": 25,
@@ -3161,7 +3161,7 @@
         },
         "Application.Models.VideoProcessing.VideoProgressUpdate Application.Services.VideoProgressStore::Get(System.String)": {
           "Lines": {
-            "37": 3
+            "37": 5
           },
           "Branches": [
             {
@@ -3178,15 +3178,15 @@
               "EndOffset": 19,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 2
+              "Hits": 4
             }
           ]
         },
         "System.Void Application.Services.VideoProgressStore::.ctor(Microsoft.Extensions.Logging.ILogger`1<Application.Services.VideoProgressStore>)": {
           "Lines": {
-            "8": 3,
-            "10": 3,
-            "11": 3
+            "8": 5,
+            "10": 5,
+            "11": 5
           },
           "Branches": []
         },
@@ -3373,73 +3373,73 @@
       "Application.Models.Video.VideoItemModel": {
         "System.Int64 Application.Models.Video.VideoItemModel::get_Id()": {
           "Lines": {
-            "7": 21
+            "7": 23
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoItemModel::get_Title()": {
           "Lines": {
-            "8": 36
+            "8": 42
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoItemModel::get_Slug()": {
           "Lines": {
-            "9": 30
+            "9": 36
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoItemModel::get_Description()": {
           "Lines": {
-            "10": 13
+            "10": 15
           },
           "Branches": []
         },
         "System.Int64 Application.Models.Video.VideoItemModel::get_ViewCount()": {
           "Lines": {
-            "11": 12
+            "11": 14
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoItemModel::get_DateCreated()": {
           "Lines": {
-            "12": 30
+            "12": 37
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoItemModel::get_Image()": {
           "Lines": {
-            "14": 12
+            "14": 14
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoItemModel::get_Video()": {
           "Lines": {
-            "15": 12
+            "15": 14
           },
           "Branches": []
         },
         "Application.Models.Portfolio.PortfolioItemModel Application.Models.Video.VideoItemModel::get_Portfolio()": {
           "Lines": {
-            "17": 13
+            "17": 15
           },
           "Branches": []
         },
         "Application.Models.Video.VideoPrivacyItemModel Application.Models.Video.VideoItemModel::get_Privacy()": {
           "Lines": {
-            "18": 13
+            "18": 15
           },
           "Branches": []
         },
         "System.Int32 Application.Models.Video.VideoItemModel::get_LikesCount()": {
           "Lines": {
-            "20": 5
+            "20": 26
           },
           "Branches": []
         },
         "System.Int32 Application.Models.Video.VideoItemModel::get_DislikesCount()": {
           "Lines": {
-            "21": 4
+            "21": 24
           },
           "Branches": []
         },
@@ -3451,12 +3451,12 @@
         },
         "System.Int32 Application.Models.Video.VideoItemModel::get_UserRatingPercent()": {
           "Lines": {
-            "26": 2,
-            "27": 2,
-            "28": 2,
-            "29": 2,
-            "30": 2,
-            "31": 2
+            "26": 4,
+            "27": 4,
+            "28": 4,
+            "29": 4,
+            "30": 4,
+            "31": 4
           },
           "Branches": [
             {
@@ -3465,7 +3465,7 @@
               "EndOffset": 15,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 26,
@@ -3473,7 +3473,7 @@
               "EndOffset": 55,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 1
+              "Hits": 2
             }
           ]
         }
@@ -3483,19 +3483,19 @@
       "Application.Models.Video.VideoPrivacyItemModel": {
         "System.Int64 Application.Models.Video.VideoPrivacyItemModel::get_Id()": {
           "Lines": {
-            "5": 13
+            "5": 16
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoPrivacyItemModel::get_Name()": {
           "Lines": {
-            "6": 27
+            "6": 32
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoPrivacyItemModel::get_SystemCode()": {
           "Lines": {
-            "7": 26
+            "7": 32
           },
           "Branches": []
         }
@@ -3505,13 +3505,13 @@
       "Application.Models.Video.VideoReactionModel": {
         "System.Int64 Application.Models.Video.VideoReactionModel::get_VideoId()": {
           "Lines": {
-            "5": 5
+            "5": 7
           },
           "Branches": []
         },
         "System.Boolean Application.Models.Video.VideoReactionModel::get_IsLike()": {
           "Lines": {
-            "6": 2
+            "6": 4
           },
           "Branches": []
         }
@@ -3531,13 +3531,13 @@
       "Application.Models.Video.VideoSearchModel": {
         "System.String Application.Models.Video.VideoSearchModel::get_Q()": {
           "Lines": {
-            "7": 21
+            "7": 23
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoSearchModel::get_Title()": {
           "Lines": {
-            "8": 19
+            "8": 21
           },
           "Branches": []
         },
@@ -3549,13 +3549,13 @@
         },
         "System.String Application.Models.Video.VideoSearchModel::get_CreateYearFrom()": {
           "Lines": {
-            "10": 40
+            "10": 50
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoSearchModel::get_CreateYearTo()": {
           "Lines": {
-            "11": 33
+            "11": 43
           },
           "Branches": []
         },
@@ -3583,37 +3583,37 @@
       "Application.Models.Video.VideoSeedModel": {
         "System.String Application.Models.Video.VideoSeedModel::get_Title()": {
           "Lines": {
-            "5": 5
+            "5": 22
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoSeedModel::get_Slug()": {
           "Lines": {
-            "6": 5
+            "6": 25
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoSeedModel::get_Description()": {
           "Lines": {
-            "7": 4
+            "7": 18
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoSeedModel::get_PrivacySystemCode()": {
           "Lines": {
-            "8": 3
+            "8": 21
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoSeedModel::get_ImagePath()": {
           "Lines": {
-            "9": 1
+            "9": 14
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoSeedModel::get_VideoFile()": {
           "Lines": {
-            "10": 2
+            "10": 14
           },
           "Branches": []
         }
@@ -3623,43 +3623,43 @@
       "Application.Models.Video.VideoUpdateModel": {
         "System.Int64 Application.Models.Video.VideoUpdateModel::get_Id()": {
           "Lines": {
-            "7": 25
+            "7": 31
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoUpdateModel::get_Title()": {
           "Lines": {
-            "8": 25
+            "8": 30
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoUpdateModel::get_Slug()": {
           "Lines": {
-            "9": 22
+            "9": 26
           },
           "Branches": []
         },
         "System.String Application.Models.Video.VideoUpdateModel::get_Description()": {
           "Lines": {
-            "10": 9
+            "10": 11
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Http.IFormFile Application.Models.Video.VideoUpdateModel::get_Image()": {
           "Lines": {
-            "11": 8
+            "11": 10
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Http.IFormFile Application.Models.Video.VideoUpdateModel::get_Video()": {
           "Lines": {
-            "12": 7
+            "12": 13
           },
           "Branches": []
         },
         "System.Int64 Application.Models.Video.VideoUpdateModel::get_PrivacyId()": {
           "Lines": {
-            "13": 12
+            "13": 14
           },
           "Branches": []
         },
@@ -3675,19 +3675,19 @@
       "Application.Models.VideoProcessing.VideoProgressUpdate": {
         "System.Double Application.Models.VideoProcessing.VideoProgressUpdate::get_Percentage()": {
           "Lines": {
-            "5": 73
+            "5": 193
           },
           "Branches": []
         },
         "System.String Application.Models.VideoProcessing.VideoProgressUpdate::get_EstimatedTimeRemaining()": {
           "Lines": {
-            "6": 29
+            "6": 69
           },
           "Branches": []
         },
         "System.String Application.Models.VideoProcessing.VideoProgressUpdate::get_Status()": {
           "Lines": {
-            "7": 84
+            "7": 198
           },
           "Branches": []
         }
@@ -3695,7 +3695,7 @@
       "Application.Models.VideoProcessing.VideoProcessingResult": {
         "System.String Application.Models.VideoProcessing.VideoProcessingResult::get_TrackingId()": {
           "Lines": {
-            "12": 12
+            "12": 17
           },
           "Branches": []
         }
@@ -3755,55 +3755,55 @@
       "Application.Models.User.UserItemModel": {
         "System.Int64 Application.Models.User.UserItemModel::get_Id()": {
           "Lines": {
-            "5": 6
+            "5": 9
           },
           "Branches": []
         },
         "System.String Application.Models.User.UserItemModel::get_Email()": {
           "Lines": {
-            "6": 4
+            "6": 9
           },
           "Branches": []
         },
         "System.String Application.Models.User.UserItemModel::get_FirstName()": {
           "Lines": {
-            "7": 4
+            "7": 8
           },
           "Branches": []
         },
         "System.String Application.Models.User.UserItemModel::get_LastName()": {
           "Lines": {
-            "8": 4
+            "8": 8
           },
           "Branches": []
         },
         "System.String Application.Models.User.UserItemModel::get_Image()": {
           "Lines": {
-            "9": 4
+            "9": 8
           },
           "Branches": []
         },
         "System.Boolean Application.Models.User.UserItemModel::get_IsLoginGoogle()": {
           "Lines": {
-            "10": 5
+            "10": 14
           },
           "Branches": []
         },
         "System.Boolean Application.Models.User.UserItemModel::get_IsLoginPassword()": {
           "Lines": {
-            "11": 4
+            "11": 13
           },
           "Branches": []
         },
         "System.Collections.Generic.List`1<System.String> Application.Models.User.UserItemModel::get_Roles()": {
           "Lines": {
-            "12": 8
+            "12": 16
           },
           "Branches": []
         },
         "System.Collections.Generic.List`1<System.String> Application.Models.User.UserItemModel::get_LoginTypes()": {
           "Lines": {
-            "13": 8
+            "13": 18
           },
           "Branches": []
         }
@@ -3813,37 +3813,37 @@
       "Application.Models.User.UserSeedModel": {
         "System.String Application.Models.User.UserSeedModel::get_FirstName()": {
           "Lines": {
-            "5": 9
+            "5": 14
           },
           "Branches": []
         },
         "System.String Application.Models.User.UserSeedModel::get_LastName()": {
           "Lines": {
-            "6": 9
+            "6": 14
           },
           "Branches": []
         },
         "System.String Application.Models.User.UserSeedModel::get_Email()": {
           "Lines": {
-            "7": 11
+            "7": 19
           },
           "Branches": []
         },
         "System.String Application.Models.User.UserSeedModel::get_Password()": {
           "Lines": {
-            "8": 7
+            "8": 13
           },
           "Branches": []
         },
         "System.String Application.Models.User.UserSeedModel::get_ImagePath()": {
           "Lines": {
-            "9": 7
+            "9": 14
           },
           "Branches": []
         },
         "System.Collections.Generic.List`1<System.String> Application.Models.User.UserSeedModel::get_Roles()": {
           "Lines": {
-            "10": 7
+            "10": 12
           },
           "Branches": []
         }
@@ -3853,13 +3853,13 @@
       "Application.Models.Search.BaseSearchParamsModel": {
         "System.Int32 Application.Models.Search.BaseSearchParamsModel::get_Page()": {
           "Lines": {
-            "5": 63
+            "5": 83
           },
           "Branches": []
         },
         "System.Int32 Application.Models.Search.BaseSearchParamsModel::get_ItemPerPage()": {
           "Lines": {
-            "6": 60
+            "6": 81
           },
           "Branches": []
         }
@@ -3885,25 +3885,25 @@
       "Application.Models.Search.PaginationModel": {
         "System.Int32 Application.Models.Search.PaginationModel::get_TotalCount()": {
           "Lines": {
-            "5": 10
+            "5": 16
           },
           "Branches": []
         },
         "System.Int32 Application.Models.Search.PaginationModel::get_TotalPages()": {
           "Lines": {
-            "6": 8
+            "6": 12
           },
           "Branches": []
         },
         "System.Int32 Application.Models.Search.PaginationModel::get_ItemsPerPage()": {
           "Lines": {
-            "7": 8
+            "7": 14
           },
           "Branches": []
         },
         "System.Int32 Application.Models.Search.PaginationModel::get_CurrentPage()": {
           "Lines": {
-            "8": 8
+            "8": 14
           },
           "Branches": []
         }
@@ -3913,13 +3913,13 @@
       "Application.Models.Search.SearchResult`1": {
         "System.Collections.Generic.List`1<T> Application.Models.Search.SearchResult`1::get_Items()": {
           "Lines": {
-            "5": 29
+            "5": 40
           },
           "Branches": []
         },
         "Application.Models.Search.PaginationModel Application.Models.Search.SearchResult`1::get_Pagination()": {
           "Lines": {
-            "6": 18
+            "6": 32
           },
           "Branches": []
         }
@@ -3929,49 +3929,49 @@
       "Application.Models.Portfolio.PortfolioCreateModel": {
         "System.String Application.Models.Portfolio.PortfolioCreateModel::get_Name()": {
           "Lines": {
-            "7": 13
+            "7": 16
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioCreateModel::get_NickName()": {
           "Lines": {
-            "8": 13
+            "8": 16
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioCreateModel::get_Description()": {
           "Lines": {
-            "9": 11
+            "9": 15
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioCreateModel::get_Specialization()": {
           "Lines": {
-            "10": 1
+            "10": 3
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioCreateModel::get_Contacts()": {
           "Lines": {
-            "11": 2
+            "11": 4
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioCreateModel::get_Settings()": {
           "Lines": {
-            "12": 1
+            "12": 3
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Http.IFormFile Application.Models.Portfolio.PortfolioCreateModel::get_AvatarImage()": {
           "Lines": {
-            "13": 0
+            "13": 2
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Http.IFormFile Application.Models.Portfolio.PortfolioCreateModel::get_BannerImage()": {
           "Lines": {
-            "14": 0
+            "14": 2
           },
           "Branches": []
         }
@@ -3981,7 +3981,7 @@
       "Application.Models.Portfolio.PortfolioDeleteModel": {
         "System.Int64 Application.Models.Portfolio.PortfolioDeleteModel::get_Id()": {
           "Lines": {
-            "5": 6
+            "5": 8
           },
           "Branches": []
         }
@@ -3991,61 +3991,61 @@
       "Application.Models.Portfolio.PortfolioItemModel": {
         "System.Int64 Application.Models.Portfolio.PortfolioItemModel::get_Id()": {
           "Lines": {
-            "5": 13
+            "5": 20
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioItemModel::get_Name()": {
           "Lines": {
-            "6": 27
+            "6": 39
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioItemModel::get_NickName()": {
           "Lines": {
-            "7": 27
+            "7": 38
           },
           "Branches": []
         },
         "System.Int32 Application.Models.Portfolio.PortfolioItemModel::get_SubscriberCount()": {
           "Lines": {
-            "8": 3
+            "8": 13
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioItemModel::get_Description()": {
           "Lines": {
-            "9": 26
+            "9": 37
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioItemModel::get_Specialization()": {
           "Lines": {
-            "10": 12
+            "10": 18
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioItemModel::get_Contacts()": {
           "Lines": {
-            "11": 12
+            "11": 18
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioItemModel::get_Settings()": {
           "Lines": {
-            "12": 12
+            "12": 18
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioItemModel::get_AvatarImage()": {
           "Lines": {
-            "13": 12
+            "13": 18
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioItemModel::get_BannerImage()": {
           "Lines": {
-            "14": 12
+            "14": 18
           },
           "Branches": []
         },
@@ -4061,13 +4061,13 @@
       "Application.Models.Portfolio.PortfolioSearchModel": {
         "System.String Application.Models.Portfolio.PortfolioSearchModel::get_Q()": {
           "Lines": {
-            "7": 0
+            "7": 2
           },
           "Branches": []
         },
         "System.Nullable`1<System.Boolean> Application.Models.Portfolio.PortfolioSearchModel::get_IsSubscribed()": {
           "Lines": {
-            "8": 0
+            "8": 2
           },
           "Branches": []
         }
@@ -4077,7 +4077,7 @@
       "Application.Models.Portfolio.PortfolioSubscriptionModel": {
         "System.Int64 Application.Models.Portfolio.PortfolioSubscriptionModel::get_PortfolioId()": {
           "Lines": {
-            "5": 6
+            "5": 8
           },
           "Branches": []
         }
@@ -4087,43 +4087,43 @@
       "Application.Models.Portfolio.PortfolioUpdateModel": {
         "System.Int64 Application.Models.Portfolio.PortfolioUpdateModel::get_Id()": {
           "Lines": {
-            "7": 11
+            "7": 12
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioUpdateModel::get_Name()": {
           "Lines": {
-            "8": 11
+            "8": 15
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioUpdateModel::get_NickName()": {
           "Lines": {
-            "9": 11
+            "9": 15
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioUpdateModel::get_Description()": {
           "Lines": {
-            "10": 8
+            "10": 12
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioUpdateModel::get_Specialization()": {
           "Lines": {
-            "11": 1
+            "11": 2
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioUpdateModel::get_Contacts()": {
           "Lines": {
-            "12": 1
+            "12": 2
           },
           "Branches": []
         },
         "System.String Application.Models.Portfolio.PortfolioUpdateModel::get_Settings()": {
           "Lines": {
-            "13": 1
+            "13": 2
           },
           "Branches": []
         },
@@ -4145,61 +4145,61 @@
       "Application.Models.Comments.CommentsItemModal": {
         "System.Int64 Application.Models.Comments.CommentsItemModal::get_Id()": {
           "Lines": {
-            "5": 12
+            "5": 24
           },
           "Branches": []
         },
         "System.String Application.Models.Comments.CommentsItemModal::get_Content()": {
           "Lines": {
-            "6": 23
+            "6": 50
           },
           "Branches": []
         },
         "System.DateTime Application.Models.Comments.CommentsItemModal::get_DateCreated()": {
           "Lines": {
-            "7": 5
+            "7": 16
           },
           "Branches": []
         },
         "System.Int32 Application.Models.Comments.CommentsItemModal::get_LikesCount()": {
           "Lines": {
-            "8": 5
+            "8": 17
           },
           "Branches": []
         },
         "System.Int32 Application.Models.Comments.CommentsItemModal::get_DislikeCount()": {
           "Lines": {
-            "9": 5
+            "9": 17
           },
           "Branches": []
         },
         "System.Int32 Application.Models.Comments.CommentsItemModal::get_RepliesCount()": {
           "Lines": {
-            "10": 6
+            "10": 21
           },
           "Branches": []
         },
         "System.Boolean Application.Models.Comments.CommentsItemModal::get_IsEdited()": {
           "Lines": {
-            "11": 5
+            "11": 17
           },
           "Branches": []
         },
         "System.Int64 Application.Models.Comments.CommentsItemModal::get_UserId()": {
           "Lines": {
-            "13": 5
+            "13": 17
           },
           "Branches": []
         },
         "System.String Application.Models.Comments.CommentsItemModal::get_UserName()": {
           "Lines": {
-            "14": 16
+            "14": 40
           },
           "Branches": []
         },
         "System.String Application.Models.Comments.CommentsItemModal::get_UserImage()": {
           "Lines": {
-            "15": 6
+            "15": 18
           },
           "Branches": []
         }
@@ -4329,11 +4329,229 @@
         }
       }
     },
+    "d:\\Codees\\Wunu\\SoftwareConstruction\\VideoHostingServer\\Application\\GeneratedFiles\\Riok.Mapperly\\Riok.Mapperly.MapperGenerator\\CommentMappingProfile.g.cs": {
+      "Application.Mappings.CommentMappingProfile": {
+        "Application.Models.Comments.CommentsItemModal Application.Mappings.CommentMappingProfile::MapToItemModel(Domain.Entities.Comments.CommentsEntity)": {
+          "Lines": {
+            "9": 3,
+            "10": 3,
+            "11": 3,
+            "12": 3,
+            "13": 3,
+            "14": 3,
+            "15": 3,
+            "16": 3,
+            "17": 3,
+            "18": 3,
+            "19": 3,
+            "20": 3,
+            "21": 3,
+            "22": 3,
+            "23": 3,
+            "24": 3,
+            "25": 3
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 132,
+              "EndOffset": 134,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            },
+            {
+              "Line": 19,
+              "Offset": 132,
+              "EndOffset": 154,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Linq.IQueryable`1<Application.Models.Comments.CommentsItemModal> Application.Mappings.CommentMappingProfile::ProjectToItemModel(System.Linq.IQueryable`1<Domain.Entities.Comments.CommentsEntity>)": {
+          "Lines": {
+            "29": 12,
+            "31": 12,
+            "32": 12,
+            "33": 12,
+            "34": 12,
+            "35": 12,
+            "36": 12,
+            "37": 12,
+            "38": 12,
+            "39": 12,
+            "40": 12,
+            "41": 12,
+            "42": 12,
+            "43": 12,
+            "44": 12,
+            "45": 12,
+            "46": 12,
+            "48": 12
+          },
+          "Branches": []
+        }
+      }
+    },
+    "d:\\Codees\\Wunu\\SoftwareConstruction\\VideoHostingServer\\Application\\GeneratedFiles\\Riok.Mapperly\\Riok.Mapperly.MapperGenerator\\PortfolioMappingProfile.g.cs": {
+      "Application.Mappings.PortfolioMappingProfile": {
+        "Application.Models.Portfolio.PortfolioItemModel Application.Mappings.PortfolioMappingProfile::MapToItemModel(Domain.Entities.Portfolio.PortfolioEntity)": {
+          "Lines": {
+            "9": 4,
+            "10": 4,
+            "11": 4,
+            "12": 4,
+            "13": 4,
+            "14": 4,
+            "15": 4,
+            "16": 4,
+            "17": 4,
+            "18": 4,
+            "19": 4,
+            "20": 4,
+            "21": 4,
+            "22": 4
+          },
+          "Branches": []
+        },
+        "Domain.Entities.Portfolio.PortfolioEntity Application.Mappings.PortfolioMappingProfile::MapToEntity(Application.Models.Portfolio.PortfolioCreateModel)": {
+          "Lines": {
+            "26": 1,
+            "27": 1,
+            "28": 1,
+            "29": 1,
+            "30": 1,
+            "31": 1,
+            "32": 1,
+            "33": 1,
+            "34": 1,
+            "35": 1,
+            "36": 1,
+            "37": 1,
+            "38": 1
+          },
+          "Branches": [
+            {
+              "Line": 30,
+              "Offset": 44,
+              "EndOffset": 46,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 30,
+              "Offset": 44,
+              "EndOffset": 61,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void Application.Mappings.PortfolioMappingProfile::MapToEntity(Application.Models.Portfolio.PortfolioUpdateModel,Domain.Entities.Portfolio.PortfolioEntity)": {
+          "Lines": {
+            "42": 1,
+            "43": 1,
+            "44": 1,
+            "45": 1,
+            "46": 1,
+            "47": 1,
+            "48": 1,
+            "49": 1,
+            "50": 1,
+            "51": 1,
+            "52": 1,
+            "53": 1,
+            "54": 1,
+            "55": 1,
+            "56": 1,
+            "57": 1,
+            "58": 1
+          },
+          "Branches": [
+            {
+              "Line": 43,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 43,
+              "Offset": 12,
+              "EndOffset": 29,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 47,
+              "Offset": 40,
+              "EndOffset": 42,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 47,
+              "Offset": 40,
+              "EndOffset": 57,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 51,
+              "Offset": 68,
+              "EndOffset": 70,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 51,
+              "Offset": 68,
+              "EndOffset": 85,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Linq.IQueryable`1<Application.Models.Portfolio.PortfolioItemModel> Application.Mappings.PortfolioMappingProfile::ProjectToItemModel(System.Linq.IQueryable`1<Domain.Entities.Portfolio.PortfolioEntity>)": {
+          "Lines": {
+            "62": 1,
+            "64": 1,
+            "65": 1,
+            "66": 1,
+            "67": 1,
+            "68": 1,
+            "69": 1,
+            "70": 1,
+            "71": 1,
+            "72": 1,
+            "73": 1,
+            "74": 1,
+            "75": 1,
+            "76": 1,
+            "77": 1,
+            "78": 1,
+            "79": 1,
+            "81": 1
+          },
+          "Branches": []
+        }
+      }
+    },
     "D:\\Codees\\Wunu\\SoftwareConstruction\\VideoHostingServer\\Application\\Mappings\\PortfolioMappingProfile.cs": {
       "Application.Mappings.PortfolioMappingProfile": {
         "System.Int32 Application.Mappings.PortfolioMappingProfile::MapSubscribersToCount(System.Collections.Generic.ICollection`1<Domain.Entities.Portfolio.PortfolioSubscriberEntity>)": {
           "Lines": {
-            "15": 1
+            "15": 10
           },
           "Branches": [
             {
@@ -4342,7 +4560,7 @@
               "EndOffset": 3,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 5
             },
             {
               "Line": 15,
@@ -4350,49 +4568,413 @@
               "EndOffset": 6,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 1
+              "Hits": 5
             }
           ]
         }
       }
     },
+    "d:\\Codees\\Wunu\\SoftwareConstruction\\VideoHostingServer\\Application\\GeneratedFiles\\Riok.Mapperly\\Riok.Mapperly.MapperGenerator\\UserMapping.g.cs": {
+      "Application.Mappings.UserMapping": {
+        "Application.Models.User.UserItemModel Application.Mappings.UserMapping::MapToItemModel(Domain.Entities.Identity.UserEntity)": {
+          "Lines": {
+            "9": 2,
+            "10": 2,
+            "11": 2,
+            "12": 2,
+            "13": 1,
+            "14": 1,
+            "15": 1,
+            "16": 2,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 2,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 2,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 2,
+            "29": 2,
+            "30": 2,
+            "31": 2,
+            "32": 2,
+            "33": 2,
+            "34": 2,
+            "35": 2,
+            "36": 2,
+            "37": 2
+          },
+          "Branches": [
+            {
+              "Line": 12,
+              "Offset": 31,
+              "EndOffset": 33,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 12,
+              "Offset": 31,
+              "EndOffset": 48,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 16,
+              "Offset": 59,
+              "EndOffset": 61,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 16,
+              "Offset": 59,
+              "EndOffset": 76,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            },
+            {
+              "Line": 20,
+              "Offset": 87,
+              "EndOffset": 89,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 20,
+              "Offset": 87,
+              "EndOffset": 104,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 2
+            },
+            {
+              "Line": 24,
+              "Offset": 117,
+              "EndOffset": 119,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 117,
+              "EndOffset": 134,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 2
+            },
+            {
+              "Line": 28,
+              "Offset": 147,
+              "EndOffset": 149,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 2
+            },
+            {
+              "Line": 28,
+              "Offset": 147,
+              "EndOffset": 170,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 32,
+              "Offset": 183,
+              "EndOffset": 185,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 2
+            },
+            {
+              "Line": 32,
+              "Offset": 183,
+              "EndOffset": 206,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            }
+          ]
+        },
+        "Domain.Entities.Identity.UserEntity Application.Mappings.UserMapping::MapToEntity(Application.Models.Account.AccountRegisterModel)": {
+          "Lines": {
+            "41": 3,
+            "42": 3,
+            "43": 3,
+            "44": 3,
+            "45": 3,
+            "46": 3,
+            "47": 3,
+            "48": 3
+          },
+          "Branches": []
+        },
+        "Domain.Entities.Identity.UserEntity Application.Mappings.UserMapping::MapToEntity(Application.Models.User.UserSeedModel)": {
+          "Lines": {
+            "52": 3,
+            "53": 3,
+            "54": 3,
+            "55": 3,
+            "56": 3,
+            "57": 3,
+            "58": 3,
+            "59": 3,
+            "60": 3
+          },
+          "Branches": []
+        },
+        "System.Void Application.Mappings.UserMapping::MapToEntity(Application.Models.User.UserEditModel,Domain.Entities.Identity.UserEntity)": {
+          "Lines": {
+            "64": 1,
+            "65": 1,
+            "66": 1,
+            "67": 1,
+            "68": 1,
+            "69": 1
+          },
+          "Branches": []
+        }
+      }
+    },
     "D:\\Codees\\Wunu\\SoftwareConstruction\\VideoHostingServer\\Application\\Mappings\\UserMapping.cs": {
       "Application.Mappings.UserMapping": {
+        "System.Linq.IQueryable`1<Application.Models.User.UserItemModel> Application.Mappings.UserMapping::ProjectToItemModel(System.Linq.IQueryable`1<Domain.Entities.Identity.UserEntity>)": {
+          "Lines": {
+            "27": 1,
+            "28": 1,
+            "29": 1,
+            "30": 1,
+            "31": 1,
+            "32": 1,
+            "33": 1,
+            "34": 1,
+            "35": 1,
+            "36": 1,
+            "37": 1,
+            "38": 1,
+            "39": 1,
+            "40": 1,
+            "41": 1,
+            "42": 1
+          },
+          "Branches": []
+        },
         "System.Collections.Generic.List`1<System.String> Application.Mappings.UserMapping::MapRoles(System.Collections.Generic.ICollection`1<Domain.Entities.Identity.UserRoleEntity>)": {
           "Lines": {
-            "45": 0,
-            "46": 0,
-            "47": 0
+            "45": 2,
+            "46": 3,
+            "47": 2
           },
           "Branches": []
         },
         "System.Collections.Generic.List`1<System.String> Application.Mappings.UserMapping::MapLoginTypes(System.Collections.Generic.ICollection`1<Domain.Entities.Identity.UserLoginEntity>)": {
           "Lines": {
-            "50": 0,
-            "51": 0,
-            "52": 0
+            "50": 2,
+            "51": 3,
+            "52": 2
           },
           "Branches": []
         },
         "System.Void Application.Mappings.UserMapping::AfterMapToItemModel(Domain.Entities.Identity.UserEntity,Application.Models.User.UserItemModel)": {
           "Lines": {
-            "55": 0,
-            "56": 0,
-            "57": 0,
-            "58": 0
+            "55": 2,
+            "56": 3,
+            "57": 2,
+            "58": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "d:\\Codees\\Wunu\\SoftwareConstruction\\VideoHostingServer\\Application\\GeneratedFiles\\Riok.Mapperly\\Riok.Mapperly.MapperGenerator\\VideoMappingProfile.g.cs": {
+      "Application.Mappings.VideoMappingProfile": {
+        "Application.Models.Video.VideoItemModel Application.Mappings.VideoMappingProfile::MapToItemModel(Domain.Entities.Video.VideoEntity)": {
+          "Lines": {
+            "9": 2,
+            "10": 2,
+            "11": 2,
+            "12": 2,
+            "13": 2,
+            "14": 2,
+            "15": 2,
+            "16": 2,
+            "17": 2,
+            "18": 2,
+            "19": 2,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "24": 2,
+            "25": 2,
+            "26": 2,
+            "27": 2,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "32": 2,
+            "33": 2,
+            "34": 2,
+            "35": 2,
+            "36": 2
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 127,
+              "EndOffset": 129,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 19,
+              "Offset": 127,
+              "EndOffset": 152,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 27,
+              "Offset": 173,
+              "EndOffset": 175,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 27,
+              "Offset": 173,
+              "EndOffset": 198,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            }
+          ]
+        },
+        "Application.Models.Video.VideoPrivacyItemModel Application.Mappings.VideoMappingProfile::MapToItemModel(Domain.Entities.Video.VideoPrivacyEntity)": {
+          "Lines": {
+            "40": 1,
+            "41": 1,
+            "42": 1,
+            "43": 1,
+            "44": 1,
+            "45": 1,
+            "46": 1
           },
           "Branches": []
         },
-        "System.Void Application.Mappings.UserMapping::.cctor()": {
+        "System.Linq.IQueryable`1<Application.Models.Video.VideoPrivacyItemModel> Application.Mappings.VideoMappingProfile::ProjectToItemModel(System.Linq.IQueryable`1<Domain.Entities.Video.VideoPrivacyEntity>)": {
           "Lines": {
-            "32": 0,
-            "33": 0,
-            "35": 0,
-            "36": 0,
-            "38": 0,
-            "39": 0,
-            "41": 0,
-            "42": 0
+            "50": 2,
+            "52": 2,
+            "53": 2,
+            "54": 2,
+            "55": 2,
+            "56": 2,
+            "57": 2,
+            "58": 2,
+            "59": 2,
+            "60": 2,
+            "62": 2
+          },
+          "Branches": []
+        },
+        "Domain.Entities.Video.VideoEntity Application.Mappings.VideoMappingProfile::MapToEntity(Application.Models.Video.VideoSeedModel)": {
+          "Lines": {
+            "66": 3,
+            "67": 3,
+            "68": 3,
+            "69": 3,
+            "70": 3,
+            "71": 3,
+            "72": 3
+          },
+          "Branches": []
+        },
+        "Domain.Entities.Video.VideoEntity Application.Mappings.VideoMappingProfile::MapToEntity(Application.Models.Video.VideoCreateModel)": {
+          "Lines": {
+            "76": 2,
+            "77": 2,
+            "78": 2,
+            "79": 2,
+            "80": 2,
+            "81": 2,
+            "82": 2,
+            "83": 2,
+            "84": 2
+          },
+          "Branches": []
+        },
+        "System.Void Application.Mappings.VideoMappingProfile::MapToEntity(Application.Models.Video.VideoUpdateModel,Domain.Entities.Video.VideoEntity)": {
+          "Lines": {
+            "88": 5,
+            "89": 5,
+            "90": 5,
+            "91": 5,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 5,
+            "96": 5,
+            "97": 5
+          },
+          "Branches": [
+            {
+              "Line": 91,
+              "Offset": 38,
+              "EndOffset": 40,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 91,
+              "Offset": 38,
+              "EndOffset": 55,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 5
+            }
+          ]
+        },
+        "Domain.Entities.Video.VideoReactionEntity Application.Mappings.VideoMappingProfile::MapToEntity(Application.Models.Video.VideoReactionModel)": {
+          "Lines": {
+            "101": 1,
+            "102": 1,
+            "103": 1,
+            "104": 1,
+            "105": 1,
+            "106": 1
+          },
+          "Branches": []
+        },
+        "Application.Models.Portfolio.PortfolioItemModel Application.Mappings.VideoMappingProfile::MapToPortfolioItemModel(Domain.Entities.Portfolio.PortfolioEntity)": {
+          "Lines": {
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0
           },
           "Branches": []
         }
@@ -4400,16 +4982,52 @@
     },
     "D:\\Codees\\Wunu\\SoftwareConstruction\\VideoHostingServer\\Application\\Mappings\\VideoMappingProfile.cs": {
       "Application.Mappings.VideoMappingProfile": {
+        "System.Linq.IQueryable`1<Application.Models.Video.VideoItemModel> Application.Mappings.VideoMappingProfile::ProjectToItemModel(System.Linq.IQueryable`1<Domain.Entities.Video.VideoEntity>)": {
+          "Lines": {
+            "15": 11,
+            "16": 11,
+            "17": 11,
+            "18": 11,
+            "19": 11,
+            "20": 11,
+            "21": 11,
+            "22": 11,
+            "23": 11,
+            "24": 11,
+            "25": 11,
+            "26": 11,
+            "27": 11,
+            "28": 11,
+            "29": 11,
+            "30": 11,
+            "31": 11,
+            "32": 11,
+            "33": 11,
+            "34": 11,
+            "35": 11,
+            "36": 11,
+            "37": 11,
+            "38": 11,
+            "39": 11,
+            "40": 11,
+            "41": 11,
+            "42": 11,
+            "43": 11,
+            "44": 11,
+            "45": 11
+          },
+          "Branches": []
+        },
         "System.Void Application.Mappings.VideoMappingProfile::AfterMapToItemModel(Domain.Entities.Video.VideoEntity,Application.Models.Video.VideoItemModel)": {
           "Lines": {
-            "25": 0,
-            "26": 0,
-            "27": 0,
-            "28": 0
+            "48": 1,
+            "49": 4,
+            "50": 4,
+            "51": 1
           },
           "Branches": [
             {
-              "Line": 26,
+              "Line": 49,
               "Offset": 9,
               "EndOffset": 11,
               "Path": 0,
@@ -4417,15 +5035,15 @@
               "Hits": 0
             },
             {
-              "Line": 26,
+              "Line": 49,
               "Offset": 9,
               "EndOffset": 15,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 27,
+              "Line": 50,
               "Offset": 65,
               "EndOffset": 67,
               "Path": 0,
@@ -4433,39 +5051,30 @@
               "Hits": 0
             },
             {
-              "Line": 27,
+              "Line": 50,
               "Offset": 65,
               "EndOffset": 71,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         },
         "System.String Application.Mappings.VideoMappingProfile::MapDateCreated(System.DateTime)": {
           "Lines": {
-            "49": 1
+            "72": 2
           },
           "Branches": []
         },
         "System.Int32 Application.Mappings.VideoMappingProfile::MapLikesCount(System.Collections.Generic.ICollection`1<Domain.Entities.Video.VideoReactionEntity>)": {
           "Lines": {
-            "52": 0
+            "75": 0
           },
           "Branches": []
         },
         "System.Int32 Application.Mappings.VideoMappingProfile::MapDislikesCount(System.Collections.Generic.ICollection`1<Domain.Entities.Video.VideoReactionEntity>)": {
           "Lines": {
-            "55": 0
-          },
-          "Branches": []
-        },
-        "System.Void Application.Mappings.VideoMappingProfile::.cctor()": {
-          "Lines": {
-            "18": 0,
-            "19": 0,
-            "21": 0,
-            "22": 0
+            "78": 0
           },
           "Branches": []
         }
@@ -4475,13 +5084,13 @@
       "Application.Jobs.VideoProcessingJob": {
         "System.Void Application.Jobs.VideoProcessingJob::.ctor(Microsoft.AspNetCore.SignalR.IHubContext`1<Application.Hubs.VideoProgressHub>,Application.Interfaces.IVideoFileService,Application.Interfaces.IGenericRepository`2<Domain.Entities.Video.VideoEntity,System.Int64>,Application.Interfaces.IVideoProgressStore,Microsoft.Extensions.Logging.ILogger`1<Application.Jobs.VideoProcessingJob>)": {
           "Lines": {
-            "10": 2,
-            "11": 2,
-            "12": 2,
-            "13": 2,
-            "14": 2,
-            "15": 2,
-            "16": 2
+            "10": 3,
+            "11": 3,
+            "12": 3,
+            "13": 3,
+            "14": 3,
+            "15": 3,
+            "16": 3
           },
           "Branches": []
         }
@@ -4489,10 +5098,10 @@
       "Application.Jobs.VideoProcessingJob/<>c__DisplayClass6_0": {
         "System.Void Application.Jobs.VideoProcessingJob/<>c__DisplayClass6_0::<ProcessVideoAsync>b__0(Application.Models.VideoProcessing.VideoProgressUpdate)": {
           "Lines": {
-            "39": 1,
-            "40": 0,
-            "41": 0,
-            "42": 1
+            "39": 3,
+            "40": 1,
+            "41": 1,
+            "42": 3
           },
           "Branches": []
         }
@@ -4500,39 +5109,39 @@
       "Application.Jobs.VideoProcessingJob/<ProcessVideoAsync>d__6": {
         "System.Void Application.Jobs.VideoProcessingJob/<ProcessVideoAsync>d__6::MoveNext()": {
           "Lines": {
-            "19": 2,
-            "20": 2,
-            "23": 2,
-            "24": 2,
+            "19": 3,
+            "20": 3,
+            "23": 3,
+            "24": 3,
             "25": 1,
             "26": 1,
             "27": 1,
-            "30": 1,
-            "31": 1,
-            "32": 1,
-            "33": 1,
-            "34": 1,
-            "35": 1,
-            "37": 1,
-            "44": 1,
-            "46": 1,
-            "47": 1,
+            "30": 2,
+            "31": 2,
+            "32": 2,
+            "33": 2,
+            "34": 2,
+            "35": 2,
+            "37": 2,
+            "44": 2,
+            "46": 2,
+            "47": 2,
             "48": 1,
             "49": 1,
             "50": 1,
             "51": 1,
             "52": 1,
             "53": 1,
-            "55": 0,
-            "56": 0,
-            "57": 0,
-            "59": 1,
-            "60": 1,
-            "61": 1,
-            "62": 1,
-            "63": 1,
-            "64": 1,
-            "65": 1,
+            "55": 1,
+            "56": 1,
+            "57": 1,
+            "59": 2,
+            "60": 2,
+            "61": 2,
+            "62": 2,
+            "63": 2,
+            "64": 2,
+            "65": 2,
             "66": 1,
             "67": 1,
             "68": 1,
@@ -4543,20 +5152,20 @@
             "74": 1,
             "75": 1,
             "77": 1,
-            "80": 2,
-            "81": 2,
-            "82": 1,
-            "84": 1,
-            "85": 1,
-            "86": 1,
-            "87": 1,
+            "80": 3,
+            "81": 3,
+            "82": 2,
+            "84": 2,
+            "85": 2,
+            "86": 2,
+            "87": 2,
             "88": 0,
             "89": 0,
             "90": 0,
             "91": 0,
-            "92": 1,
-            "93": 2,
-            "94": 1
+            "92": 2,
+            "93": 3,
+            "94": 2
           },
           "Branches": [
             {
@@ -4573,7 +5182,7 @@
               "EndOffset": 281,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 47,
@@ -4589,7 +5198,7 @@
               "EndOffset": 1104,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 81,
@@ -4597,7 +5206,7 @@
               "EndOffset": 1688,
               "Path": 0,
               "Ordinal": 4,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 81,
@@ -4605,7 +5214,7 @@
               "EndOffset": 1800,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 2
+              "Hits": 3
             }
           ]
         }
@@ -4613,15 +5222,15 @@
       "Application.Jobs.VideoProcessingJob/<SendProgressAsync>d__7": {
         "System.Void Application.Jobs.VideoProcessingJob/<SendProgressAsync>d__7::MoveNext()": {
           "Lines": {
-            "97": 3,
-            "98": 3,
-            "99": 3,
-            "100": 3,
-            "101": 3,
-            "102": 3,
-            "103": 3,
-            "104": 3,
-            "105": 3
+            "97": 5,
+            "98": 5,
+            "99": 5,
+            "100": 5,
+            "101": 5,
+            "102": 5,
+            "103": 5,
+            "104": 5,
+            "105": 5
           },
           "Branches": []
         }
@@ -4692,24 +5301,24 @@
       "Application.Helpers.ProgressThrottler": {
         "System.Void Application.Helpers.ProgressThrottler::Report(Application.Models.VideoProcessing.VideoProgressUpdate,System.Boolean)": {
           "Lines": {
-            "12": 10,
-            "13": 10,
-            "14": 10,
-            "15": 10,
-            "16": 10,
-            "17": 10,
-            "18": 10,
-            "19": 10,
-            "20": 10,
-            "21": 10,
-            "23": 10,
-            "24": 1,
-            "25": 1,
-            "28": 9,
-            "29": 9,
-            "30": 9,
-            "31": 9,
-            "32": 10
+            "12": 33,
+            "13": 33,
+            "14": 33,
+            "15": 33,
+            "16": 33,
+            "17": 33,
+            "18": 33,
+            "19": 33,
+            "20": 33,
+            "21": 33,
+            "23": 33,
+            "24": 2,
+            "25": 2,
+            "28": 31,
+            "29": 31,
+            "30": 31,
+            "31": 31,
+            "32": 33
           },
           "Branches": [
             {
@@ -4718,7 +5327,7 @@
               "EndOffset": 101,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 9
+              "Hits": 29
             },
             {
               "Line": 19,
@@ -4726,7 +5335,7 @@
               "EndOffset": 120,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 1
+              "Hits": 4
             },
             {
               "Line": 19,
@@ -4734,7 +5343,7 @@
               "EndOffset": 131,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 8
+              "Hits": 27
             },
             {
               "Line": 19,
@@ -4742,7 +5351,7 @@
               "EndOffset": 153,
               "Path": 0,
               "Ordinal": 4,
-              "Hits": 7
+              "Hits": 25
             },
             {
               "Line": 19,
@@ -4750,7 +5359,7 @@
               "EndOffset": 169,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 2
+              "Hits": 4
             },
             {
               "Line": 19,
@@ -4758,7 +5367,7 @@
               "EndOffset": 181,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 10
+              "Hits": 33
             },
             {
               "Line": 23,
@@ -4766,7 +5375,7 @@
               "EndOffset": 188,
               "Path": 0,
               "Ordinal": 6,
-              "Hits": 7
+              "Hits": 27
             },
             {
               "Line": 23,
@@ -4774,7 +5383,7 @@
               "EndOffset": 192,
               "Path": 0,
               "Ordinal": 8,
-              "Hits": 3
+              "Hits": 19
             },
             {
               "Line": 23,
@@ -4782,7 +5391,7 @@
               "EndOffset": 196,
               "Path": 0,
               "Ordinal": 10,
-              "Hits": 2
+              "Hits": 4
             },
             {
               "Line": 23,
@@ -4790,7 +5399,7 @@
               "EndOffset": 203,
               "Path": 1,
               "Ordinal": 7,
-              "Hits": 8
+              "Hits": 29
             },
             {
               "Line": 23,
@@ -4798,7 +5407,7 @@
               "EndOffset": 203,
               "Path": 1,
               "Ordinal": 9,
-              "Hits": 8
+              "Hits": 29
             },
             {
               "Line": 23,
@@ -4806,7 +5415,7 @@
               "EndOffset": 203,
               "Path": 1,
               "Ordinal": 11,
-              "Hits": 8
+              "Hits": 29
             },
             {
               "Line": 23,
@@ -4814,7 +5423,7 @@
               "EndOffset": 210,
               "Path": 0,
               "Ordinal": 12,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 23,
@@ -4822,16 +5431,16 @@
               "EndOffset": 213,
               "Path": 1,
               "Ordinal": 13,
-              "Hits": 9
+              "Hits": 31
             }
           ]
         },
         "System.Void Application.Helpers.ProgressThrottler::.ctor(System.Action`1<Application.Models.VideoProcessing.VideoProgressUpdate>,System.TimeSpan,System.Double)": {
           "Lines": {
-            "5": 3,
-            "7": 3,
-            "8": 3,
-            "9": 3
+            "5": 14,
+            "7": 14,
+            "8": 14,
+            "9": 14
           },
           "Branches": []
         }
@@ -5394,7 +6003,7 @@
       "Application.Features.Videos.Commands.UpdateVideo.UpdateVideoCommand": {
         "Application.Models.Video.VideoUpdateModel Application.Features.Videos.Commands.UpdateVideo.UpdateVideoCommand::get_Model()": {
           "Lines": {
-            "7": 8
+            "7": 12
           },
           "Branches": []
         }
@@ -5404,15 +6013,15 @@
       "Application.Features.Videos.Commands.UpdateVideo.UpdateVideoHandler": {
         "System.Void Application.Features.Videos.Commands.UpdateVideo.UpdateVideoHandler::.ctor(Application.Interfaces.IGenericRepository`2<Domain.Entities.Video.VideoEntity,System.Int64>,Application.Mappings.VideoMappingProfile,Application.Interfaces.IImageService,Application.Interfaces.IVideoFileService,Hangfire.IBackgroundJobClient,Application.Interfaces.IVideoProgressStore,Microsoft.Extensions.Logging.ILogger`1<Application.Features.Videos.Commands.UpdateVideo.UpdateVideoHandler>)": {
           "Lines": {
-            "13": 3,
-            "14": 3,
-            "15": 3,
-            "16": 3,
-            "17": 3,
-            "18": 3,
-            "19": 3,
-            "20": 3,
-            "21": 3
+            "13": 5,
+            "14": 5,
+            "15": 5,
+            "16": 5,
+            "17": 5,
+            "18": 5,
+            "19": 5,
+            "20": 5,
+            "21": 5
           },
           "Branches": []
         }
@@ -5420,52 +6029,52 @@
       "Application.Features.Videos.Commands.UpdateVideo.UpdateVideoHandler/<Handle>d__8": {
         "System.Void Application.Features.Videos.Commands.UpdateVideo.UpdateVideoHandler/<Handle>d__8::MoveNext()": {
           "Lines": {
-            "24": 3,
-            "25": 3,
-            "27": 3,
-            "28": 3,
-            "30": 3,
+            "24": 5,
+            "25": 5,
+            "27": 5,
+            "28": 5,
+            "30": 5,
             "31": 1,
-            "33": 2,
-            "35": 2,
+            "33": 4,
+            "35": 4,
             "36": 1,
             "37": 1,
             "38": 1,
             "40": 1,
             "41": 1,
-            "43": 2,
-            "45": 2,
-            "46": 1,
-            "47": 1,
-            "48": 1,
-            "49": 1,
-            "50": 1,
-            "51": 1,
-            "52": 1,
-            "55": 0,
-            "56": 0,
-            "58": 0,
-            "60": 0,
-            "61": 0,
-            "62": 0,
-            "63": 0,
-            "64": 0,
-            "65": 0,
-            "67": 0,
-            "68": 0,
-            "69": 0,
-            "70": 0,
-            "72": 0,
-            "73": 0,
-            "74": 0,
-            "75": 0,
-            "76": 0,
-            "78": 0,
-            "79": 0,
-            "80": 0,
-            "82": 1,
-            "84": 1,
-            "85": 1
+            "43": 4,
+            "45": 4,
+            "46": 3,
+            "47": 3,
+            "48": 2,
+            "49": 2,
+            "50": 2,
+            "51": 2,
+            "52": 2,
+            "55": 1,
+            "56": 1,
+            "58": 1,
+            "60": 1,
+            "61": 1,
+            "62": 1,
+            "63": 1,
+            "64": 1,
+            "65": 1,
+            "67": 1,
+            "68": 1,
+            "69": 1,
+            "70": 1,
+            "72": 1,
+            "73": 1,
+            "74": 1,
+            "75": 1,
+            "76": 1,
+            "78": 1,
+            "79": 1,
+            "80": 1,
+            "82": 2,
+            "84": 2,
+            "85": 2
           },
           "Branches": [
             {
@@ -5482,7 +6091,7 @@
               "EndOffset": 441,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 2
+              "Hits": 4
             },
             {
               "Line": 35,
@@ -5514,7 +6123,7 @@
               "EndOffset": 841,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 2
+              "Hits": 4
             },
             {
               "Line": 45,
@@ -5522,7 +6131,7 @@
               "EndOffset": 900,
               "Path": 0,
               "Ordinal": 6,
-              "Hits": 1
+              "Hits": 3
             },
             {
               "Line": 47,
@@ -5530,7 +6139,7 @@
               "EndOffset": 962,
               "Path": 0,
               "Ordinal": 8,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 47,
@@ -5546,7 +6155,7 @@
               "EndOffset": 1002,
               "Path": 0,
               "Ordinal": 10,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 47,
@@ -5554,7 +6163,7 @@
               "EndOffset": 1071,
               "Path": 1,
               "Ordinal": 11,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 55,
@@ -5562,7 +6171,7 @@
               "EndOffset": 1104,
               "Path": 0,
               "Ordinal": 12,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 55,
@@ -5570,7 +6179,7 @@
               "EndOffset": 1235,
               "Path": 1,
               "Ordinal": 13,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 45,
@@ -5578,7 +6187,7 @@
               "EndOffset": 1969,
               "Path": 1,
               "Ordinal": 7,
-              "Hits": 1
+              "Hits": 2
             }
           ]
         }
@@ -5588,7 +6197,7 @@
       "Application.Features.Videos.Commands.IncrementView.IncrementViewCommand": {
         "System.Int64 Application.Features.Videos.Commands.IncrementView.IncrementViewCommand::get_Id()": {
           "Lines": {
-            "5": 2
+            "5": 8
           },
           "Branches": []
         }
@@ -5598,8 +6207,8 @@
       "Application.Features.Videos.Commands.IncrementView.IncrementViewCommandHandler": {
         "System.Void Application.Features.Videos.Commands.IncrementView.IncrementViewCommandHandler::.ctor(Application.Interfaces.IGenericRepository`2<Domain.Entities.Video.VideoEntity,System.Int64>)": {
           "Lines": {
-            "8": 0,
-            "9": 0
+            "8": 1,
+            "9": 1
           },
           "Branches": []
         }
@@ -5607,7 +6216,7 @@
       "Application.Features.Videos.Commands.IncrementView.IncrementViewCommandHandler/<>c": {
         "System.Void Application.Features.Videos.Commands.IncrementView.IncrementViewCommandHandler/<>c::<Handle>b__2_1(Microsoft.EntityFrameworkCore.Query.UpdateSettersBuilder`1<Domain.Entities.Video.VideoEntity>)": {
           "Lines": {
-            "19": 0
+            "19": 3
           },
           "Branches": []
         }
@@ -5615,15 +6224,15 @@
       "Application.Features.Videos.Commands.IncrementView.IncrementViewCommandHandler/<Handle>d__2": {
         "System.Void Application.Features.Videos.Commands.IncrementView.IncrementViewCommandHandler/<Handle>d__2::MoveNext()": {
           "Lines": {
-            "13": 0,
-            "14": 0,
-            "15": 0,
-            "17": 0,
-            "18": 0,
-            "20": 0,
-            "22": 0,
-            "23": 0,
-            "24": 0
+            "13": 3,
+            "14": 3,
+            "15": 3,
+            "17": 3,
+            "18": 3,
+            "20": 3,
+            "22": 3,
+            "23": 2,
+            "24": 1
           },
           "Branches": [
             {
@@ -5632,7 +6241,7 @@
               "EndOffset": 403,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 22,
@@ -5640,7 +6249,7 @@
               "EndOffset": 414,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -5807,7 +6416,7 @@
       "Application.Features.Comments.Queries.GetVideoComments.GetVideoCommentsQuery": {
         "System.Int64 Application.Features.Comments.Queries.GetVideoComments.GetVideoCommentsQuery::get_VideoId()": {
           "Lines": {
-            "7": 9
+            "7": 25
           },
           "Branches": []
         }
@@ -5817,10 +6426,10 @@
       "Application.Features.Comments.Queries.GetVideoComments.GetVideoCommentsQueryHandler": {
         "System.Void Application.Features.Comments.Queries.GetVideoComments.GetVideoCommentsQueryHandler::.ctor(Domain.AppDbContext,Application.Mappings.CommentMappingProfile,Application.Interfaces.ICurrentUserService)": {
           "Lines": {
-            "12": 1,
-            "13": 1,
-            "14": 1,
-            "15": 1
+            "12": 4,
+            "13": 4,
+            "14": 4,
+            "15": 4
           },
           "Branches": []
         }
@@ -5828,37 +6437,37 @@
       "Application.Features.Comments.Queries.GetVideoComments.GetVideoCommentsQueryHandler/<Handle>d__4": {
         "System.Void Application.Features.Comments.Queries.GetVideoComments.GetVideoCommentsQueryHandler/<Handle>d__4::MoveNext()": {
           "Lines": {
-            "22": 1,
-            "23": 1,
-            "24": 1,
-            "25": 1,
-            "26": 1,
-            "28": 1,
-            "29": 0,
-            "31": 1,
-            "32": 1,
-            "34": 1,
-            "35": 1,
-            "37": 1,
-            "38": 1,
-            "40": 1,
-            "41": 1,
-            "42": 1,
-            "43": 1,
-            "45": 1,
-            "46": 1,
-            "48": 1,
-            "49": 1,
-            "50": 1,
-            "51": 1,
-            "52": 1,
-            "53": 1,
-            "54": 1,
-            "55": 1,
-            "56": 1,
-            "57": 1,
-            "58": 1,
-            "59": 1
+            "22": 4,
+            "23": 4,
+            "24": 4,
+            "25": 4,
+            "26": 4,
+            "28": 4,
+            "29": 1,
+            "31": 3,
+            "32": 3,
+            "34": 3,
+            "35": 3,
+            "37": 3,
+            "38": 3,
+            "40": 3,
+            "41": 3,
+            "42": 3,
+            "43": 3,
+            "45": 3,
+            "46": 3,
+            "48": 3,
+            "49": 3,
+            "50": 3,
+            "51": 3,
+            "52": 3,
+            "53": 3,
+            "54": 3,
+            "55": 3,
+            "56": 3,
+            "57": 3,
+            "58": 3,
+            "59": 3
           },
           "Branches": [
             {
@@ -5867,7 +6476,7 @@
               "EndOffset": 401,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 28,
@@ -5875,7 +6484,7 @@
               "EndOffset": 412,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 1
+              "Hits": 3
             },
             {
               "Line": 31,
@@ -5883,7 +6492,7 @@
               "EndOffset": 437,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 31,
@@ -5891,7 +6500,7 @@
               "EndOffset": 460,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 32,
@@ -5899,7 +6508,7 @@
               "EndOffset": 491,
               "Path": 0,
               "Ordinal": 4,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 32,
@@ -5907,7 +6516,7 @@
               "EndOffset": 514,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -5917,7 +6526,7 @@
       "Application.Features.Comments.Queries.GetCommentsReplies.GetCommentRepliesQuery": {
         "System.Int64 Application.Features.Comments.Queries.GetCommentsReplies.GetCommentRepliesQuery::get_ParentId()": {
           "Lines": {
-            "7": 8
+            "7": 20
           },
           "Branches": []
         }
@@ -5927,7 +6536,7 @@
       "Application.Features.Comments.Queries.GetCommentsReplies.GetCommentRepliesQueryHandler": {
         "System.Void Application.Features.Comments.Queries.GetCommentsReplies.GetCommentRepliesQueryHandler::.ctor(Domain.AppDbContext,Application.Mappings.CommentMappingProfile)": {
           "Lines": {
-            "10": 1
+            "10": 3
           },
           "Branches": []
         }
@@ -5935,31 +6544,31 @@
       "Application.Features.Comments.Queries.GetCommentsReplies.GetCommentRepliesQueryHandler/<Handle>d__3": {
         "System.Void Application.Features.Comments.Queries.GetCommentsReplies.GetCommentRepliesQueryHandler/<Handle>d__3::MoveNext()": {
           "Lines": {
-            "17": 1,
-            "18": 1,
-            "19": 1,
-            "21": 1,
-            "22": 1,
-            "24": 1,
-            "25": 1,
-            "27": 1,
-            "28": 1,
-            "29": 1,
-            "30": 1,
-            "32": 1,
-            "33": 1,
-            "35": 1,
-            "36": 1,
-            "37": 1,
-            "38": 1,
-            "39": 1,
-            "40": 1,
-            "41": 1,
-            "42": 1,
-            "43": 1,
-            "44": 1,
-            "45": 1,
-            "46": 1
+            "17": 3,
+            "18": 3,
+            "19": 3,
+            "21": 3,
+            "22": 3,
+            "24": 3,
+            "25": 3,
+            "27": 3,
+            "28": 3,
+            "29": 3,
+            "30": 3,
+            "32": 3,
+            "33": 3,
+            "35": 3,
+            "36": 3,
+            "37": 3,
+            "38": 3,
+            "39": 3,
+            "40": 3,
+            "41": 3,
+            "42": 3,
+            "43": 3,
+            "44": 3,
+            "45": 3,
+            "46": 3
           },
           "Branches": [
             {
@@ -5968,7 +6577,7 @@
               "EndOffset": 82,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 18,
@@ -5976,7 +6585,7 @@
               "EndOffset": 105,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 19,
@@ -5984,7 +6593,7 @@
               "EndOffset": 136,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 19,
@@ -5992,7 +6601,7 @@
               "EndOffset": 159,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -6010,7 +6619,7 @@
       "Application.Features.Comments.Commands.UpdateComment.UpdateCommentCommand": {
         "System.Int64 Application.Features.Comments.Commands.UpdateComment.UpdateCommentCommand::get_Id()": {
           "Lines": {
-            "8": 10
+            "8": 17
           },
           "Branches": []
         }
@@ -6020,11 +6629,11 @@
       "Application.Features.Comments.Commands.UpdateComment.UpdateCommentCommandHandler": {
         "System.Void Application.Features.Comments.Commands.UpdateComment.UpdateCommentCommandHandler::.ctor(Domain.AppDbContext,Application.Mappings.CommentMappingProfile,Application.Interfaces.ICurrentUserService)": {
           "Lines": {
-            "10": 2,
-            "11": 2,
-            "12": 2,
-            "13": 2,
-            "14": 2
+            "10": 5,
+            "11": 5,
+            "12": 5,
+            "13": 5,
+            "14": 5
           },
           "Branches": []
         }
@@ -6032,23 +6641,23 @@
       "Application.Features.Comments.Commands.UpdateComment.UpdateCommentCommandHandler/<Handle>d__4": {
         "System.Void Application.Features.Comments.Commands.UpdateComment.UpdateCommentCommandHandler/<Handle>d__4::MoveNext()": {
           "Lines": {
-            "20": 3,
-            "21": 3,
-            "22": 3,
-            "23": 3,
-            "24": 3,
-            "26": 3,
-            "27": 1,
-            "29": 2,
-            "30": 2,
-            "31": 1,
-            "33": 1,
-            "34": 1,
-            "36": 1,
-            "38": 1,
-            "39": 1,
-            "40": 1,
-            "41": 1
+            "20": 6,
+            "21": 6,
+            "22": 6,
+            "23": 6,
+            "24": 6,
+            "26": 6,
+            "27": 2,
+            "29": 4,
+            "30": 4,
+            "31": 2,
+            "33": 2,
+            "34": 2,
+            "36": 2,
+            "38": 2,
+            "39": 2,
+            "40": 2,
+            "41": 2
           },
           "Branches": [
             {
@@ -6057,7 +6666,7 @@
               "EndOffset": 361,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 26,
@@ -6065,7 +6674,7 @@
               "EndOffset": 372,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 2
+              "Hits": 4
             },
             {
               "Line": 30,
@@ -6073,7 +6682,7 @@
               "EndOffset": 427,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 30,
@@ -6081,7 +6690,7 @@
               "EndOffset": 438,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 1
+              "Hits": 2
             }
           ]
         }
@@ -6091,7 +6700,7 @@
       "Application.Features.Comments.Commands.DeleteComment.DeleteCommentCommand": {
         "System.Int64 Application.Features.Comments.Commands.DeleteComment.DeleteCommentCommand::get_Id()": {
           "Lines": {
-            "5": 7
+            "5": 11
           },
           "Branches": []
         }
@@ -6101,10 +6710,10 @@
       "Application.Features.Comments.Commands.DeleteComment.DeleteCommentCommandHandler": {
         "System.Void Application.Features.Comments.Commands.DeleteComment.DeleteCommentCommandHandler::.ctor(Domain.AppDbContext,Application.Interfaces.ICurrentUserService)": {
           "Lines": {
-            "8": 1,
-            "9": 1,
-            "10": 1,
-            "11": 1
+            "8": 2,
+            "9": 2,
+            "10": 2,
+            "11": 2
           },
           "Branches": []
         }
@@ -6112,7 +6721,7 @@
       "Application.Features.Comments.Commands.DeleteComment.DeleteCommentCommandHandler/<>c": {
         "System.Void Application.Features.Comments.Commands.DeleteComment.DeleteCommentCommandHandler/<>c::<Handle>b__3_2(Microsoft.EntityFrameworkCore.Query.UpdateSettersBuilder`1<Domain.Entities.Comments.CommentsEntity>)": {
           "Lines": {
-            "39": 0
+            "39": 1
           },
           "Branches": []
         }
@@ -6120,31 +6729,32 @@
       "Application.Features.Comments.Commands.DeleteComment.DeleteCommentCommandHandler/<Handle>d__3": {
         "System.Void Application.Features.Comments.Commands.DeleteComment.DeleteCommentCommandHandler/<Handle>d__3::MoveNext()": {
           "Lines": {
-            "17": 2,
-            "18": 2,
-            "19": 2,
-            "20": 2,
-            "21": 2,
-            "23": 2,
+            "17": 4,
+            "18": 4,
+            "19": 4,
+            "20": 4,
+            "21": 4,
+            "23": 4,
             "24": 1,
-            "26": 1,
-            "27": 1,
+            "26": 3,
+            "27": 3,
             "28": 1,
-            "30": 0,
-            "31": 0,
-            "32": 0,
-            "34": 0,
-            "35": 0,
-            "36": 0,
-            "37": 0,
-            "38": 0,
-            "40": 0,
-            "41": 0,
-            "42": 0,
-            "44": 0,
-            "45": 0,
-            "47": 0,
-            "48": 0
+            "30": 2,
+            "31": 2,
+            "32": 2,
+            "34": 2,
+            "35": 1,
+            "36": 1,
+            "37": 1,
+            "38": 1,
+            "40": 1,
+            "41": 1,
+            "42": 1,
+            "44": 2,
+            "45": 2,
+            "46": 2,
+            "48": 2,
+            "49": 2
           },
           "Branches": [
             {
@@ -6161,7 +6771,7 @@
               "EndOffset": 381,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 1
+              "Hits": 3
             },
             {
               "Line": 27,
@@ -6177,7 +6787,7 @@
               "EndOffset": 447,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 2
             },
             {
               "Line": 34,
@@ -6185,7 +6795,7 @@
               "EndOffset": 745,
               "Path": 0,
               "Ordinal": 4,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 34,
@@ -6193,7 +6803,7 @@
               "EndOffset": 1052,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 0
+              "Hits": 2
             }
           ]
         }
@@ -6203,26 +6813,26 @@
       "Application.Features.Comments.Commands.CreateComments.CreateCommentCommand": {
         "System.String Application.Features.Comments.Commands.CreateComments.CreateCommentCommand::get_Content()": {
           "Lines": {
-            "7": 8
+            "7": 12
           },
           "Branches": []
         },
         "System.Int64 Application.Features.Comments.Commands.CreateComments.CreateCommentCommand::get_VideoId()": {
           "Lines": {
-            "8": 12
+            "8": 21
           },
           "Branches": []
         },
         "System.Nullable`1<System.Int64> Application.Features.Comments.Commands.CreateComments.CreateCommentCommand::get_ParentId()": {
           "Lines": {
-            "9": 9
+            "9": 20
           },
           "Branches": []
         },
         "System.Void Application.Features.Comments.Commands.CreateComments.CreateCommentCommand::.ctor(System.String,System.Int64,System.Nullable`1<System.Int64>)": {
           "Lines": {
-            "6": 9,
-            "10": 9
+            "6": 14,
+            "10": 14
           },
           "Branches": []
         }
@@ -6232,10 +6842,10 @@
       "Application.Features.Comments.Commands.CreateComments.CreateCommentCommandHandler": {
         "System.Void Application.Features.Comments.Commands.CreateComments.CreateCommentCommandHandler::.ctor(Domain.AppDbContext,Application.Mappings.CommentMappingProfile,Application.Interfaces.ICurrentUserService)": {
           "Lines": {
-            "12": 4,
-            "13": 4,
-            "14": 4,
-            "15": 4
+            "12": 9,
+            "13": 9,
+            "14": 9,
+            "15": 9
           },
           "Branches": []
         }
@@ -6243,51 +6853,51 @@
       "Application.Features.Comments.Commands.CreateComments.CreateCommentCommandHandler/<Handle>d__4": {
         "System.Void Application.Features.Comments.Commands.CreateComments.CreateCommentCommandHandler/<Handle>d__4::MoveNext()": {
           "Lines": {
-            "22": 4,
-            "23": 4,
-            "24": 4,
-            "25": 4,
-            "26": 4,
-            "28": 4,
-            "29": 1,
-            "31": 3,
-            "32": 3,
-            "33": 3,
-            "34": 3,
-            "35": 3,
-            "36": 3,
-            "37": 3,
-            "39": 3,
-            "40": 2,
-            "41": 2,
-            "42": 2,
-            "43": 2,
-            "44": 2,
-            "45": 2,
-            "46": 2,
-            "47": 2,
-            "49": 2,
-            "50": 1,
-            "51": 1,
-            "54": 1,
-            "55": 1,
-            "56": 3,
-            "57": 2,
-            "58": 2,
-            "59": 2,
-            "60": 2,
-            "62": 1,
-            "63": 1,
-            "64": 1,
-            "67": 0,
-            "68": 0,
-            "70": 1,
-            "71": 1,
-            "73": 1,
-            "74": 1,
-            "75": 1,
-            "76": 1,
-            "77": 1
+            "22": 9,
+            "23": 9,
+            "24": 9,
+            "25": 9,
+            "26": 9,
+            "28": 9,
+            "29": 2,
+            "31": 7,
+            "32": 7,
+            "33": 7,
+            "34": 7,
+            "35": 7,
+            "36": 7,
+            "37": 7,
+            "39": 7,
+            "40": 5,
+            "41": 5,
+            "42": 5,
+            "43": 5,
+            "44": 5,
+            "45": 5,
+            "46": 5,
+            "47": 5,
+            "49": 5,
+            "50": 2,
+            "51": 2,
+            "54": 3,
+            "55": 3,
+            "56": 7,
+            "57": 4,
+            "58": 4,
+            "59": 4,
+            "60": 4,
+            "62": 3,
+            "63": 2,
+            "64": 2,
+            "67": 1,
+            "68": 1,
+            "70": 3,
+            "71": 3,
+            "73": 3,
+            "74": 3,
+            "75": 3,
+            "76": 3,
+            "77": 3
           },
           "Branches": [
             {
@@ -6296,7 +6906,7 @@
               "EndOffset": 410,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 28,
@@ -6304,7 +6914,7 @@
               "EndOffset": 421,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 3
+              "Hits": 7
             },
             {
               "Line": 39,
@@ -6312,7 +6922,7 @@
               "EndOffset": 563,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 2
+              "Hits": 5
             },
             {
               "Line": 49,
@@ -6320,7 +6930,7 @@
               "EndOffset": 996,
               "Path": 0,
               "Ordinal": 4,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 49,
@@ -6328,7 +6938,7 @@
               "EndOffset": 1008,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 1
+              "Hits": 3
             },
             {
               "Line": 56,
@@ -6336,7 +6946,7 @@
               "EndOffset": 1029,
               "Path": 1,
               "Ordinal": 7,
-              "Hits": 2
+              "Hits": 4
             },
             {
               "Line": 56,
@@ -6344,7 +6954,7 @@
               "EndOffset": 1086,
               "Path": 0,
               "Ordinal": 6,
-              "Hits": 1
+              "Hits": 3
             },
             {
               "Line": 62,
@@ -6352,7 +6962,7 @@
               "EndOffset": 1104,
               "Path": 0,
               "Ordinal": 8,
-              "Hits": 1
+              "Hits": 2
             },
             {
               "Line": 62,
@@ -6360,7 +6970,7 @@
               "EndOffset": 1116,
               "Path": 1,
               "Ordinal": 9,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 39,
@@ -6368,7 +6978,7 @@
               "EndOffset": 1155,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 1
+              "Hits": 3
             }
           ]
         }
@@ -6730,7 +7340,7 @@
       "Application.Constants.Roles": {
         "System.String[] Application.Constants.Roles::get_AllRoles()": {
           "Lines": {
-            "8": 2
+            "8": 6
           },
           "Branches": []
         }
@@ -6804,9 +7414,9 @@
         },
         "System.Linq.IQueryable`1<Domain.Entities.Video.VideoEntity> Application.Constants.VideoAccessQueries::ForDirectAccess(System.Linq.IQueryable`1<Domain.Entities.Video.VideoEntity>,Application.Interfaces.ICurrentUserService)": {
           "Lines": {
-            "28": 8,
-            "29": 8,
-            "30": 5,
+            "28": 16,
+            "29": 16,
+            "30": 13,
             "32": 3,
             "33": 1,
             "34": 1,
@@ -6816,7 +7426,7 @@
             "40": 2,
             "41": 2,
             "42": 2,
-            "43": 8
+            "43": 16
           },
           "Branches": [
             {
@@ -6825,7 +7435,7 @@
               "EndOffset": 22,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 5
+              "Hits": 13
             },
             {
               "Line": 29,
@@ -6877,126 +7487,126 @@
       "Domain.AppDbContext": {
         "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Entities.Comments.CommentsEntity> Domain.AppDbContext::get_Comments()": {
           "Lines": {
-            "26": 67
+            "26": 133
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Entities.Video.VideoEntity> Domain.AppDbContext::get_Videos()": {
           "Lines": {
-            "27": 95
+            "27": 147
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Entities.Video.VideoPrivacyEntity> Domain.AppDbContext::get_VideoPrivacies()": {
           "Lines": {
-            "28": 64
+            "28": 98
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Entities.Portfolio.PortfolioEntity> Domain.AppDbContext::get_Portfolios()": {
           "Lines": {
-            "29": 62
+            "29": 94
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Entities.Portfolio.PortfolioSubscriberEntity> Domain.AppDbContext::get_PortfolioSubscribers()": {
           "Lines": {
-            "30": 46
+            "30": 67
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Entities.Video.VideoReactionEntity> Domain.AppDbContext::get_VideoReactions()": {
           "Lines": {
-            "31": 46
+            "31": 67
           },
           "Branches": []
         },
         "System.Void Domain.AppDbContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)": {
           "Lines": {
-            "34": 1,
-            "35": 1,
-            "37": 1,
-            "38": 1,
-            "39": 1,
-            "40": 1,
-            "41": 1,
-            "42": 1,
-            "43": 1,
-            "44": 1,
-            "45": 1,
-            "46": 1,
-            "47": 1,
-            "48": 2,
-            "50": 1,
-            "51": 1,
-            "52": 1,
-            "53": 1,
-            "54": 1,
-            "55": 1,
-            "56": 2,
-            "58": 1,
-            "60": 1,
-            "61": 1,
-            "62": 1,
-            "63": 1,
-            "64": 1,
-            "65": 1,
-            "66": 2,
-            "68": 1,
-            "69": 1,
-            "70": 1,
-            "71": 1,
-            "72": 1,
-            "73": 1,
-            "74": 1,
-            "75": 1,
-            "76": 1,
-            "77": 1,
-            "78": 1,
-            "79": 1,
-            "80": 1,
-            "81": 2,
-            "83": 1,
-            "84": 1,
-            "85": 1,
-            "86": 1,
-            "87": 1,
-            "88": 1,
-            "89": 1,
-            "90": 1,
-            "91": 1,
-            "92": 1,
-            "93": 1,
-            "94": 1,
-            "95": 1,
-            "96": 1,
-            "97": 1,
-            "98": 1,
-            "99": 1,
-            "100": 1,
-            "101": 1,
-            "102": 2,
-            "104": 1,
-            "105": 1,
-            "106": 1,
-            "107": 1,
-            "108": 1,
-            "109": 1,
-            "110": 1,
-            "111": 1,
-            "112": 1,
-            "113": 1,
-            "114": 1,
-            "115": 1,
-            "116": 1,
-            "117": 2,
-            "118": 1
+            "34": 2,
+            "35": 2,
+            "37": 2,
+            "38": 2,
+            "39": 2,
+            "40": 2,
+            "41": 2,
+            "42": 2,
+            "43": 2,
+            "44": 2,
+            "45": 2,
+            "46": 2,
+            "47": 2,
+            "48": 4,
+            "50": 2,
+            "51": 2,
+            "52": 2,
+            "53": 2,
+            "54": 2,
+            "55": 2,
+            "56": 4,
+            "58": 2,
+            "60": 2,
+            "61": 2,
+            "62": 2,
+            "63": 2,
+            "64": 2,
+            "65": 2,
+            "66": 4,
+            "68": 2,
+            "69": 2,
+            "70": 2,
+            "71": 2,
+            "72": 2,
+            "73": 2,
+            "74": 2,
+            "75": 2,
+            "76": 2,
+            "77": 2,
+            "78": 2,
+            "79": 2,
+            "80": 2,
+            "81": 4,
+            "83": 2,
+            "84": 2,
+            "85": 2,
+            "86": 2,
+            "87": 2,
+            "88": 2,
+            "89": 2,
+            "90": 2,
+            "91": 2,
+            "92": 2,
+            "93": 2,
+            "94": 2,
+            "95": 2,
+            "96": 2,
+            "97": 2,
+            "98": 2,
+            "99": 2,
+            "100": 2,
+            "101": 2,
+            "102": 4,
+            "104": 2,
+            "105": 2,
+            "106": 2,
+            "107": 2,
+            "108": 2,
+            "109": 2,
+            "110": 2,
+            "111": 2,
+            "112": 2,
+            "113": 2,
+            "114": 2,
+            "115": 2,
+            "116": 2,
+            "117": 4,
+            "118": 2
           },
           "Branches": []
         },
         "System.Void Domain.AppDbContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions`1<Domain.AppDbContext>)": {
           "Lines": {
-            "24": 138
+            "24": 201
           },
           "Branches": []
         }
@@ -7006,19 +7616,19 @@
       "Domain.Entities.BaseEntity`1": {
         "T Domain.Entities.BaseEntity`1::get_Id()": {
           "Lines": {
-            "15": 130
+            "15": 240
           },
           "Branches": []
         },
         "System.Boolean Domain.Entities.BaseEntity`1::get_IsDeleted()": {
           "Lines": {
-            "16": 65
+            "16": 89
           },
           "Branches": []
         },
         "System.DateTime Domain.Entities.BaseEntity`1::get_DateCreated()": {
           "Lines": {
-            "17": 139
+            "17": 233
           },
           "Branches": []
         }
@@ -7028,73 +7638,73 @@
       "Domain.Entities.Video.VideoEntity": {
         "System.String Domain.Entities.Video.VideoEntity::get_Title()": {
           "Lines": {
-            "15": 155
+            "15": 201
           },
           "Branches": []
         },
         "System.String Domain.Entities.Video.VideoEntity::get_Slug()": {
           "Lines": {
-            "19": 86
+            "19": 133
           },
           "Branches": []
         },
         "System.String Domain.Entities.Video.VideoEntity::get_Description()": {
           "Lines": {
-            "22": 92
+            "22": 118
           },
           "Branches": []
         },
         "System.String Domain.Entities.Video.VideoEntity::get_Image()": {
           "Lines": {
-            "25": 7
+            "25": 11
           },
           "Branches": []
         },
         "System.String Domain.Entities.Video.VideoEntity::get_Video()": {
           "Lines": {
-            "28": 16
+            "28": 30
           },
           "Branches": []
         },
         "System.Int64 Domain.Entities.Video.VideoEntity::get_ViewCount()": {
           "Lines": {
-            "31": 10
+            "31": 17
           },
           "Branches": []
         },
         "System.Int64 Domain.Entities.Video.VideoEntity::get_PrivacyId()": {
           "Lines": {
-            "34": 35
+            "34": 54
           },
           "Branches": []
         },
         "Domain.Entities.Video.VideoPrivacyEntity Domain.Entities.Video.VideoEntity::get_Privacy()": {
           "Lines": {
-            "37": 30
+            "37": 41
           },
           "Branches": []
         },
         "System.Nullable`1<System.Int64> Domain.Entities.Video.VideoEntity::get_PortfolioId()": {
           "Lines": {
-            "39": 27
+            "39": 40
           },
           "Branches": []
         },
         "Domain.Entities.Portfolio.PortfolioEntity Domain.Entities.Video.VideoEntity::get_Portfolio()": {
           "Lines": {
-            "42": 8
+            "42": 19
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<Domain.Entities.Comments.CommentsEntity> Domain.Entities.Video.VideoEntity::get_Comments()": {
           "Lines": {
-            "44": 69
+            "44": 90
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<Domain.Entities.Video.VideoReactionEntity> Domain.Entities.Video.VideoEntity::get_VideoReactions()": {
           "Lines": {
-            "45": 69
+            "45": 96
           },
           "Branches": []
         }
@@ -7104,19 +7714,19 @@
       "Domain.Entities.Video.VideoPrivacyEntity": {
         "System.String Domain.Entities.Video.VideoPrivacyEntity::get_Name()": {
           "Lines": {
-            "11": 66
+            "11": 96
           },
           "Branches": []
         },
         "System.String Domain.Entities.Video.VideoPrivacyEntity::get_SystemCode()": {
           "Lines": {
-            "15": 69
+            "15": 104
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<Domain.Entities.Video.VideoEntity> Domain.Entities.Video.VideoPrivacyEntity::get_Videos()": {
           "Lines": {
-            "17": 34
+            "17": 48
           },
           "Branches": []
         }
@@ -7126,31 +7736,31 @@
       "Domain.Entities.Video.VideoReactionEntity": {
         "System.Int64 Domain.Entities.Video.VideoReactionEntity::get_VideoId()": {
           "Lines": {
-            "9": 1
+            "9": 7
           },
           "Branches": []
         },
         "Domain.Entities.Video.VideoEntity Domain.Entities.Video.VideoReactionEntity::get_Video()": {
           "Lines": {
-            "10": 2
+            "10": 12
           },
           "Branches": []
         },
         "System.Int64 Domain.Entities.Video.VideoReactionEntity::get_UserId()": {
           "Lines": {
-            "12": 1
+            "12": 5
           },
           "Branches": []
         },
         "Domain.Entities.Identity.UserEntity Domain.Entities.Video.VideoReactionEntity::get_User()": {
           "Lines": {
-            "13": 2
+            "13": 12
           },
           "Branches": []
         },
         "System.Boolean Domain.Entities.Video.VideoReactionEntity::get_IsLike()": {
           "Lines": {
-            "15": 2
+            "15": 21
           },
           "Branches": []
         }
@@ -7160,67 +7770,67 @@
       "Domain.Entities.Portfolio.PortfolioEntity": {
         "System.String Domain.Entities.Portfolio.PortfolioEntity::get_Name()": {
           "Lines": {
-            "14": 31
+            "14": 74
           },
           "Branches": []
         },
         "System.String Domain.Entities.Portfolio.PortfolioEntity::get_NickName()": {
           "Lines": {
-            "17": 31
+            "17": 73
           },
           "Branches": []
         },
         "System.String Domain.Entities.Portfolio.PortfolioEntity::get_Description()": {
           "Lines": {
-            "20": 18
+            "20": 46
           },
           "Branches": []
         },
         "System.String Domain.Entities.Portfolio.PortfolioEntity::get_Specialization()": {
           "Lines": {
-            "23": 1
+            "23": 10
           },
           "Branches": []
         },
         "System.String Domain.Entities.Portfolio.PortfolioEntity::get_Contacts()": {
           "Lines": {
-            "26": 1
+            "26": 10
           },
           "Branches": []
         },
         "System.String Domain.Entities.Portfolio.PortfolioEntity::get_Settings()": {
           "Lines": {
-            "29": 1
+            "29": 9
           },
           "Branches": []
         },
         "System.String Domain.Entities.Portfolio.PortfolioEntity::get_AvatarImage()": {
           "Lines": {
-            "32": 1
+            "32": 10
           },
           "Branches": []
         },
         "System.String Domain.Entities.Portfolio.PortfolioEntity::get_BannerImage()": {
           "Lines": {
-            "35": 1
+            "35": 10
           },
           "Branches": []
         },
         "Domain.Entities.Identity.UserEntity Domain.Entities.Portfolio.PortfolioEntity::get_Freelancer()": {
           "Lines": {
-            "37": 17
+            "37": 26
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<Domain.Entities.Video.VideoEntity> Domain.Entities.Portfolio.PortfolioEntity::get_Videos()": {
           "Lines": {
-            "39": 16
+            "39": 33
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<Domain.Entities.Portfolio.PortfolioSubscriberEntity> Domain.Entities.Portfolio.PortfolioEntity::get_Subscribers()": {
           "Lines": {
-            "41": 17
+            "41": 44
           },
           "Branches": []
         }
@@ -7230,25 +7840,25 @@
       "Domain.Entities.Portfolio.PortfolioSubscriberEntity": {
         "System.Int64 Domain.Entities.Portfolio.PortfolioSubscriberEntity::get_PortfolioId()": {
           "Lines": {
-            "7": 1
+            "7": 2
           },
           "Branches": []
         },
         "Domain.Entities.Portfolio.PortfolioEntity Domain.Entities.Portfolio.PortfolioSubscriberEntity::get_Portfolio()": {
           "Lines": {
-            "8": 2
+            "8": 7
           },
           "Branches": []
         },
         "System.Int64 Domain.Entities.Portfolio.PortfolioSubscriberEntity::get_UserId()": {
           "Lines": {
-            "10": 2
+            "10": 6
           },
           "Branches": []
         },
         "Domain.Entities.Identity.UserEntity Domain.Entities.Portfolio.PortfolioSubscriberEntity::get_User()": {
           "Lines": {
-            "11": 2
+            "11": 18
           },
           "Branches": []
         }
@@ -7258,13 +7868,13 @@
       "Domain.Entities.Identity.RoleEntity": {
         "System.Collections.Generic.ICollection`1<Domain.Entities.Identity.UserRoleEntity> Domain.Entities.Identity.RoleEntity::get_UserRoles()": {
           "Lines": {
-            "7": 5
+            "7": 9
           },
           "Branches": []
         },
         "System.Void Domain.Entities.Identity.RoleEntity::.ctor()": {
           "Lines": {
-            "8": 12
+            "8": 24
           },
           "Branches": []
         },
@@ -7280,55 +7890,55 @@
       "Domain.Entities.Identity.UserEntity": {
         "System.DateTime Domain.Entities.Identity.UserEntity::get_DateCreated()": {
           "Lines": {
-            "8": 37
+            "8": 59
           },
           "Branches": []
         },
         "System.String Domain.Entities.Identity.UserEntity::get_FirstName()": {
           "Lines": {
-            "9": 50
+            "9": 75
           },
           "Branches": []
         },
         "System.String Domain.Entities.Identity.UserEntity::get_LastName()": {
           "Lines": {
-            "10": 48
+            "10": 73
           },
           "Branches": []
         },
         "System.String Domain.Entities.Identity.UserEntity::get_Image()": {
           "Lines": {
-            "11": 48
+            "11": 79
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<Domain.Entities.Identity.UserRoleEntity> Domain.Entities.Identity.UserEntity::get_UserRoles()": {
           "Lines": {
-            "13": 0
+            "13": 8
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<Domain.Entities.Identity.UserLoginEntity> Domain.Entities.Identity.UserEntity::get_UserLogins()": {
           "Lines": {
-            "14": 0
+            "14": 10
           },
           "Branches": []
         },
         "Domain.Entities.Portfolio.PortfolioEntity Domain.Entities.Identity.UserEntity::get_Portfolio()": {
           "Lines": {
-            "16": 0
+            "16": 2
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<Domain.Entities.Portfolio.PortfolioSubscriberEntity> Domain.Entities.Identity.UserEntity::get_SubscribedPortfolios()": {
           "Lines": {
-            "17": 37
+            "17": 60
           },
           "Branches": []
         },
         "System.Boolean Domain.Entities.Identity.UserEntity::get_IsDeleted()": {
           "Lines": {
-            "19": 10
+            "19": 18
           },
           "Branches": []
         }
@@ -7338,7 +7948,7 @@
       "Domain.Entities.Identity.UserLoginEntity": {
         "Domain.Entities.Identity.UserEntity Domain.Entities.Identity.UserLoginEntity::get_User()": {
           "Lines": {
-            "7": 4
+            "7": 6
           },
           "Branches": []
         }
@@ -7348,13 +7958,13 @@
       "Domain.Entities.Identity.UserRoleEntity": {
         "Domain.Entities.Identity.UserEntity Domain.Entities.Identity.UserRoleEntity::get_User()": {
           "Lines": {
-            "7": 2
+            "7": 4
           },
           "Branches": []
         },
         "Domain.Entities.Identity.RoleEntity Domain.Entities.Identity.UserRoleEntity::get_Role()": {
           "Lines": {
-            "8": 3
+            "8": 7
           },
           "Branches": []
         }
@@ -7364,73 +7974,73 @@
       "Domain.Entities.Comments.CommentsEntity": {
         "System.String Domain.Entities.Comments.CommentsEntity::get_Content()": {
           "Lines": {
-            "14": 33
+            "14": 96
           },
           "Branches": []
         },
         "System.Int32 Domain.Entities.Comments.CommentsEntity::get_LikesCount()": {
           "Lines": {
-            "16": 18
+            "16": 53
           },
           "Branches": []
         },
         "System.Int32 Domain.Entities.Comments.CommentsEntity::get_DislikeCount()": {
           "Lines": {
-            "17": 18
+            "17": 53
           },
           "Branches": []
         },
         "System.Int32 Domain.Entities.Comments.CommentsEntity::get_RepliesCount()": {
           "Lines": {
-            "18": 18
+            "18": 53
           },
           "Branches": []
         },
         "System.Boolean Domain.Entities.Comments.CommentsEntity::get_IsEdited()": {
           "Lines": {
-            "20": 21
+            "20": 58
           },
           "Branches": []
         },
         "System.Int64 Domain.Entities.Comments.CommentsEntity::get_UserId()": {
           "Lines": {
-            "22": 15
+            "22": 47
           },
           "Branches": []
         },
         "Domain.Entities.Identity.UserEntity Domain.Entities.Comments.CommentsEntity::get_User()": {
           "Lines": {
-            "25": 25
+            "25": 69
           },
           "Branches": []
         },
         "System.Int64 Domain.Entities.Comments.CommentsEntity::get_VideoId()": {
           "Lines": {
-            "27": 8
+            "27": 29
           },
           "Branches": []
         },
         "Domain.Entities.Video.VideoEntity Domain.Entities.Comments.CommentsEntity::get_Video()": {
           "Lines": {
-            "28": 16
+            "28": 46
           },
           "Branches": []
         },
         "System.Nullable`1<System.Int64> Domain.Entities.Comments.CommentsEntity::get_ParentId()": {
           "Lines": {
-            "30": 9
+            "30": 24
           },
           "Branches": []
         },
         "Domain.Entities.Comments.CommentsEntity Domain.Entities.Comments.CommentsEntity::get_Parent()": {
           "Lines": {
-            "33": 7
+            "33": 13
           },
           "Branches": []
         },
         "System.Collections.Generic.ICollection`1<Domain.Entities.Comments.CommentsEntity> Domain.Entities.Comments.CommentsEntity::get_Replies()": {
           "Lines": {
-            "35": 18
+            "35": 56
           },
           "Branches": []
         }
@@ -7454,10 +8064,10 @@
             "24": 2,
             "25": 2,
             "27": 2,
-            "28": 0,
-            "29": 0,
-            "30": 0,
-            "31": 0,
+            "28": 1,
+            "29": 1,
+            "30": 1,
+            "31": 1,
             "32": 2,
             "33": 1,
             "34": 1,
@@ -7629,81 +8239,54 @@
       "Infrastructure.ProgramConfiguration.SwaggerConfigurator": {
         "Microsoft.Extensions.DependencyInjection.IServiceCollection Infrastructure.ProgramConfiguration.SwaggerConfigurator::AddSwaggerDocumentation(Microsoft.Extensions.DependencyInjection.IServiceCollection)": {
           "Lines": {
-            "17": 1,
-            "18": 1,
-            "20": 1,
+            "17": 2,
+            "18": 2,
+            "20": 2,
             "21": 0,
             "22": 0,
             "23": 0,
-            "24": 0,
-            "25": 0,
-            "26": 0,
-            "27": 0,
-            "28": 0,
-            "29": 0,
-            "30": 0,
-            "31": 0,
-            "32": 0,
-            "33": 0,
-            "34": 0,
-            "35": 0,
-            "36": 0,
-            "37": 0,
-            "38": 0,
-            "39": 0,
-            "40": 0,
-            "41": 0,
-            "42": 0,
-            "43": 0,
-            "44": 0,
-            "45": 0,
-            "46": 0,
-            "47": 0,
-            "48": 0,
-            "49": 1,
-            "50": 0,
-            "51": 0,
-            "52": 0,
-            "53": 0,
-            "54": 0,
-            "55": 0,
-            "56": 0,
-            "57": 0,
-            "58": 0,
-            "59": 0,
-            "60": 0,
-            "61": 0,
-            "62": 0,
-            "63": 0,
-            "64": 0,
-            "65": 0,
-            "66": 0,
-            "67": 0,
-            "68": 0,
-            "69": 0,
-            "70": 0,
-            "71": 0,
-            "72": 0,
-            "73": 0,
-            "74": 0,
-            "75": 0,
-            "76": 0,
-            "77": 0,
-            "78": 1,
-            "80": 1,
-            "81": 1
+            "24": 2,
+            "26": 2,
+            "27": 2
+          },
+          "Branches": []
+        },
+        "System.Threading.Tasks.Task Infrastructure.ProgramConfiguration.SwaggerConfigurator::TransformDocumentAsync(Microsoft.OpenApi.OpenApiDocument,Microsoft.AspNetCore.OpenApi.OpenApiDocumentTransformerContext,System.Threading.CancellationToken)": {
+          "Lines": {
+            "30": 2,
+            "31": 2,
+            "32": 2,
+            "34": 2,
+            "35": 2,
+            "36": 2,
+            "37": 2,
+            "38": 2,
+            "39": 2,
+            "40": 2,
+            "41": 2,
+            "42": 2,
+            "43": 2,
+            "44": 2,
+            "45": 2,
+            "47": 2,
+            "48": 2,
+            "49": 2,
+            "50": 1,
+            "52": 1,
+            "54": 2,
+            "55": 2
           },
           "Branches": [
             {
-              "Line": 24,
+              "Line": 31,
               "Offset": 9,
               "EndOffset": 11,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 2
             },
             {
-              "Line": 24,
+              "Line": 31,
               "Offset": 9,
               "EndOffset": 25,
               "Path": 1,
@@ -7711,15 +8294,15 @@
               "Hits": 0
             },
             {
-              "Line": 25,
+              "Line": 32,
               "Offset": 38,
               "EndOffset": 40,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 2
             },
             {
-              "Line": 25,
+              "Line": 32,
               "Offset": 38,
               "EndOffset": 55,
               "Path": 1,
@@ -7727,31 +8310,60 @@
               "Hits": 0
             },
             {
-              "Line": 42,
+              "Line": 49,
               "Offset": 193,
               "EndOffset": 195,
               "Path": 0,
               "Ordinal": 4,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 42,
+              "Line": 49,
               "Offset": 193,
               "EndOffset": 253,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 0
-            },
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Threading.Tasks.Task Infrastructure.ProgramConfiguration.SwaggerConfigurator::TransformOperationAsync(Microsoft.OpenApi.OpenApiOperation,Microsoft.AspNetCore.OpenApi.OpenApiOperationTransformerContext,System.Threading.CancellationToken)": {
+          "Lines": {
+            "58": 2,
+            "59": 2,
+            "61": 2,
+            "62": 2,
+            "64": 2,
+            "65": 2,
+            "66": 2,
+            "67": 2,
+            "68": 2,
+            "69": 2,
+            "70": 2,
+            "71": 2,
+            "72": 2,
+            "73": 2,
+            "75": 2,
+            "76": 1,
+            "77": 1,
+            "78": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "83": 2,
+            "84": 2
+          },
+          "Branches": [
             {
-              "Line": 68,
+              "Line": 75,
               "Offset": 112,
               "EndOffset": 114,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 2
             },
             {
-              "Line": 68,
+              "Line": 75,
               "Offset": 112,
               "EndOffset": 120,
               "Path": 1,
@@ -7759,53 +8371,53 @@
               "Hits": 0
             },
             {
-              "Line": 68,
+              "Line": 75,
               "Offset": 125,
               "EndOffset": 127,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 68,
+              "Line": 75,
               "Offset": 125,
               "EndOffset": 197,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         },
         "Microsoft.AspNetCore.Builder.IApplicationBuilder Infrastructure.ProgramConfiguration.SwaggerConfigurator::UseSwaggerDocumentation(Microsoft.AspNetCore.Builder.IApplicationBuilder)": {
           "Lines": {
-            "84": 1,
-            "85": 1,
-            "87": 1,
-            "88": 1,
-            "89": 1,
-            "91": 1,
-            "92": 1,
-            "93": 1,
-            "94": 1,
-            "95": 1,
-            "96": 1,
+            "87": 2,
+            "88": 2,
+            "90": 2,
+            "91": 2,
+            "92": 2,
+            "94": 2,
+            "95": 2,
+            "96": 2,
             "97": 2,
-            "99": 1,
-            "100": 1,
-            "101": 1,
-            "103": 1,
-            "104": 0,
-            "105": 0,
-            "106": 0,
+            "98": 2,
+            "99": 2,
+            "100": 4,
+            "102": 2,
+            "103": 2,
+            "104": 2,
+            "106": 2,
             "107": 0,
-            "108": 1,
-            "109": 1,
-            "111": 1,
-            "112": 1
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 2,
+            "112": 2,
+            "114": 2,
+            "115": 2
           },
           "Branches": [
             {
-              "Line": 87,
+              "Line": 90,
               "Offset": 30,
               "EndOffset": 32,
               "Path": 0,
@@ -7813,15 +8425,15 @@
               "Hits": 1
             },
             {
-              "Line": 87,
+              "Line": 90,
               "Offset": 30,
               "EndOffset": 39,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 88,
+              "Line": 91,
               "Offset": 50,
               "EndOffset": 52,
               "Path": 0,
@@ -7829,15 +8441,15 @@
               "Hits": 1
             },
             {
-              "Line": 88,
+              "Line": 91,
               "Offset": 50,
               "EndOffset": 59,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 89,
+              "Line": 92,
               "Offset": 67,
               "EndOffset": 69,
               "Path": 0,
@@ -7845,23 +8457,23 @@
               "Hits": 1
             },
             {
-              "Line": 89,
+              "Line": 92,
               "Offset": 67,
               "EndOffset": 76,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 0
+              "Hits": 1
             },
             {
-              "Line": 99,
+              "Line": 102,
               "Offset": 120,
               "EndOffset": 122,
               "Path": 0,
               "Ordinal": 6,
-              "Hits": 1
+              "Hits": 2
             },
             {
-              "Line": 99,
+              "Line": 102,
               "Offset": 120,
               "EndOffset": 170,
               "Path": 1,
@@ -8274,10 +8886,10 @@
       "Infrastructure.Filters.ValidationFilter/<OnActionExecutionAsync>d__1": {
         "System.Void Infrastructure.Filters.ValidationFilter/<OnActionExecutionAsync>d__1::MoveNext()": {
           "Lines": {
-            "16": 2,
-            "17": 9,
-            "18": 2,
-            "19": 2,
+            "16": 3,
+            "17": 14,
+            "18": 3,
+            "19": 4,
             "21": 2,
             "22": 2,
             "24": 2,
@@ -8307,8 +8919,8 @@
             "57": 1,
             "58": 1,
             "59": 1,
-            "61": 1,
-            "62": 2
+            "61": 2,
+            "62": 3
           },
           "Branches": [
             {
@@ -8317,7 +8929,7 @@
               "EndOffset": 70,
               "Path": 1,
               "Ordinal": 21,
-              "Hits": 2
+              "Hits": 3
             },
             {
               "Line": 19,
@@ -8477,7 +9089,7 @@
               "EndOffset": 843,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 3
+              "Hits": 5
             },
             {
               "Line": 17,
@@ -8485,7 +9097,7 @@
               "EndOffset": 859,
               "Path": 0,
               "Ordinal": 20,
-              "Hits": 1
+              "Hits": 2
             }
           ]
         }

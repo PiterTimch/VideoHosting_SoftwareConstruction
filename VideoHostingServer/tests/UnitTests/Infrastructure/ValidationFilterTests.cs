@@ -86,4 +86,30 @@ public class ValidationFilterTests
 
         nextCalled.Should().BeTrue();
     }
+
+    [Fact]
+    public async Task OnActionExecutionAsync_WhenArgumentIsNull_SkipsValidationAndCallsNext()
+    {
+        var serviceProviderMock = new Mock<IServiceProvider>();
+        var httpContext = new DefaultHttpContext { RequestServices = serviceProviderMock.Object };
+        var actionContext = new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
+        var actionExecutingContext = new ActionExecutingContext(
+            actionContext,
+            new List<IFilterMetadata>(),
+            new Dictionary<string, object?> { { "model", null } },
+            new object());
+
+        bool nextCalled = false;
+        ActionExecutionDelegate next = () =>
+        {
+            nextCalled = true;
+            return Task.FromResult<ActionExecutedContext>(null!);
+        };
+
+        var filter = new ValidationFilter();
+        await filter.OnActionExecutionAsync(actionExecutingContext, next);
+
+        nextCalled.Should().BeTrue();
+        actionExecutingContext.Result.Should().BeNull();
+    }
 }
