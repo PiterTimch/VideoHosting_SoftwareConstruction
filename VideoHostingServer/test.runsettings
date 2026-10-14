@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="Code Coverage" uri="datacollector://Microsoft/CodeCoverage/2.0" assemblyQualifiedName="Microsoft.VisualStudio.Coverage.DynamicCoverageDataCollector, Microsoft.VisualStudio.TraceCollector">
+        <Configuration>
+          <CodeCoverage>
+            <ModulePaths>
+              <Include>
+                <ModulePath>.*domain\.dll$</ModulePath>
+                <ModulePath>.*application\.dll$</ModulePath>
+                <ModulePath>.*infrastructure\.dll$</ModulePath>
+                <ModulePath>.*videohostingserver\.dll$</ModulePath>
+              </Include>
+            </ModulePaths>
+            <Functions>
+              <Exclude>
+                <Function>.*System\.Runtime\.CompilerServices.*</Function>
+                <Function>.*OpenApi\.Generated.*</Function>
+                <Function>.*Migrations.*</Function>
+              </Exclude>
+            </Functions>
+          </CodeCoverage>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
