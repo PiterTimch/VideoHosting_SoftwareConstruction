@@ -21,6 +21,10 @@ export const apiVideos = createApi({
     baseQuery: createBaseQuery("Videos"),
     tagTypes: ["Videos", "Video", "Recommendations"],
     endpoints: (builder) => ({
+        getAllVideos: builder.query<IVideoItemResponse[], void>({
+            query: () => ({ url: "", method: "GET" }),
+            providesTags: ["Videos"],
+        }),
         searchVideos: builder.query<IPagedResult<IVideoItemResponse>, IVideoSearchRequest>({
             query: (params) => ({
                 url: "search",
@@ -114,6 +118,7 @@ export const apiVideos = createApi({
 });
 
 export const {
+    useGetAllVideosQuery,
     useSearchVideosQuery,
     useGetByQuery,
     useCreateVideoMutation,
