@@ -3,6 +3,7 @@ namespace Application.Models.Portfolio;
 public class PortfolioItemModel
 {
     public long Id { get; set; }
+    public long? OwnerId { get; set; }
     public string Name { get; set; } = string.Empty;
     public string NickName { get; set; } = string.Empty;
     public int SubscriberCount { get; set; }

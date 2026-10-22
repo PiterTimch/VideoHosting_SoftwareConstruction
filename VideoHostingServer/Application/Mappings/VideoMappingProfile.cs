@@ -25,6 +25,7 @@ public partial class VideoMappingProfile
             Portfolio = x.Portfolio != null ? new Application.Models.Portfolio.PortfolioItemModel
             {
                 Id = x.Portfolio.Id,
+                OwnerId = x.Portfolio.Freelancer != null ? x.Portfolio.Freelancer.Id : null,
                 Name = x.Portfolio.Name,
                 NickName = x.Portfolio.NickName,
                 Description = x.Portfolio.Description,
