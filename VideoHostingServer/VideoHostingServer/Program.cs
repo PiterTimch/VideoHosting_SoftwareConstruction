@@ -32,7 +32,6 @@ try
     var app = builder.Build();
 
     app.UseImagesDirectory(builder.Configuration);
-    app.UseVideosDirectory(builder.Configuration);
 
     app.UseSwaggerDocumentation();
 

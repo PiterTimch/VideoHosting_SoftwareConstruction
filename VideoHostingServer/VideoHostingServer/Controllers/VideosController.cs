@@ -15,6 +15,8 @@ using Application.Features.Videos.Queries.GetVideoPrivacies;
 using Application.Features.Videos.Commands.IncrementView;
 using Application.Features.Videos.Queries.GetVideoRecommendations;
 using Application.Features.Videos.Queries.AutocompleteVideos;
+using Application.Features.Videos.Commands.GenerateVideoAccessToken;
+using Application.Features.Videos.Queries.GetVideoStream;
 using Microsoft.Extensions.Logging;
 
 namespace VideoHostingServer.Controllers;
@@ -52,9 +54,9 @@ public class VideosController(
 
     [HttpGet("get-by")]
     [AllowAnonymous]
-    public async Task<ActionResult<VideoItemModel>> GetById([FromQuery] GetByModel model)
+    public async Task<ActionResult<VideoItemModel>> GetById([FromQuery] GetByModel model, [FromQuery] string? token)
     {
-        var query = new GetByVideoQuery(model);
+        var query = new GetByVideoQuery(model, token);
         var result = await mediator.Send(query);
         return Ok(result);
     }
@@ -158,5 +160,25 @@ public class VideosController(
         }
 
         return Ok(progress);
+    }
+
+    [HttpPost("{id}/access-token")]
+    [Authorize]
+    public async Task<ActionResult<VideoAccessTokenResponse>> GenerateAccessToken([FromRoute] long id)
+    {
+        var command = new GenerateVideoAccessTokenCommand(id);
+        var result = await mediator.Send(command);
+        return Ok(result);
+    }
+
+    [HttpGet("stream/{videoName}")]
+    [AllowAnonymous]
+    public async Task<IActionResult> StreamVideo(
+        [FromRoute] string videoName,
+        [FromQuery] string? token)
+    {
+        var rangeHeader = Request.Headers.Range.FirstOrDefault();
+        var query = new GetVideoStreamQuery(videoName, token, rangeHeader);
+        return await mediator.Send(query);
     }
 }
