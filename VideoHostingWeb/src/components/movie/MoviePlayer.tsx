@@ -10,18 +10,20 @@ import {
     RotateCcw,
     RotateCw,
 } from 'lucide-react';
-import { APP_ENV, VIDEO_QUALITIES, type VideoQuality } from "../../env";
+import { VIDEO_QUALITIES, type VideoQuality } from "../../env";
 import { useAppDispatch, useAppSelector } from '../../store';
 import { setVolume, setIsMuted } from '../../store/slices/playerSlice';
+import { buildApiUrl } from '../../utils/buildApiUrl';
 
 interface MoviePlayerProps {
     videoName?: string;
     src?: string;
+    token?: string;
 }
 
 type Quality = VideoQuality;
 
-export function MoviePlayer({ videoName, src }: MoviePlayerProps) {
+export function MoviePlayer({ videoName, src, token }: MoviePlayerProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const dispatch = useAppDispatch();
@@ -43,13 +45,10 @@ export function MoviePlayer({ videoName, src }: MoviePlayerProps) {
     const getUrlForQuality = (q: Quality) => {
         if (src) return src;
         if (!videoName) return '';
-        switch (q) {
-            case '1080': return APP_ENV.VIDEO_1080_URL + videoName;
-            case '720': return APP_ENV.VIDEO_720_URL + videoName;
-            case '480': return APP_ENV.VIDEO_480_URL + videoName;
-            case '360': return APP_ENV.VIDEO_360_URL + videoName;
-            default: return APP_ENV.VIDEO_1080_URL + videoName;
-        }
+        const quality = q === '1080' || q === '720' || q === '480' || q === '360' ? q : '1080';
+        const url = new URL(buildApiUrl(`Videos/stream/${quality}_${videoName}`));
+        if (token) url.searchParams.set('token', token);
+        return url.toString();
     };
 
     const togglePlay = () => {
@@ -183,6 +182,7 @@ export function MoviePlayer({ videoName, src }: MoviePlayerProps) {
                     (videoRef as React.MutableRefObject<HTMLVideoElement | null>).current = el;
                 }}
                 src={getUrlForQuality(quality)}
+                preload="metadata"
                 className="w-full h-full cursor-pointer"
                 onClick={togglePlay}
                 onTimeUpdate={handleTimeUpdate}

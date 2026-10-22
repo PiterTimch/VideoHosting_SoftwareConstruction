@@ -14,6 +14,8 @@ import type { IVideoRecommendationRequest } from "../../types/Video/IVideoRecomm
 import type { IVideoAutocompleteResponse } from "../../types/Video/IVideoAutocompleteResponse";
 import type { IVideoReactionRequest } from "../../types/Video/IVideoReactionRequest";
 
+export interface IVideoAccessTokenResponse { token: string; expiresAt: string; }
+
 export const apiVideos = createApi({
     reducerPath: "api/videos",
     baseQuery: createBaseQuery("Videos"),
@@ -104,6 +106,10 @@ export const apiVideos = createApi({
                 params: { q },
             }),
         }),
+
+        generateAccessToken: builder.mutation<IVideoAccessTokenResponse, number>({
+            query: (id) => ({ url: `${id}/access-token`, method: "POST" }),
+        }),
     }),
 });
 
@@ -118,4 +124,5 @@ export const {
     useIncrementViewMutation,
     useGetRecommendationsQuery,
     useAutocompleteVideosQuery,
+    useGenerateAccessTokenMutation,
 } = apiVideos;
