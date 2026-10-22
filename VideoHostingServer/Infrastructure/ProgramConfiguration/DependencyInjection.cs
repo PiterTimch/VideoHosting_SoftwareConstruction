@@ -52,6 +52,7 @@ public static class DependencyInjection
         services.AddScoped<IVideoFileService, VideoFileService>();
         services.AddSingleton<IVideoProgressStore, VideoProgressStore>();
         services.AddSingleton<IVideoRecommendationService, VideoRecommendationService>();
+        services.AddSingleton<IVideoAccessTokenService, VideoAccessTokenService>();
         services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
         services.AddScoped<VideoProcessingJob>();
 
