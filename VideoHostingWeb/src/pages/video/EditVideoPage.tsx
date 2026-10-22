@@ -5,6 +5,7 @@ import type { IVideoCreateRequest } from '../../types/Video/IVideoCreateRequest'
 import { VideoProcessingModal } from '../../components/modal/video/VideoProcessingModal';
 import { VideoForm } from '../../components/video/VideoForm';
 import LoadingOverlay from '../../components/ui/loading/LoadingOverlay';
+import { VideoAccessTokenPanel } from '../../components/video/VideoAccessTokenPanel';
 
 export default function EditVideoPage() {
     const { id } = useParams<{ id: string }>();
@@ -51,6 +52,9 @@ export default function EditVideoPage() {
 
     return (
         <>
+            {(video.privacy?.systemCode === 'URL_ONLY' || video.privacy?.systemCode === 'PRIVATE') && (
+                <div className="mx-auto max-w-3xl px-4 pt-6"><VideoAccessTokenPanel videoId={video.id} slug={video.slug} /></div>
+            )}
             <VideoProcessingModal trackingId={trackingId} videoSlug={createdSlug} />
 
             <VideoForm

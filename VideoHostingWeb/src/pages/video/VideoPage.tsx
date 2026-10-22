@@ -7,7 +7,7 @@ import {
     Eye,
     VideoOff,
 } from 'lucide-react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, useSearchParams } from 'react-router-dom';
 import PageTransition from '../../components/layout/PageTransition';
 import { MoviePlayer } from "../../components/movie/MoviePlayer";
 import { APP_ENV } from "../../env";
@@ -16,21 +16,26 @@ import {
     useGetByQuery,
     useGetRecommendationsQuery,
     useIncrementViewMutation,
-    useReactVideoMutation
+    useReactVideoMutation,
+    useGenerateAccessTokenMutation,
 } from "../../services/api/apiVideos";
 import { useAppSelector } from '../../store/index';
 import { Button } from "../../components/form/Button";
 import { CommentsSection } from "../../components/video/CommentsSection";
+import { PrivateVideoGuard } from "../../components/video/PrivateVideoGuard";
 
 function VideoPage() {
     const navigate = useNavigate();
     const { slug } = useParams<{ slug: string }>();
+    const [searchParams] = useSearchParams();
+    const accessToken = searchParams.get('token');
     const [isDescExpanded, setIsDescExpanded] = useState(false);
+    const [generatedAccessToken, setGeneratedAccessToken] = useState<string>();
 
     const { user } = useAppSelector((state) => state.auth);
 
     const { data: video, isLoading: isVideoLoading, isError } = useGetByQuery(
-        { slug: slug! },
+        { slug: slug!, token: accessToken ?? undefined },
         { skip: !slug }
     );
 
@@ -41,6 +46,19 @@ function VideoPage() {
 
     const [reactVideo, { isLoading: isReacting }] = useReactVideoMutation();
     const [incrementView] = useIncrementViewMutation();
+    const [generateAccessToken] = useGenerateAccessTokenMutation();
+    const playerToken = accessToken ?? generatedAccessToken;
+
+    useEffect(() => {
+        if (!video?.id || video.privacy?.systemCode === 'PUBLIC' || accessToken || !user) return;
+        const isOwner = video.portfolio?.ownerId === user.id;
+        const isAdmin = user.roles?.some((role) => role.toLowerCase() === 'admin');
+        if (isOwner || isAdmin) {
+            void generateAccessToken(video.id).unwrap()
+                .then((response) => setGeneratedAccessToken(response.token))
+                .catch(() => setGeneratedAccessToken(undefined));
+        }
+    }, [video?.id, video?.privacy?.systemCode, video?.portfolio?.ownerId, accessToken, user, generateAccessToken]);
 
     useEffect(() => {
         if (video?.id) {
@@ -96,8 +114,9 @@ function VideoPage() {
 
                     <div className="flex-1 xl:max-w-[calc(100%-400px)]">
                         <div className="w-full bg-zinc-900 rounded-none sm:rounded-[24px] overflow-hidden shadow-2xl">
-                            {video.video && (
-                                <MoviePlayer videoName={video.video} />
+                            {video.video && (video.privacy?.systemCode === 'PUBLIC'
+                                ? <MoviePlayer videoName={video.video} token={playerToken} />
+                                : <PrivateVideoGuard token={playerToken}><MoviePlayer videoName={video.video} token={playerToken} /></PrivateVideoGuard>
                             )}
                         </div>
 
