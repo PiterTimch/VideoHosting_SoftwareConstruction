@@ -8,6 +8,7 @@ using Application.Features.Videos.Queries.GetVideoPrivacies;
 using Application.Features.Videos.Queries.GetVideoRecommendations;
 using Application.Features.Videos.Queries.GetVideos;
 using Application.Features.Videos.Queries.SearchVideos;
+using Application.Constants;
 using Application.Interfaces;
 using Application.Jobs;
 using Application.Mappings;
@@ -192,7 +193,10 @@ public class VideoHandlersTests
         await context.SaveChangesAsync();
 
         var repo = new GenericRepository<VideoEntity, long>(context, null);
-        var handler = new GetByVideoQueryHandler(repo, _videoMapper);
+        var currentUser = new Mock<ICurrentUserService>();
+        currentUser.Setup(c => c.IsInRole(Roles.Admin)).Returns(false);
+        currentUser.Setup(c => c.TryGetCurrentUserId()).Returns(1L);
+        var handler = new GetByVideoQueryHandler(repo, _videoMapper, currentUser.Object, Mock.Of<IVideoAccessTokenService>());
 
         var byId = await handler.Handle(new GetByVideoQuery(new GetByModel { Id = 1 }), default);
         byId.Title.Should().Be("My Video");
