@@ -4,6 +4,8 @@
     <Project Path="tests/SecurityTests/SecurityTests.csproj" />
     <Project Path="tests/UnitTests/UnitTests.csproj" />
   </Folder>
+  <Project Path="Application.Features/Application.Features.csproj" />
+  <Project Path="Application.Services/Application.Services.csproj" />
   <Project Path="Application/Application.csproj" />
   <Project Path="Domain/Domain.csproj" />
   <Project Path="Infrastructure/Infrastructure.csproj" />

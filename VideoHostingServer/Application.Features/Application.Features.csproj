@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591;NU1903</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\Application.Services\Application.Services.csproj" />
+    <Compile Include="..\Application\Features\**\*.cs"
+             Exclude="..\Application\Features\Comments\Commands\CreateComments\CreateCommentCommand.cs" />
+    <Compile Include="..\Application\Validators\Comments\CreateCommentValidator.cs" />
+  </ItemGroup>
+
+</Project>

@@ -13,6 +13,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\Application.Features\Application.Features.csproj" />
+    <ProjectReference Include="..\Application.Services\Application.Services.csproj" />
+    <Compile Include="..\Application\Repositories\**\*.cs" Link="Repositories\%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
   <ItemGroup>

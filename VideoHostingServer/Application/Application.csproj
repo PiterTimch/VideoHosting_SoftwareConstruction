@@ -9,6 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\**\*.cs" />
+    <Compile Remove="Services\**\*.cs" />
+    <Compile Remove="Repositories\**\*.cs" />
+    <Compile Remove="Jobs\**\*.cs" />
+    <Compile Remove="Validators\Comments\CreateCommentValidator.cs" />
+
+    <Compile Include="Features\Comments\Commands\CreateComments\CreateCommentCommand.cs" />
+
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
