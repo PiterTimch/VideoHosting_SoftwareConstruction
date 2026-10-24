@@ -3,6 +3,7 @@ using Application.Interfaces;
 using Application.Mappings;
 using Application.Services;
 using Domain;
+using Domain.Entities.Video;
 using Infrastructure.Filters;
 using Application.Jobs;
 using Infrastructure.Jobs;
@@ -48,12 +49,21 @@ public static class DependencyInjection
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<ICurrentUserService, CurrentUserService>();
         services.AddScoped<ISeederService, SeederService>();
+        services.AddScoped<IRoleSeeder, RoleSeeder>();
+        services.AddScoped<IUserSeeder, UserSeeder>();
+        services.AddScoped<IVideoPrivacySeeder, VideoPrivacySeeder>();
+        services.AddScoped<IVideoSeeder, VideoSeeder>();
+        services.AddScoped<IDatabaseMigrator, DatabaseMigrator>();
         services.AddScoped<IImageService, ImageService>();
         services.AddScoped<IVideoFileService, VideoFileService>();
         services.AddSingleton<IVideoProgressStore, VideoProgressStore>();
         services.AddSingleton<IVideoRecommendationService, VideoRecommendationService>();
         services.AddSingleton<IVideoAccessTokenService, VideoAccessTokenService>();
         services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
+        services.AddScoped<IGenericRepository<VideoEntity, long>>(provider =>
+            new VideoRepositoryDecorator(
+                new GenericRepository<VideoEntity, long>(provider.GetRequiredService<AppDbContext>()),
+                provider.GetRequiredService<IImageService>()));
         services.AddScoped<VideoProcessingJob>();
 
         Configuration.Default.Configure(new AvifConfigurationModule());
@@ -99,6 +109,7 @@ public static class DependencyInjection
         services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
         services.AddValidatorsFromAssemblyContaining<VideoCreateModelValidator>();
+        services.AddValidatorsFromAssembly(typeof(GetVideosQuery).Assembly);
 
         services.Configure<MvcOptions>(options =>
         {

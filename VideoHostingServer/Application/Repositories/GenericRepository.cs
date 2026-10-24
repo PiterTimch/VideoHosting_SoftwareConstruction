@@ -5,7 +5,7 @@ using Domain.Entities;
 
 namespace Infrastructure.Repositories;
 
-public class GenericRepository<TEntity, TKey>(AppDbContext context, IImageService? imageService) :
+public class GenericRepository<TEntity, TKey>(AppDbContext context) :
     IGenericRepository<TEntity, TKey>
     where TEntity : class, IEntity<TKey>, new()
 {
