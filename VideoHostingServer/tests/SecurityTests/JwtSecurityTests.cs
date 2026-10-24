@@ -1,5 +1,4 @@
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
 using System.Net;
 using System.Threading.Tasks;
@@ -8,11 +7,11 @@ using System.Net.Http.Headers;
 
 namespace SecurityTests
 {
-    public class JwtSecurityTests : IClassFixture<WebApplicationFactory<Program>>
+    public class JwtSecurityTests : IClassFixture<TestApplicationFactory>
     {
-        private readonly WebApplicationFactory<Program> _factory;
+        private readonly TestApplicationFactory _factory;
 
-        public JwtSecurityTests(WebApplicationFactory<Program> factory)
+        public JwtSecurityTests(TestApplicationFactory factory)
         {
             _factory = factory;
         }

@@ -1,5 +1,4 @@
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
 using System.Threading.Tasks;
 using System.Net.Http;
@@ -11,11 +10,11 @@ using Domain;
 
 namespace IntegrationTests
 {
-    public class SystemIntegrationTests : IClassFixture<WebApplicationFactory<Program>>
+    public class SystemIntegrationTests : IClassFixture<TestApplicationFactory>
     {
-        private readonly WebApplicationFactory<Program> _factory;
+        private readonly TestApplicationFactory _factory;
 
-        public SystemIntegrationTests(WebApplicationFactory<Program> factory)
+        public SystemIntegrationTests(TestApplicationFactory factory)
         {
             _factory = factory;
         }
