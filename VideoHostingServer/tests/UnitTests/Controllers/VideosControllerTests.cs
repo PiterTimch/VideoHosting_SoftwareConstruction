@@ -79,7 +79,7 @@ public class VideosControllerTests
         _mediatorMock.Setup(m => m.Send(It.Is<GetByVideoQuery>(q => q.Model == model), default))
             .ReturnsAsync(expected);
 
-        var result = await _controller.GetById(model);
+        var result = await _controller.GetById(model, null);
 
         var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
         okResult.Value.Should().Be(expected);

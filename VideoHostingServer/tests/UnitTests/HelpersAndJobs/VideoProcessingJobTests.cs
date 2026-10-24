@@ -39,7 +39,7 @@ public class VideoProcessingJobTests
     public async Task ProcessVideoAsync_WhenTempFileDoesNotExist_ThrowsFileNotFoundException()
     {
         var context = TestDbContextHelper.CreateContext();
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
 
         var job = new VideoProcessingJob(
             _hubContextMock.Object,
@@ -62,7 +62,7 @@ public class VideoProcessingJobTests
         context.Videos.Add(video);
         await context.SaveChangesAsync();
 
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
 
         var tempFile = Path.GetTempFileName();
         try
@@ -101,7 +101,7 @@ public class VideoProcessingJobTests
     public async Task ProcessVideoAsync_WhenEntityNotFoundAfterProcessing_LogsWarningAndCompletes()
     {
         var context = TestDbContextHelper.CreateContext();
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
 
         var tempFile = Path.GetTempFileName();
         try

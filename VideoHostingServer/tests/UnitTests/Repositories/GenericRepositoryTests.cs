@@ -23,7 +23,7 @@ public class GenericRepositoryTests
     public async Task GetByIdAsync_WorksForNormalAndSoftDeleted()
     {
         var context = TestDbContextHelper.CreateContext();
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
 
         var activeVideo = new VideoEntity { Id = 1, Title = "Active", IsDeleted = false };
         var deletedVideo = new VideoEntity { Id = 2, Title = "Deleted", IsDeleted = true };
@@ -43,7 +43,7 @@ public class GenericRepositoryTests
     public async Task ListAllAsync_FiltersDeletedAppropriately()
     {
         var context = TestDbContextHelper.CreateContext();
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
 
         var v1 = new VideoEntity { Id = 1, Title = "V1", IsDeleted = false };
         var v2 = new VideoEntity { Id = 2, Title = "V2", IsDeleted = true };
@@ -62,7 +62,7 @@ public class GenericRepositoryTests
     public async Task ListAsync_WithSpecification_FiltersAndOrders()
     {
         var context = TestDbContextHelper.CreateContext();
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
 
         var v1 = new VideoEntity { Id = 1, Title = "Alpha", ViewCount = 10, IsDeleted = false };
         var v2 = new VideoEntity { Id = 2, Title = "Beta", ViewCount = 100, IsDeleted = false };
@@ -99,7 +99,7 @@ public class GenericRepositoryTests
     public async Task AddUpdateDeleteAndSave_WorksCorrectly()
     {
         var context = TestDbContextHelper.CreateContext();
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
 
         await FluentActions.Invoking(() => repo.AddAsync(null!))
             .Should().ThrowAsync<ArgumentNullException>();
@@ -128,7 +128,7 @@ public class GenericRepositoryTests
     public void AsQurable_FiltersDeletedWhenSpecified()
     {
         var context = TestDbContextHelper.CreateContext();
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
 
         context.Videos.Add(new VideoEntity { Id = 1, Title = "Active", IsDeleted = false });
         context.Videos.Add(new VideoEntity { Id = 2, Title = "Deleted", IsDeleted = true });

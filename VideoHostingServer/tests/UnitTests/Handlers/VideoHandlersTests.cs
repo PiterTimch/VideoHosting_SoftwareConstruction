@@ -55,7 +55,7 @@ public class VideoHandlersTests
     public async Task CreateVideoHandler_CreatesVideoAndQueuesJob()
     {
         var context = TestDbContextHelper.CreateContext();
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
 
         var fileMock = new Mock<IFormFile>();
         fileMock.Setup(f => f.FileName).Returns("test.mp4");
@@ -90,7 +90,7 @@ public class VideoHandlersTests
         context.Videos.Add(video);
         await context.SaveChangesAsync();
 
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var handler = new DeleteVideoHandler(repo);
 
         await handler.Handle(new DeleteVideoCommand(new VideoDeleteModel { Id = 1 }), default);
@@ -103,7 +103,7 @@ public class VideoHandlersTests
     public async Task DeleteVideoHandler_WhenVideoDoesNotExist_ReturnsSafely()
     {
         var context = TestDbContextHelper.CreateContext();
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var handler = new DeleteVideoHandler(repo);
 
         await handler.Handle(new DeleteVideoCommand(new VideoDeleteModel { Id = 999 }), default);
@@ -113,7 +113,7 @@ public class VideoHandlersTests
     public async Task UpdateVideoHandler_WhenVideoNotFound_ThrowsException()
     {
         var context = TestDbContextHelper.CreateContext();
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var handler = new UpdateVideoHandler(
             repo, _videoMapper, _imageServiceMock.Object, _videoFileServiceMock.Object,
             _backgroundJobClientMock.Object, _progressStoreMock.Object, _updateLoggerMock.Object);
@@ -129,7 +129,7 @@ public class VideoHandlersTests
         context.Videos.Add(new VideoEntity { Id = 1, Title = "Processing", Video = "processing...", IsDeleted = false });
         await context.SaveChangesAsync();
 
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var handler = new UpdateVideoHandler(
             repo, _videoMapper, _imageServiceMock.Object, _videoFileServiceMock.Object,
             _backgroundJobClientMock.Object, _progressStoreMock.Object, _updateLoggerMock.Object);
@@ -150,7 +150,7 @@ public class VideoHandlersTests
 
         _imageServiceMock.Setup(i => i.SaveImageAsync(It.IsAny<IFormFile>())).ReturnsAsync("new.webp");
 
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var handler = new UpdateVideoHandler(
             repo, _videoMapper, _imageServiceMock.Object, _videoFileServiceMock.Object,
             _backgroundJobClientMock.Object, _progressStoreMock.Object, _updateLoggerMock.Object);
@@ -173,7 +173,7 @@ public class VideoHandlersTests
         context.Videos.Add(new VideoEntity { Id = 2, Title = "Vue JS", Slug = "vue", Video = "ready.mp4", IsDeleted = false });
         await context.SaveChangesAsync();
 
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var handler = new AutocompleteVideosQueryHandler(repo);
 
         var empty = await handler.Handle(new AutocompleteVideosQuery("   "), default);
@@ -192,7 +192,7 @@ public class VideoHandlersTests
         context.Videos.Add(new VideoEntity { Id = 1, Title = "My Video", Slug = "my-video", PrivacyId = 1, Privacy = privacy, PortfolioId = 1, Portfolio = portfolio, IsDeleted = false });
         await context.SaveChangesAsync();
 
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var currentUser = new Mock<ICurrentUserService>();
         currentUser.Setup(c => c.IsInRole(Roles.Admin)).Returns(false);
         currentUser.Setup(c => c.TryGetCurrentUserId()).Returns(1L);
@@ -218,7 +218,7 @@ public class VideoHandlersTests
         context.VideoPrivacies.Add(new VideoPrivacyEntity { Id = 1, Name = "Public", SystemCode = "public" });
         await context.SaveChangesAsync();
 
-        var repo = new GenericRepository<VideoPrivacyEntity, long>(context, null);
+        var repo = new GenericRepository<VideoPrivacyEntity, long>(context);
         var handler = new GetVideoPrivaciesQueryHandler(repo, _videoMapper);
 
         var result = await handler.Handle(new GetVideoPrivaciesQuery(), default);
@@ -233,7 +233,7 @@ public class VideoHandlersTests
         context.Videos.Add(new VideoEntity { Id = 1, Title = "V1", Video = "v1.mp4", PrivacyId = 1, Privacy = privacy, PortfolioId = 1, Portfolio = portfolio, IsDeleted = false });
         await context.SaveChangesAsync();
 
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var handler = new GetVideosQueryHandler(repo, _videoMapper);
 
         var result = await handler.Handle(new GetVideosQuery(), default);
@@ -254,7 +254,7 @@ public class VideoHandlersTests
         _recommendationServiceMock.Setup(r => r.ComputeScore(It.Is<VideoEntity>(v => v.Id == 1), It.Is<VideoEntity>(v => v.Id == 2))).Returns(10);
         _recommendationServiceMock.Setup(r => r.ComputeScore(It.Is<VideoEntity>(v => v.Id == 1), It.Is<VideoEntity>(v => v.Id == 3))).Returns(0);
 
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var handler = new GetVideoRecommendationsQueryHandler(repo, _videoMapper, _recommendationServiceMock.Object);
 
         var result = await handler.Handle(new GetVideoRecommendationsQuery(new VideoRecommendationRequest { VideoId = 1 }), default);
@@ -275,7 +275,7 @@ public class VideoHandlersTests
         context.Videos.AddRange(v1, v2);
         await context.SaveChangesAsync();
 
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var handler = new SearchVideosQueryHandler(repo, _videoMapper);
 
         var resQ = await handler.Handle(new SearchVideosQuery(new VideoSearchModel { Q = "core" }), default);
@@ -304,7 +304,7 @@ public class VideoHandlersTests
         context.Videos.Add(new VideoEntity { Id = 2, Title = "Deleted", Slug = "deleted", PrivacyId = 1, ViewCount = 0, IsDeleted = true });
         await context.SaveChangesAsync();
 
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var handler = new IncrementViewCommandHandler(repo);
 
         await handler.Handle(new IncrementViewCommand(1), default);
@@ -326,7 +326,7 @@ public class VideoHandlersTests
         context.Videos.Add(new VideoEntity { Id = 1, Title = "Old Title", Video = "old_vid.mp4", IsDeleted = false });
         await context.SaveChangesAsync();
 
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var handler = new UpdateVideoHandler(
             repo, _videoMapper, _imageServiceMock.Object, _videoFileServiceMock.Object,
             _backgroundJobClientMock.Object, _progressStoreMock.Object, _updateLoggerMock.Object);
@@ -361,7 +361,7 @@ public class VideoHandlersTests
         context.Videos.Add(new VideoEntity { Id = 1, Title = "Processing", Video = "обробляється...", IsDeleted = false });
         await context.SaveChangesAsync();
 
-        var repo = new GenericRepository<VideoEntity, long>(context, null);
+        var repo = new GenericRepository<VideoEntity, long>(context);
         var handler = new UpdateVideoHandler(
             repo, _videoMapper, _imageServiceMock.Object, _videoFileServiceMock.Object,
             _backgroundJobClientMock.Object, _progressStoreMock.Object, _updateLoggerMock.Object);

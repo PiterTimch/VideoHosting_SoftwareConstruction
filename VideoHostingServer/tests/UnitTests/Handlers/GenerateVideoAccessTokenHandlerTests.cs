@@ -29,10 +29,9 @@ public class GenerateVideoAccessTokenHandlerTests
         var currentUser = new Mock<ICurrentUserService>();
         var configMock = new Mock<IConfiguration>();
         configMock.Setup(c => c["Jwt:Key"]).Returns("TestKeyForHandlerTests1234567890AAAAAAAAAA=");
-
-        var sectionMock = new Mock<Microsoft.Extensions.Configuration.IConfigurationSection>();
-        sectionMock.Setup(s => s.Value).Returns("60");
-        configMock.Setup(c => c.GetSection("VideoAccessToken")).Returns(sectionMock.Object);
+        var expirySection = new Mock<IConfigurationSection>();
+        expirySection.SetupGet(section => section.Value).Returns("60");
+        configMock.Setup(c => c.GetSection("VideoAccessToken:ExpiryMinutes")).Returns(expirySection.Object);
 
         var tokenService = new VideoAccessTokenService(configMock.Object);
         return (repo, currentUser, tokenService, configMock);
@@ -55,7 +54,6 @@ public class GenerateVideoAccessTokenHandlerTests
         var (repo, currentUser, tokenService, config) = CreateDeps(BuildVideo(10));
         currentUser.Setup(c => c.TryGetCurrentUserId()).Returns(10L);
         currentUser.Setup(c => c.IsInRole(Roles.Admin)).Returns(false);
-        config.Setup(c => c.GetValue<int>("VideoAccessToken:ExpiryMinutes", 60)).Returns(60);
 
         var handler = new GenerateVideoAccessTokenHandler(repo.Object, currentUser.Object, tokenService, config.Object);
         var result = await handler.Handle(new GenerateVideoAccessTokenCommand(1L), CancellationToken.None);
@@ -70,7 +68,6 @@ public class GenerateVideoAccessTokenHandlerTests
         var (repo, currentUser, tokenService, config) = CreateDeps(BuildVideo(10));
         currentUser.Setup(c => c.TryGetCurrentUserId()).Returns(99L);
         currentUser.Setup(c => c.IsInRole(Roles.Admin)).Returns(true);
-        config.Setup(c => c.GetValue<int>("VideoAccessToken:ExpiryMinutes", 60)).Returns(60);
 
         var handler = new GenerateVideoAccessTokenHandler(repo.Object, currentUser.Object, tokenService, config.Object);
         var result = await handler.Handle(new GenerateVideoAccessTokenCommand(1L), CancellationToken.None);
