@@ -5,6 +5,7 @@ using Application.Mappings;
 using Application.Models.User;
 using Application.Models.Video;
 using Application.Services;
+using Domain;
 using Domain.Entities.Identity;
 using Domain.Entities.Video;
 using FluentAssertions;
@@ -25,6 +26,15 @@ public class SeederServiceTests
     private readonly VideoMappingProfile _videoMapper = new();
     private readonly UserMapping _userMapper = new();
 
+    private ISeederService CreateService(AppDbContext context)
+    {
+        return new SeederService(
+            new RoleSeeder(_roleManagerMock.Object),
+            new UserSeeder(context, _roleManagerMock.Object, _userManagerMock.Object, _userMapper, _imageServiceMock.Object),
+            new VideoPrivacySeeder(context),
+            new VideoSeeder(context, _videoMapper, _imageServiceMock.Object, _videoFileServiceMock.Object),
+            new DatabaseMigrator(context));
+    }
     public SeederServiceTests()
     {
         var roleStore = new Mock<IRoleStore<RoleEntity>>();
@@ -44,14 +54,7 @@ public class SeederServiceTests
         _roleManagerMock.Setup(r => r.RoleExistsAsync(It.IsAny<string>())).ReturnsAsync(false);
         _roleManagerMock.Setup(r => r.CreateAsync(It.IsAny<RoleEntity>())).ReturnsAsync(IdentityResult.Success);
 
-        var service = new SeederService(
-            context,
-            _roleManagerMock.Object,
-            _userManagerMock.Object,
-            _videoMapper,
-            _userMapper,
-            _imageServiceMock.Object,
-            _videoFileServiceMock.Object);
+        var service = CreateService(context);
 
         await service.SeedRolesAsync();
 
@@ -66,14 +69,7 @@ public class SeederServiceTests
     public async Task SeedVideoPrivaciesAsync_WhenEmpty_SeedsPrivacies()
     {
         var context = TestDbContextHelper.CreateContext();
-        var service = new SeederService(
-            context,
-            _roleManagerMock.Object,
-            _userManagerMock.Object,
-            _videoMapper,
-            _userMapper,
-            _imageServiceMock.Object,
-            _videoFileServiceMock.Object);
+        var service = CreateService(context);
 
         await service.SeedVideoPrivaciesAsync();
 
@@ -89,14 +85,7 @@ public class SeederServiceTests
     public async Task SeedUsersAsync_WhenFileNotFoundOrUsersExist_ReturnsSafely()
     {
         var context = TestDbContextHelper.CreateContext();
-        var service = new SeederService(
-            context,
-            _roleManagerMock.Object,
-            _userManagerMock.Object,
-            _videoMapper,
-            _userMapper,
-            _imageServiceMock.Object,
-            _videoFileServiceMock.Object);
+        var service = CreateService(context);
 
         await service.SeedUsersAsync("non_existent_file.json");
 
@@ -134,14 +123,7 @@ public class SeederServiceTests
                 .ReturnsAsync(IdentityResult.Success);
             _roleManagerMock.Setup(r => r.RoleExistsAsync("Admin")).ReturnsAsync(true);
 
-            var service = new SeederService(
-                context,
-                _roleManagerMock.Object,
-                _userManagerMock.Object,
-                _videoMapper,
-                _userMapper,
-                _imageServiceMock.Object,
-                _videoFileServiceMock.Object);
+            var service = CreateService(context);
 
             await service.SeedUsersAsync(tempFile);
 
@@ -159,14 +141,7 @@ public class SeederServiceTests
     public async Task SeedVideosAsync_WhenFileDoesNotExist_ReturnsSafely()
     {
         var context = TestDbContextHelper.CreateContext();
-        var service = new SeederService(
-            context,
-            _roleManagerMock.Object,
-            _userManagerMock.Object,
-            _videoMapper,
-            _userMapper,
-            _imageServiceMock.Object,
-            _videoFileServiceMock.Object);
+        var service = CreateService(context);
 
         await service.SeedVideosAsync("non_existent_videos.json", "dummy_folder");
 
@@ -229,14 +204,7 @@ public class SeederServiceTests
             _videoFileServiceMock.Setup(v => v.SaveVideoFromFilePathAsync(videoLocalFile))
                 .ReturnsAsync("saved_video.mp4");
 
-            var service = new SeederService(
-                context,
-                _roleManagerMock.Object,
-                _userManagerMock.Object,
-                _videoMapper,
-                _userMapper,
-                _imageServiceMock.Object,
-                _videoFileServiceMock.Object);
+            var service = CreateService(context);
 
             await service.SeedVideosAsync(jsonFile, tempDir);
 
@@ -267,14 +235,7 @@ public class SeederServiceTests
         _roleManagerMock.Setup(r => r.CreateAsync(It.IsAny<RoleEntity>()))
             .ReturnsAsync(IdentityResult.Failed(new IdentityError { Description = "Role creation failed" }));
 
-        var service = new SeederService(
-            context,
-            _roleManagerMock.Object,
-            _userManagerMock.Object,
-            _videoMapper,
-            _userMapper,
-            _imageServiceMock.Object,
-            _videoFileServiceMock.Object);
+        var service = CreateService(context);
 
         await service.SeedRolesAsync();
         _roleManagerMock.Verify(r => r.CreateAsync(It.IsAny<RoleEntity>()), Times.AtLeastOnce);
@@ -289,14 +250,7 @@ public class SeederServiceTests
         {
             // Empty list
             await File.WriteAllTextAsync(tempFile, "[]");
-            var service = new SeederService(
-                context,
-                _roleManagerMock.Object,
-                _userManagerMock.Object,
-                _videoMapper,
-                _userMapper,
-                _imageServiceMock.Object,
-                _videoFileServiceMock.Object);
+            var service = CreateService(context);
 
             await service.SeedUsersAsync(tempFile);
 
