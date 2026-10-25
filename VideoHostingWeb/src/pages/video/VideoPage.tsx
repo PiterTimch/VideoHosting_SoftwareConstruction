@@ -124,6 +124,11 @@ function VideoPage() {
                             <h1 className="video-title mt-4 line-clamp-2">
                                 {video.title}
                             </h1>
+                            {video.portfolio?.ownerId && (
+                                <Link to={`/portfolio/${video.portfolio.ownerId}`} className="mt-2 inline-flex rounded-full border border-rose-500/20 bg-rose-500/10 px-4 py-2 text-sm font-semibold text-rose-300 hover:bg-rose-500/20">
+                                    Відкрити портфоліо автора
+                                </Link>
+                            )}
 
                             <div className="flex flex-col 2xl:flex-row xl:items-center justify-between gap-4 mt-4 pb-4 border-b border-zinc-800">
                                 <div className="flex items-center justify-between w-full 2xl:w-auto gap-4 flex-wrap md:flex-nowrap">
