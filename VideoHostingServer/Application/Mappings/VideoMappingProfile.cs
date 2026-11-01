@@ -41,14 +41,14 @@ public partial class VideoMappingProfile
                 Name = x.Privacy.Name,
                 SystemCode = x.Privacy.SystemCode,
             } : null,
-            LikesCount = x.VideoReactions.Count(r => r.IsLike),
-            DislikesCount = x.VideoReactions.Count(r => !r.IsLike),
+            LikesCount = x.VideoReactions.Count(r => !r.IsDeleted && r.IsLike),
+            DislikesCount = x.VideoReactions.Count(r => !r.IsDeleted && !r.IsLike),
         });
 
     private void AfterMapToItemModel(VideoEntity entity, VideoItemModel model)
     {
-        model.LikesCount = entity.VideoReactions?.Count(r => r.IsLike) ?? 0;
-        model.DislikesCount = entity.VideoReactions?.Count(r => !r.IsLike) ?? 0;
+        model.LikesCount = entity.VideoReactions?.Count(r => !r.IsDeleted && r.IsLike) ?? 0;
+        model.DislikesCount = entity.VideoReactions?.Count(r => !r.IsDeleted && !r.IsLike) ?? 0;
     }
 
     public partial VideoPrivacyItemModel MapToItemModel(VideoPrivacyEntity entity);

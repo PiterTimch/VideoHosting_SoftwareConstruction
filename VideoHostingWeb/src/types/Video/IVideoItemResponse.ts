@@ -10,7 +10,7 @@ export interface IVideoItemResponse {
     image?: string;
     video?: string;
     privacy?: IVideoPrivacyItemResponse;
-    portfolio?: { id: number; ownerId?: number | null };
+    portfolio?: { id: number; ownerId?: number | null; name?: string; nickName?: string; description?: string; specialization?: string; contacts?: string; avatarImage?: string; bannerImage?: string; subscriberCount?: number; isSubscribed?: boolean };
     likesCount?: number;
     dislikesCount?: number;
     isLiked?: boolean | null;
