@@ -12,6 +12,7 @@ import ProfilePage from './pages/profile/ProfilePage';
 import EditProfilePage from './pages/profile/EditProfilePage';
 import NotFoundPage from './pages/error/NotFoundPage';
 import PortfolioPage from './pages/channel/PortfolioPage';
+import EditPortfolioPage from './pages/channel/EditPortfolioPage';
 import AdminPage from './pages/admin/AdminPage';
 
 import AppLayout from './layouts/AppLayout';
@@ -63,6 +64,7 @@ function App() {
                     <Route path="/video/:slug" element={<VideoPage />} />
                     <Route path="/search" element={<SearchPage />} />
                     <Route path="/portfolio/:authorId" element={<PortfolioPage />} />
+                    <Route element={<RequireLogin />}><Route path="/portfolio/:authorId/edit" element={<EditPortfolioPage />} /></Route>
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/register" element={<RegisterPage />} />
 
