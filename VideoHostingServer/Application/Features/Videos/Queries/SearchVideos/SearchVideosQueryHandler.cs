@@ -23,6 +23,11 @@ public class SearchVideosQueryHandler(
             .AsNoTracking()
             .Where(x => !x.IsDeleted && x.Video != "processing...");
 
+        if (request.Model.PortfolioId.HasValue)
+            query = query.Where(x => x.PortfolioId == request.Model.PortfolioId.Value
+                && x.Privacy != null
+                && x.Privacy.SystemCode == "PUBLIC");
+
         if (!string.IsNullOrWhiteSpace(request.Model.Q))
         {
             string q = request.Model.Q.Trim().ToLower();
