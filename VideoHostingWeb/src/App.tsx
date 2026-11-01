@@ -11,10 +11,13 @@ import RegisterPage from './pages/auth/RegisterPage';
 import ProfilePage from './pages/profile/ProfilePage';
 import EditProfilePage from './pages/profile/EditProfilePage';
 import NotFoundPage from './pages/error/NotFoundPage';
+import PortfolioPage from './pages/channel/PortfolioPage';
+import AdminPage from './pages/admin/AdminPage';
 
 import AppLayout from './layouts/AppLayout';
 import RequireLogin from './components/auth/RequireLogin';
 import RequireAuthor from './components/auth/RequireAuthor';
+import RequireAdmin from './components/auth/RequireAdmin';
 import { initThemeSystem } from './themes';
 import ScrollToTop from './components/layout/ScrollToTop';
 import { useRefreshTokenMutation } from './services/api/apiAccount';
@@ -59,6 +62,7 @@ function App() {
                     <Route path="/" element={<UserHomePage />} />
                     <Route path="/video/:slug" element={<VideoPage />} />
                     <Route path="/search" element={<SearchPage />} />
+                    <Route path="/portfolio/:authorId" element={<PortfolioPage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/register" element={<RegisterPage />} />
 
@@ -70,6 +74,12 @@ function App() {
                     <Route element={<RequireAuthor />}>
                         <Route path="/video/add" element={<CreateVideoPage />} />
                         <Route path="/video/edit/:id" element={<EditVideoPage />} />
+                    </Route>
+                </Route>
+
+                <Route element={<RequireAdmin />}>
+                    <Route path="/admin" element={<AppLayout />}>
+                        <Route index element={<AdminPage />} />
                     </Route>
                 </Route>
 
