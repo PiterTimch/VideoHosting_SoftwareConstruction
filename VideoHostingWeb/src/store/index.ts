@@ -3,6 +3,7 @@ import { apiVideos } from "../services/api/apiVideos";
 import { apiAccount } from "../services/api/apiAccount";
 import { apiComments } from "../services/api/apiComments";
 import { apiUsers } from "../services/api/apiUsers";
+import { apiPortfolios } from "../services/api/apiPortfolios";
 import { type TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { setupListeners } from "@reduxjs/toolkit/query/react";
 import authReducer from "./slices/authSlice";
@@ -16,6 +17,7 @@ export const store = configureStore({
         [apiAccount.reducerPath]: apiAccount.reducer,
         [apiComments.reducerPath]: apiComments.reducer,
         [apiUsers.reducerPath]: apiUsers.reducer,
+        [apiPortfolios.reducerPath]: apiPortfolios.reducer,
     },
 
     middleware: (getDefaultMiddleware) =>
@@ -23,7 +25,8 @@ export const store = configureStore({
             apiVideos.middleware,
             apiAccount.middleware,
             apiComments.middleware,
-            apiUsers.middleware
+            apiUsers.middleware,
+            apiPortfolios.middleware
         )
 });
 
