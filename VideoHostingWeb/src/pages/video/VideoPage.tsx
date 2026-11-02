@@ -31,6 +31,7 @@ function VideoPage() {
     const accessToken = searchParams.get('token');
     const [isDescExpanded, setIsDescExpanded] = useState(false);
     const [generatedAccessToken, setGeneratedAccessToken] = useState<string>();
+    const [reactionError, setReactionError] = useState('');
 
     const { user } = useAppSelector((state) => state.auth);
 
@@ -39,7 +40,7 @@ function VideoPage() {
         { skip: !slug }
     );
 
-    const { data: recommendations, isLoading: isRecsLoading } = useGetRecommendationsQuery(
+    const { data: recommendations, isLoading: isRecsLoading, isError: isRecsError } = useGetRecommendationsQuery(
         { videoId: video?.id as number },
         { skip: !video?.id }
     );
@@ -71,10 +72,11 @@ function VideoPage() {
             navigate('/login');
             return;
         }
+        setReactionError('');
         try {
             await reactVideo({ videoId: video!.id, isLike }).unwrap();
-        } catch (error) {
-            console.error('Помилка при відправці реакції', error);
+        } catch {
+            setReactionError('Не вдалося зберегти оцінку. Переконайтеся, що ви увійшли в систему, і спробуйте ще раз.');
         }
     };
 
@@ -211,6 +213,7 @@ function VideoPage() {
                             <div id="comments-section">
                                 <CommentsSection videoId={video.id} currentUser={user} />
                             </div>
+                            {reactionError && <p role="alert" className="mt-2 text-sm text-red-300">{reactionError}</p>}
                         </div>
                     </div>
 
@@ -227,7 +230,9 @@ function VideoPage() {
                                     </div>
                                 ))}
                             </div>
-                        ) : (
+                        ) : isRecsError ? (
+                            <p className="rounded-xl border border-white/10 p-4 text-sm text-zinc-400">Рекомендації тимчасово недоступні.</p>
+                        ) : recommendations?.length ? (
                             recommendations?.map((item) => (
                                 <Link
                                     key={item.id}
@@ -252,6 +257,8 @@ function VideoPage() {
                                     </div>
                                 </Link>
                             ))
+                        ) : (
+                            <p className="rounded-xl border border-white/10 p-4 text-sm text-zinc-400">Поки немає схожих відео.</p>
                         )}
                     </div>
 

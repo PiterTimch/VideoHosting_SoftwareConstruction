@@ -16,6 +16,7 @@ using Application.Features.Videos.Commands.IncrementView;
 using Application.Features.Videos.Queries.GetVideoRecommendations;
 using Application.Features.Videos.Queries.AutocompleteVideos;
 using Application.Features.Videos.Commands.GenerateVideoAccessToken;
+using Application.Features.Videos.Commands.ReactVideo;
 using Application.Features.Videos.Queries.GetVideoStream;
 using Microsoft.Extensions.Logging;
 
@@ -122,9 +123,7 @@ public class VideosController(
     [Authorize]
     public async Task<ActionResult> React([FromBody] Application.Models.Video.VideoReactionModel model)
     {
-        // TODO: Implement react logic when handler is available
-        // var command = new ReactVideoCommand(model);
-        // await mediator.Send(command);
+        await mediator.Send(new ReactVideoCommand(model));
         return Ok();
     }
 

@@ -28,27 +28,33 @@ public class GetVideoRecommendationsQueryHandler(
             .AsNoTracking()
             .Where(v => !v.IsDeleted
                      && v.Id != source.Id
-                     && v.Video != "processing...");
+                     && v.Video != "processing..."
+                     && v.Privacy != null
+                     && v.Privacy.SystemCode == "PUBLIC");
 
         var candidates = await candidatesQuery.ToListAsync(cancellationToken);
 
-        var topIds = candidates
+        var ranked = candidates
             .Select(c => new { Entity = c, Score = recommendationService.ComputeScore(source, c) })
-            .Where(x => x.Score > 0)
             .OrderByDescending(x => x.Score)
+            .ThenByDescending(x => x.Entity.ViewCount)
             .Take(MaxRecommendations)
-            .Select(x => x.Entity.Id)
-            .ToHashSet();
+            .ToArray();
+
+        var topIds = ranked.Select(x => x.Entity.Id).ToHashSet();
 
         if (topIds.Count == 0)
             return [];
 
-        return await mapper
+        var results = await mapper
             .ProjectToItemModel(
                 repo.AsQurable()
                     .AsNoTracking()
                     .Where(v => topIds.Contains(v.Id))
             )
             .ToListAsync(cancellationToken);
+        var orderedIds = ranked.Select(x => x.Entity.Id).ToArray();
+        var resultById = results.ToDictionary(x => x.Id);
+        return orderedIds.Where(resultById.ContainsKey).Select(id => resultById[id]).ToArray();
     }
 }

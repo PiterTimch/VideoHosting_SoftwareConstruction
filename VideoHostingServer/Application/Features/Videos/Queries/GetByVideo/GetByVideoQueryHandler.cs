@@ -11,6 +11,7 @@ namespace Application.Features.Videos.Queries.GetByVideo;
 
 public class GetByVideoQueryHandler(
     IGenericRepository<VideoEntity, long> repo,
+    IGenericRepository<VideoReactionEntity, long> reactions,
     VideoMappingProfile mapper,
     ICurrentUserService currentUser,
     IVideoAccessTokenService tokenService)
@@ -57,7 +58,16 @@ public class GetByVideoQueryHandler(
         if (privacy == VideoPrivacyConstants.UrlOnly && !isOwner && !isAdmin && !tokenValid)
             throw new UnFreelancerizedAccessException("Доступ заборонено");
 
-        return await mapper.ProjectToItemModel(repo.AsQurable().Where(x => x.Id == video.Id))
+        var result = await mapper.ProjectToItemModel(repo.AsQurable().Where(x => x.Id == video.Id))
             .FirstAsync(cancellationToken);
+        var userId = currentUser.TryGetCurrentUserId();
+        if (userId.HasValue)
+        {
+            result.IsLiked = await reactions.AsQurable()
+                .Where(x => x.VideoId == video.Id && x.UserId == userId.Value)
+                .Select(x => (bool?)x.IsLike)
+                .FirstOrDefaultAsync(cancellationToken);
+        }
+        return result;
     }
 }
